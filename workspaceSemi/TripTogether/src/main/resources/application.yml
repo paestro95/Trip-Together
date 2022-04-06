@@ -1,0 +1,25 @@
+# 포트번호
+server:
+  port: 9060
+
+# 뷰
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  datasource: # 마이바티스 dataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1/triptogetherDB?characterEncoding=utf-8
+    username: root
+    password: root1234
+  devtools: # 서버 자동 시작
+    livereload:
+      enabled: true      
+mybatis: # mybatis에서 패키지를 생략할 수 있도록 설정
+    type-aliases-package: com.triptogether.vo
+    mapper-locations: mapper/*Mapper.xml
+      
+      
+      
+      

@@ -1,0 +1,74 @@
+1649141480584	Rename resource 'application.properties'
+1649142066356	Rename resource 'user'
+1649142344344	Rename resource 'community'
+1649142347822	Rename resource 'inc'
+1649142353675	Rename resource 'manager'
+1649142356043	Rename resource 'mypage'
+1649142358543	Rename resource 'plan'
+1649142362744	Rename resource 'users'
+1649142394664	Rename resource 'js'
+1649142398355	Rename resource 'css'
+1649142403325	Rename resource 'CSS'
+1649142411322	Rename resource 'Css'
+1649143315336	Rename resource 'Community'
+1649143317277	Rename resource 'Inc'
+1649143318952	Rename resource 'Manager'
+1649143321135	Rename resource 'Mypage'
+1649143322891	Rename resource 'Plan'
+1649143325538	Rename resource 'Users'
+1649143327920	Rename resource 'JS'
+1649143330159	Rename resource 'Images'
+1649143331735	Rename resource 'CSS'
+1649145064929	Copy file
+1649145097843	Copy file
+1649145103458	Copy file
+1649145109284	Copy file
+1649145135740	Copy file
+1649145145430	Copy file
+1649145155417	Rename resource 'communityList.css'
+1649145173071	Copy file
+1649145207145	Copy file
+1649145224716	Copy file
+1649145240078	Copy file
+1649145286803	Copy file
+1649145293862	Copy file
+1649145301878	Copy file
+1649145307908	Copy file
+1649145316611	Rename resource 'noticeList.css'
+1649145332084	Copy file
+1649145405060	Copy file
+1649145411669	Copy file
+1649145434480	Copy folder
+1649145444321	Delete element
+1649145456240	Copy folder
+1649145461547	Rename resource 'communityList.css'
+1649145489628	Delete elements
+1649145603365	Copy file
+1649145610455	Copy file
+1649145619853	Copy file
+1649145623724	Copy file
+1649145628801	Rename resource 'communityList.js'
+1649145632742	Copy file
+1649145637115	Copy file
+1649145647458	Rename resource 'top.js'
+1649145657053	Copy file
+1649145668407	Copy file
+1649145678321	Rename resource 'managerMember.js'
+1649145689928	Copy file
+1649145697683	Copy file
+1649145702304	Copy file
+1649145707041	Copy file
+1649145716324	Rename resource 'myFollowing.js'
+1649145723775	Copy file
+1649145729722	Copy file
+1649145735431	Copy file
+1649145740646	Copy file
+1649145747130	Rename resource 'noticeList.js'
+1649145753741	Copy file
+1649145757662	Copy file
+1649145762824	Rename resource 'planCreate.js'
+1649145768436	Copy file
+1649145773162	Copy file
+1649211706894	Rename compilation unit 'UserServicempl.java'
+1649211750433	Rename compilation unit 'ManagerServicempl.java'
+1649211887228	Rename package 'CommunityVO'

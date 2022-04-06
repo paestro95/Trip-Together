@@ -1,0 +1,5 @@
+package com.triptogether;
+
+public class HomeController {
+
+}
