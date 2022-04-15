@@ -1,8 +1,0 @@
-server:
-  port: 9060
-
-spring:
-  mvc:
-    view:
-      prefix: /WEB-INF/views/
-      suffix: .jsp

@@ -1,1 +1,132 @@
-@charset "EUC-KR";
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'GangwonEdu_OTFBoldA';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6, li, p {
+	font-family: 'GangwonEdu_OTFBoldA';
+}
+
+h1, h2 {
+	margin: 10px 0;
+	padding: 10px 0;
+	list-style: none;
+	font-size: 40px;
+	vertical-align: baseline;
+}
+
+.footer {
+	z-index: 700;
+	width: 100%;
+	position: relative;
+	padding-left: 8.3vw;
+	padding-right: 8.3vw;
+	background: #19110b;
+	color: white;
+	padding-bottom: 2rem;
+	box-sizing: border-box;
+	z-index: 1;
+}
+
+.footer-div1 {
+	background-color: #19110b;
+	border-bottom: 1px solid #392d23;
+	color: white;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	display: flex;
+	justify-content: space-between;
+	box-sizing: border-box;
+}
+
+.footer-div1-ul {
+	color: white;
+	display: flex;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	padding-inline-start: 40px;
+}
+
+.footer-div1-a {
+	margin-right: 1.5rem;
+	text-decoration: none;
+	color: white;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+.footer-div2 {
+	padding-top: 2rem;
+	box-sizing: border-box;
+	color: white;
+}
+
+.footer-div2-ul {
+	color: white;
+	align-content: center;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	padding-inline-start: 40px;
+}
+
+.footer-div3 {
+	color: white;
+	padding-top: 2.5rem;
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
+	text-align: left;
+	box-sizing: border-box;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	padding-inline-start: 40px;
+}
+
+.footer-div3-section1 {
+	color: white;
+	padding-right: 1rem;
+	width: 50%;
+	text-align: left;
+	box-sizing: border-box;
+	font-size: 1.0125rem;
+	letter-spacing: normal;
+}
+
+.footer-div3-section2 {
+	font-size: 1.0125rem;
+	letter-spacing: normal;
+	color: white;
+	padding-left: 1rem;
+	width: 50%;
+	text-align: left;
+	box-sizing: border-box;
+}
+
+a:link, a:hover, a:visited, a:active {
+	text-decoration: none;
+}

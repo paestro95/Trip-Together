@@ -1,1 +1,103 @@
-@charset "EUC-KR";
+@charset "UTF-8";
+ul, li{    /*정렬*/
+    margin:0; 
+    padding:0; 
+    list-style-type:none;
+}
+
+.noticeList_wrap{
+    width: 1000px;
+    height:800px;
+    margin:0 auto;
+    overflow:auto;
+    margin-bottom: 80px;
+}
+
+.noticeList_wrap a{
+	color: black;
+}
+
+.noticeList_wrap h1{
+    text-align:center;
+    margin:0 auto;
+    padding:50px 0px;
+}
+
+.noticeList_wrap h2{
+    width: 1000px;
+    padding:30px 0px;
+    margin:10 auto;
+    text-align:center;
+    background: #E0F1FF;
+    color: #5A76A5;
+    font-size: 25px;
+}
+
+#nList{
+    text-align:center;
+    margin-top:20px;
+    overflow:auto;
+    margin-bottom: 20px;
+}
+
+#nList li{
+    float:left;
+    font-size: 14px;
+}
+
+#nList li:nth-child(1),
+#nList li:nth-child(2),
+#nList li:nth-child(3),
+#nList li:nth-child(4){
+	background-color:  #F9F9F9;
+	border-top: 1px solid #CFCFCF;
+}
+
+#nList li:nth-child(4n+1),
+#nList li:nth-child(4n+2),
+#nList li:nth-child(4n+3),
+#nList li:nth-child(4n+4){
+	width: 10%;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #CFCFCF;
+	text-align: center;
+}
+
+#nList li:nth-child(4n+2){
+	width: 60%;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+#nList li:nth-child(4n+4){
+	width: 20%;
+}
+
+a{
+    text-decoration:none;
+    color: black;
+}
+a:link a:visited{
+    color:black;
+}
+
+.writeBtn a{
+	background-color: #fff;
+    border: 1px solid #CFCFCF;
+    padding: 5px 15px;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.paging{
+    margin:30px 0px;
+    height:30px;
+    overflow:auto;
+}
+.pagin>li{
+    float:left;
+    width:150px;
+}

@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+body * {
+	font-family: 'GangwonEdu_OTFBoldA';
+}
+
+ul, li{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.wrap{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.joinForm_wrap{
+	width: 700px;
+    margin: 0 auto;
+    padding: 0;    
+}
+
+#join_img_wrap{
+	border-radius: 50%;
+	border: 1px solid #cfcfcf;
+	width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    overflow: hidden;
+    line-height: 200px;
+    color: gray;
+    cursor: pointer;
+    text-align: center;
+}
+
+#join_img {
+    width: 205px;
+    vertical-align: middle;
+    margin: 0;
+}
+
+fieldset {
+	padding: 20px;
+	margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+legend{
+    font-size: 1.2em;
+}
+
+fieldset li:nth-child(2n){
+	margin: 3px 0px 15px;
+}
+
+fieldset li:last-child{
+	margin: 3px 0px;
+}
+
+input[type=text], input[type=password] {
+	width: 97%;
+	height: 35px;
+	padding-left: 10px;
+	margin-bottom: 5px;
+}
+
+input[type=radio]{
+	margin-right: 5px;
+}
+
+input[type=submit] {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.5em;
+    background-color: #8FAADC;
+    color: white;
+    margin-top: 8px;
+    border: none;
+}
+
+#radio_list{
+	overflow: auto;
+}
+
+#radio_list li{
+	margin: 0;
+	float: left;
+}
+
+#radio_list li:not(first-child){
+	margin-right: 10px;
+}
+
+#join_notice {
+	color: gray;
+	font-weight: bold;
+	text-align: right;
+	font-size: 14px;
+}

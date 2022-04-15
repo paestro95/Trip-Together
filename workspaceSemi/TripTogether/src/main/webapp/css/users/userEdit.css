@@ -1,1 +1,104 @@
-@charset "EUC-KR";
+@charset "UTF-8";
+
+* {
+	font-family: 'GangwonEdu_OTFBoldA';
+}
+
+body, ul, li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.wrap {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.userEdit_wrap {
+	width: 700px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+#join_img_wrap {
+	border-radius: 50%;
+	border: 1px solid #cfcfcf;
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	margin-bottom: 80px;
+	overflow: hidden;
+	line-height: 200px;
+	color: gray;
+	cursor: pointer;
+	text-align: center;
+}
+
+#join_img {
+	width: 205px;
+	vertical-align: middle;
+	margin: 0;
+}
+
+fieldset {
+	padding: 20px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+legend {
+	font-size: 1.2em;
+}
+
+fieldset li:nth-child(2n) {
+	margin: 3px 0px 15px;
+}
+
+fieldset li:last-child {
+	margin: 3px 0px;
+}
+
+input[type=text], input[type=password], textarea {
+	width: 97%;
+	height: 35px;
+	padding-left: 10px;
+	margin-bottom: 5px;
+}
+
+textarea {
+	height: 150px;
+	resize: none;
+	padding: 10px;
+	width: 96%;
+}
+
+input[type=radio] {
+	margin-right: 5px;
+}
+
+#radio_list {
+	overflow: auto;
+}
+
+#radio_list li {
+	margin: 0;
+	float: left;
+}
+
+#radio_list li:not(first-child) {
+	margin-right: 10px;
+}
+
+.submit_button_wrap {
+	display: flex;
+}
+
+.submit_button_wrap input {
+	flex: 1;
+	padding: 15px;
+	font-size: 1.5em;
+	background-color: #8FAADC;
+	color: white;
+	border: none;
+}

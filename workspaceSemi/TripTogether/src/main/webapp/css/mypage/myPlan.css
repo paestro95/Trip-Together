@@ -1,1 +1,27 @@
-@charset "EUC-KR";
+#myPlan_profile {
+	width: 30%;
+	height: 750px;
+	text-align: center;
+	background-color: #777;
+	float: left;
+}
+
+#myPlan_profile ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+#myPlan_profile ul>li {
+	margin: 30px;
+}
+
+#myPlan_profile ul>li:nth-child(8), #myPlan_profile ul>li:nth-child(4) {
+	margin-top: 60px;
+}
+
+#myPlan_profile_img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}

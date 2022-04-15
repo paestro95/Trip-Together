@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ 
+<mapper namespace="com.triptogether.dao.UserDAO">
+   <insert id="userInsert">
+      insert into users(id, pwd, name, tel, email, gender)
+      values(#{id}, #{pwd}, #{name}, #{tel}, #{email}, CAST(#{gender} AS signed))
+   </insert>
+   <select id="idCheck" resultType="int">
+      select count(id) cnt from users
+      where id=#{param1}
+   </select>
+   <select id="userSelect" resultType="com.triptogether.vo.UserVO">
+      select id, info, name, tel, email, gender from users
+      where id=#{param1}
+   </select>
+   <update id="userUpdate">
+      update users set info=#{info}, name=#{name}, tel=#{tel}, email=#{email}
+      where id=#{id}
+   </update>
+   <select id="loginCheck" resultType="com.triptogether.vo.UserVO">
+      select id, name from users
+      where id=#{id} and pwd=#{pwd}
+   </select>
+</mapper>

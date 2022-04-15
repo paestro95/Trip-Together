@@ -1,5 +1,0 @@
-package com.triptogether.service;
-
-public class ManagerServicempl implements ManagerService {
-
-}

@@ -1,1 +1,101 @@
-@charset "EUC-KR";
+@charset "UTF-8";
+
+/* 스타일 기본설정 (신수진 */
+body, ul, li{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.noticeView_wrap a{
+	text-decoration: #000;
+	color: black;
+}
+
+/*noticeView 전체적으로 감싸는 div(신수진)*/
+.noticeView_wrap{
+	width: 1000px;
+	margin: 0 auto;
+    margin-bottom: 80px;
+}
+
+/*제목-공지사항(신수진)*/
+.noticeView_wrap h1{
+	text-align:center;
+    margin:0 auto;
+    padding:50px 0px;
+}
+
+.noticeView_wrap h2{
+	width: 1000px;
+    padding: 30px 0px;
+    margin: 10px auto;
+    text-align: center;
+    background: #E0F1FF;
+    color: #5A76A5;
+    font-size: 25px;
+}
+
+/* 본문view ---------------------------*/
+.noticeView_main{
+	margin-top: 20px;
+	overflow: auto;
+}
+
+.noticeView_main li{
+	float: left;
+	border-bottom: 1px solid #CFCFCF;
+}
+
+.noticeView_main li:first-child,
+.noticeView_main li:nth-child(2),
+.noticeView_main li:nth-child(3){
+	width: 10%;
+	height: 40px;
+	line-height: 40px;
+	border-top: 1px solid #CFCFCF;
+	background-color:  #F9F9F9;
+	text-align: center;
+	font-size: 14px;
+}
+
+.noticeView_main li:nth-child(2){
+	width: 80%;
+}
+
+.noticeView_main li:last-child{
+	width: 86%;
+	margin-bottom: 10px;
+    height: 400px;
+    padding: 20px 70px;
+    font-size: 14px;
+}
+
+/* 수정, 목록, 삭제 (신수진) */
+.view_menu_wrap{
+	display: flex;
+	padding: 0px 5px;
+}
+
+.move_list_wrap{
+	flex: 1;	
+}
+
+.edit_del_wrap{
+	flex: 1;
+	text-align: right;
+	font-size: 14px;
+}
+
+.move_list_wrap a{
+	background-color: #fff;
+    border: 1px solid #CFCFCF;
+    padding: 5px 15px;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.edit_del_wrap a{
+	color: gray;
+}

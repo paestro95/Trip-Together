@@ -1,1 +1,49 @@
-@charset "EUC-KR";
+@charset "UTF-8";
+
+.container {
+	text-align: center;
+	margin: 0px 50px;
+	margin-bottom:100px;
+}
+
+#planSearch_title {
+	font-size: 2em;
+	margin-top: 100px;
+}
+
+#planSearch_search {
+	width: 500px;
+	height: 20px;
+	background-image: url("/css/search_gray.png");
+	background-repeat: no-repeat;
+	border: 1px solid gray;
+}
+
+#planSearch_search:focus {
+	background-image: none;
+}
+
+#planSearch_imgList, #planSearch_imgList ul {
+	width: 100%;
+	height: 1200px;
+}
+
+#planSearch_imgList ul, #planSearch_imgList li {
+	height: 550px;
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+	float: left
+}
+
+#planSearch_imgList li {
+	width: 20%;
+	margin: 2.5%; 
+}
+
+#planSearch_imgList li img {
+	width:100%;
+	height: 90%;
+	border-radius: 15px;
+}
+

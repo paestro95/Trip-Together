@@ -1,1 +1,289 @@
-@charset "EUC-KR";
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://example.com/MaterialIcons-Regular.eot);
+	/* For IE6-8 */
+	src: local('Material Icons'), local('MaterialIcons-Regular'),
+		url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+		url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+		url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px; /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+	/* Support for IE. */
+	font-feature-settings: 'liga';
+}
+
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	list-style-position: inside;
+	float: left;
+	text-align: center;
+}
+
+.pic {
+	border-radius: 100%;
+	border-radius: 70%;
+	overflow: hidden;
+}
+
+span.id {
+	margin-right: 5px;
+}
+
+span.info {
+	font-size: 12px;
+	color: #8e8e8e;
+}
+
+/* main */
+main {
+	width: 1200px;
+	margin: 0 auto;
+	padding-top: 94px;
+	padding-bottom: 40px;
+}
+
+.main-right {
+	width: 340px;
+	display: inline-block;
+	position: fixed;
+	top: 94px;
+}
+
+.feeds {
+	width: 900px;
+	margin-right: 34px;
+	display: inline-block;
+}
+
+article, .section-story {
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px solid #DBDBDB;
+}
+
+article {
+	margin-bottom: 60px;
+}
+
+.section-story {
+	width: 310px;
+	padding: 14px 16px;
+	overflow-y: hidden;
+	height: 212px;
+	margin-bottom: 20px;
+}
+
+/* article */
+header {
+	height: 60px;
+	padding: 0 16px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.profile-of-article {
+	display: flex;
+	align-items: center;
+}
+
+.img-profile {
+	width: 32px;
+	height: 32px;
+	border: 1px solid #fafafa;
+	border-radius: 100%;
+}
+
+.main-image img {
+	width: 612px;
+}
+
+.main-id {
+	margin-left: 14px;
+}
+
+.icon-more {
+	justify-self: end;
+}
+
+.icons-react {
+	height: 40px;
+	padding: 0 16px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.icon-react {
+	width: 24px;
+	height: 24px;
+}
+
+.icons-left {
+	display: flex;
+	align-items: center;
+}
+
+.icons-left .icon-react {
+	margin-right: 12px;
+}
+
+span.at-tag {
+	color: #00376B;
+}
+
+ul.comments {
+	margin-top: 5px;
+}
+
+ul.comments li {
+	height: 21px;
+	display: flex;
+	justify-content: space-between;
+	color: #262626;
+	font-size: 14px;
+}
+
+.hl {
+	border-top: 1px solid #DBDBDB;
+	width: 800px;
+}
+/* comment input */
+.input-comment {
+	font-size: 14px;
+	width: 800px;
+	height: 18px;
+	padding: 28px 16px;
+	border-style: none;
+	box-sizing: border-box;
+	color: #262626;
+}
+
+.input-comment:focus {
+	outline: none;
+}
+
+.input-comment::placeholder {
+	color: #8e8e8e;
+}
+
+button.submit-comment {
+	color: #0095f6;
+	background-color: #fff;
+	border-style: none;
+	height: 40px;
+	width: 40px;
+	padding: 4px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.submit-comment:disabled {
+	color: #B9DFFC;
+}
+
+button.submit-comment:focus {
+	outline: none;
+}
+/* main-right */
+.myProfile {
+	height: 56px;
+	margin-top: 10px;
+	margin-bottom: 25px;
+	padding-left: 12px;
+	display: flex;
+	align-items: center;
+}
+
+.myProfile img {
+	width: 56px;
+	height: 56px;
+}
+
+.myProfile div {
+	display: inline-block;
+	margin-left: 14px;
+}
+
+.myProfile div span {
+	display: block;
+}
+
+.myProfile div span.id {
+	margin-bottom: 4px;
+}
+
+<!--
+게시물 더보기-->.menu-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 14px;
+}
+
+.sub-title {
+	font-size: 14px;
+	color: #8e8e8e;
+	font-weight: 600;
+}
+
+.find-more {
+	font-size: 12px;
+	font-weight: 600;
+	color: #262626;
+}
+
+.story-list li, .recommend-list li {
+	display: flex;
+	align-items: flex-start;
+}
+
+ul.story-list img.story {
+	box-sizing: content-box;
+	border: 2px solid #fff;
+}
+
+div.gradient-wrap {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100%;
+	background: radial-gradient(circle at bottom left, #F58529 20%, #C42D91);
+}
+
+.midbtn, .bottombtn {
+	float: left;
+}
+
+.btn-follow {
+	padding-top: 7px;
+	color: #0095f6;
+	font-weight: 600;
+	font-size: 12px;
+}

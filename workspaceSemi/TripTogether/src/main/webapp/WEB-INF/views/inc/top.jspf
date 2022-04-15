@@ -1,12 +1,111 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<c:set var="url" value="<%=request.getContextPath()%>" />
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="${url}/css/inc/top.css" type="text/css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js></script>
+
+
+<title>Trip Together</title>
 </head>
 <body>
+	<header>
+		<div id="top">
+			<div class="app">
+				<div class="header-div">
+					<span class="search"> </span> <span class="title"> <a href="/">
+							<h1>Trip Together</h1>
+						</a>
+					</span>
+					<div class="container">
+						<span id="menu"> <span class="ion-navicon-round"></span>
+						</span>
+					</div>
+					<nav class="option">
+						<ul class="nav-child">
+							<li><a href="${url}/main" class="submenu">HOME</a></li>
+							<li><a href="${url}/community/communityList" class="submenu">COMMUNITY</a></li>
+							<li><a href="${url}/plan/planSearch" class="submenu">PLAN</a></li>
+							<li><a href="#" class="log-in">
+									<c:if test="${logStatus !='Y'}">LOGIN</c:if>
+									<c:if test="${logStatus == 'Y'}">
 
+										<img src="/Images/rose.jpeg" id="top_profile_img">
+
+									</c:if>
+								</a></li>
+						</ul>
+					</nav>
+					<span class="target"></span>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="logindiv">
+		<span style="float: right; width: auto; height: auto"> <a href="#" style="padding: 0px">
+				<img class="exit-logo" src="${url}/Images/exit-logo.png" />
+			</a>
+		</span>
+		<form method="POST" action="/users/loginOk" id="logFrm" style="margin: 25px">
+			<div class="form-title">
+				<h2 tabindex="-1">
+					<span class="login-info">트투 고객님</span>
+				</h2>
+				<br /> <br />
+				<div class="form-checkout2">
+					<a class="kakao_login" style="display: block; width: 100%;" href="javascript:KakaoLogin();">
+						<input type="button" value="카카오 로그인" onclick="logFormCheck()" style="width: 100%; background-color: rgb(254, 229, 0); color: black;" class="form-checkout-submit" />
+					</a>
+					<a class="kakao_unlink" style="display: block; width: 100%; margin-left: 10px;" href="javascript:KakaoUnlink();">
+						<input type="button" value="카카오 로그아웃" onclick="logFormCheck()" style="width: 100%; background-color: rgb(254, 229, 0); color: black;" class="form-checkout-submit" />
+					</a>
+				</div>
+				<br /> <br />
+				<h3>
+					<center>또는</center>
+				</h3>
+				<h2 tabindex="-1">
+					<span class="login-info">아이디</span>
+				</h2>
+				<div class="form-password">
+					<div class="form-password-section">
+						<div style="display: flex"></div>
+						<div>
+							<input type="text" name="id" id="id" class="form-password-section-input" />
+						</div>
+					</div>
+				</div>
+				<span>
+					<h2>
+						<span class="form-info"> 비밀번호 </span>
+					</h2>
+					<div class="form-info-section">
+						<div class="form-info-section-phone">
+							<input type="password" name="pwd" id="pwd" class="form-info-section-phone-input" />
+						</div>
+					</div>
+				</span>
+
+				<div class="form-checkout">
+					<input type="submit" value="로그인" onclick="logFormCheck()" style="width: 100%" class="form-checkout-submit" />
+				</div>
+				<br /> <br />
+				<h2 tabindex="-1">
+					<span class="login-info">새로 방문한 트투</span>
+				</h2>
+				<div class="form-checkout">
+					<input style="margin-top: 10px; width: 100%" type="button" onclick="movesignup()" value="회원가입" class="form-checkout-submit" />
+				</div>
+			</div>
+		</form>
+	</div>
 </body>
+<script src="${url}/js/inc/top.js"></script>
+<script src="${url}/js/login.js"></script>
 </html>

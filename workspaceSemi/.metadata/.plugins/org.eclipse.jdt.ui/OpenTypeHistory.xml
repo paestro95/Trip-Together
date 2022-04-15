@@ -1,8 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-    <typeInfo handle="=TripTogether/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.triptogether.service{CommunityService.java[CommunityService" modifiers="513" timestamp="1649211516000"/>
-    <typeInfo handle="=TripTogether/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.triptogether.service{UserService.java[UserService" modifiers="513" timestamp="1649211588000"/>
-    <typeInfo handle="=TripTogether/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.triptogether.service{ManagerService.java[ManagerService" modifiers="513" timestamp="1649211600000"/>
-    <typeInfo handle="=TripTogether/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.triptogether.service{NoticeService.java[NoticeService" modifiers="513" timestamp="1649211608000"/>
-    <typeInfo handle="=TripTogether/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.triptogether.service{MypageService.java[MypageService" modifiers="513" timestamp="1649211614000"/>
-</typeInfoHistroy>
+<typeInfoHistroy/>

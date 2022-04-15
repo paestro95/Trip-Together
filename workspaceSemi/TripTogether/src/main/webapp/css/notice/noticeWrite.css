@@ -1,1 +1,48 @@
-@charset "EUC-KR";
+@charset "UTF-8";
+
+ul, li { /*Á¤·Ä*/
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.noticeWrite_wrap {
+	width: 800px;
+	margin: 0 auto;
+	overflow: auto;
+	margin-top: 50px;
+	margin-bottom: 130px;
+}
+
+.noticeWrite_wrap h1 {
+	text-align: center;
+	margin: 0 auto;
+	padding: 50px 0px;
+}
+
+#title {
+	width: 97%;
+	height: 40px;
+	border: 1px solid #cfcfcf;
+	padding: 0px 10px;
+	border-radius: 3px;
+}
+
+#upload {
+	margin-top: 10px;
+	background-color: #fff;
+	border: 1px solid #CFCFCF;
+	padding: 5px 15px;
+	border-radius: 3px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+/* ck-editor 넓이 높이 조절 */
+.ck.ck-editor {
+	max-width: 800px;
+}
+
+.ck-editor__editable {
+	min-height: 400px;
+}
