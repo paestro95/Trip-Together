@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet" href="${url}/css/community/communityList.css" type="text/css" />
 <script src="${url}/js/community/communityList.js"></script>
@@ -11,18 +12,19 @@
 <div class="wrap">
 	<div class="communityList_wrap">
 		<h1>여기 같이 가볼까?</h1>
+		<div id="underline_img"><img src="${url}/Images/h_underline.png"></div>
 
 		<div class="notice_wrap">
 			<a href="${url}/notice/noticeList">
-				<span class="material-icons">campaign</span>
+				<span class="material-icons" style="color: gray;">campaign</span>
 			</a>
-			<marquee direction="left" style="width: 900px; height: 24px; line-height: 29px; font-size: 14px;">
-				<a href="${url}/notice/noticeList">공지사항 공지사항 공지사항 공지사항 공지사항 !!!!!</a>
+			<marquee direction="left" style="width: 1165px; height: 24px; line-height: 29px; font-size: 14px;">
+				<a href="${url}/notice/noticeList" style="color: gray;">${nVO.title}</a>
 			</marquee>
 		</div>
 
 		<div class="sort_wrap">
-			<ul class="category_list">
+			<ul class="category_list region">
 				<li style="pointer-events: none;">지역</li>
 				<li style="cursor: pointer;">서울</li>
 				<li style="cursor: pointer;">경기</li>
@@ -37,7 +39,7 @@
 				<li style="pointer-events: none;">&nbsp;</li>
 			</ul>
 
-			<ul class="category_list">
+			<ul class="category_list theme">
 				<li style="pointer-events: none;">분류</li>
 				<li style="cursor: pointer;">식당</li>
 				<li style="cursor: pointer;">카페</li>
@@ -52,7 +54,7 @@
 				<li style="pointer-events: none;">&nbsp;</li>
 			</ul>
 
-			<ul class="category_list">
+			<ul class="category_list hashtag">
 				<li style="pointer-events: none;">테마</li>
 				<li style="cursor: pointer;">#혼자여행</li>
 				<li style="cursor: pointer;">#포토존</li>
@@ -83,196 +85,75 @@
 					<a href="#" id="newBtn">신규</a>
 				</div>
 				<div class="writeBtn_wrap">
-					<a href="${url}/community/communityWrite">
-						<input type="button" value="글쓰기" />
-					</a>
-				</div>
-			</div>
-
-
-			<div class="card_wrap seoul">
-				<div class="card_writer_wrap">
-					<a href="#" class="user_img">
-						<img src="${url}/Images/rose.jpeg" />
-					</a>
-					<a href="#" class="id">abcdef</a>
-					&#183;
-					<button class="followBtn">팔로우</button>
-					<p>소개 소개 소개 소개 소개 소개</p>
-				</div>
-				<div class="card_content_wrap">
-					<div class="card_main_img_wrap">
-						<a href="${url}/community/communityView">
-							<img src="${url}/Images/feed.jpeg" class="card_img" />
+					<c:if test="${logStatus == 'Y'}">
+						<a href="${url}/community/communityWrite">
+							<input type="button" value="글쓰기" />
 						</a>
-					</div>
-					<aside class="side_menu">
-						<button>
-							<span class="material-icons like" style="cursor: pointer; vertical-align: middle;">favorite_border</span> 11
-						</button>
-						<button>
-							<span class="material-icons save" style="cursor: pointer; vertical-align: middle;">bookmark_border</span> 45
-						</button>
-						<button>
-							<span class="material-icons comment" style="cursor: pointer; vertical-align: middle;">chat_bubble_outline</span> 23
-						</button>
-					</aside>
+					</c:if>
 				</div>
 			</div>
 
-			<div class="card_wrap seoul">
-				<div class="card_writer_wrap">
-					<a href="#" class="user_img">
-						<img src="${url}/Images/rose.jpeg" />
-					</a>
-					<a href="#" class="id">abcdef</a>
-					&#183;
-					<button class="followBtn">팔로우</button>
-					<p>소개 소개 소개 소개 소개 소개</p>
-				</div>
-				<div class="card_content_wrap">
-					<div class="card_main_img_wrap">
-						<a href="${url}/community/communityView">
-							<img src="${url}/Images/feed.jpeg" class="card_img" />
-						</a>
+			
+			<c:forEach var="vo" items="${list}">
+				<div class="${vo.theme} card_wrap ${vo.region} &nbsp ${vo.tags}">
+					<div class="card_writer_wrap">
+						<div class="user_img_wrap">
+							<a href="${url}/users/userView" class="user_img">
+								<img src="${vo.user_img}" />
+							</a>
+						</div>
+						<a href="${url}/users/userView" class="id">${vo.id}</a>
+						&#183;
+						<button class="followBtn">팔로우</button>
+						<p>${vo.info}</p>
 					</div>
-					<aside class="side_menu">
-						<button>
-							<span class="material-icons like" style="cursor: pointer; vertical-align: middle;">favorite_border</span> 11
-						</button>
-						<button>
-							<span class="material-icons save" style="cursor: pointer; vertical-align: middle;">bookmark_border</span> 45
-						</button>
-						<button>
-							<span class="material-icons comment" style="cursor: pointer; vertical-align: middle;">chat_bubble_outline</span> 23
-						</button>
-					</aside>
-				</div>
-			</div>
-
-
-			<div class="card_wrap seoul">
-				<div class="card_writer_wrap">
-					<a href="#" class="user_img">
-						<img src="${url}/Images/rose.jpeg" />
-					</a>
-					<a href="#" class="id">abcdef</a>
-					&#183;
-					<button class="followBtn">팔로우</button>
-					<p>소개 소개 소개 소개 소개 소개</p>
-				</div>
-				<div class="card_content_wrap">
-					<div class="card_main_img_wrap">
-						<a href="${url}/community/communityView">
-							<img src="${url}/Images/feed.jpeg" class="card_img" />
-						</a>
+					<div class="card_content_wrap">
+						<div class="card_main_img_wrap">
+							<a href="${url}/community/communityView?no=${vo.board_no}&id=${vo.id}">
+								<img src="${vo.photo1}" class="card_img" />
+							</a>
+						</div>
+						<aside class="side_menu">
+							<c:choose>
+								<%-- 로그인 상태일 때, --%>
+								<c:when test="${logStatus == 'Y' }">
+									<button>
+										<span class="material-icons like" style="cursor: pointer; vertical-align: middle;">favorite_border</span> ${vo.likes}
+									</button>
+									<button>
+										<span class="material-icons save" style="cursor: pointer; vertical-align: middle;">bookmark_border</span> ${vo.wish}
+									</button>
+								</c:when>
+								<%-- 로그인 상태가 아닐 때, alert + 로그인 div가 오른쪽에 나타남 --%>
+								<c:otherwise>
+									<button>
+										<span class="material-icons" style="cursor: pointer; vertical-align: middle;" onclick="btn_notlogin();">favorite_border</span> ${vo.likes}
+									</button>
+									<button>
+										<span class="material-icons" style="cursor: pointer; vertical-align: middle;" onclick="btn_notlogin();">bookmark_border</span> ${vo.wish}
+									</button>
+								</c:otherwise>
+							</c:choose>
+							<%-- 댓글 아이콘 클릭 시 해당 게시물 view 페이지로 이동 --%>
+							<button>
+								<span class="material-icons comment" style="cursor: pointer; vertical-align: middle;" onclick="location.href='${url}/community/communityView?no=${vo.board_no}' " >chat_bubble_outline</span> ${vo.comment }
+							</button>
+						</aside>
 					</div>
-					<aside class="side_menu">
-						<button>
-							<span class="material-icons like" style="cursor: pointer; vertical-align: middle;">favorite_border</span> 11
-						</button>
-						<button>
-							<span class="material-icons save" style="cursor: pointer; vertical-align: middle;">bookmark_border</span> 45
-						</button>
-						<button>
-							<span class="material-icons comment" style="cursor: pointer; vertical-align: middle;">chat_bubble_outline</span> 23
-						</button>
-					</aside>
 				</div>
-			</div>
+			</c:forEach>
+
+			
+			
+
+			
+			
 
 
-			<div class="card_wrap seoul">
-				<div class="card_writer_wrap">
-					<a href="#" class="user_img">
-						<img src="${url}/Images/rose.jpeg" />
-					</a>
-					<a href="#" class="id">abcdef</a>
-					&#183;
-					<button class="followBtn">팔로우</button>
-					<p>소개 소개 소개 소개 소개 소개</p>
-				</div>
-				<div class="card_content_wrap">
-					<div class="card_main_img_wrap">
-						<a href="${url}/community/communityView">
-							<img src="${url}/Images/feed.jpeg" class="card_img" />
-						</a>
-					</div>
-					<aside class="side_menu">
-						<button>
-							<span class="material-icons like" style="cursor: pointer; vertical-align: middle;">favorite_border</span> 11
-						</button>
-						<button>
-							<span class="material-icons save" style="cursor: pointer; vertical-align: middle;">bookmark_border</span> 45
-						</button>
-						<button>
-							<span class="material-icons comment" style="cursor: pointer; vertical-align: middle;">chat_bubble_outline</span> 23
-						</button>
-					</aside>
-				</div>
-			</div>
 
 
-			<div class="card_wrap seoul">
-				<div class="card_writer_wrap">
-					<a href="#" class="user_img">
-						<img src="${url}/Images/rose.jpeg" />
-					</a>
-					<a href="#" class="id">abcdef</a>
-					&#183;
-					<button class="followBtn">팔로우</button>
-					<p>소개 소개 소개 소개 소개 소개</p>
-				</div>
-				<div class="card_content_wrap">
-					<div class="card_main_img_wrap">
-						<a href="${url}/community/communityView">
-							<img src="${url}/Images/feed.jpeg" class="card_img" />
-						</a>
-					</div>
-					<aside class="side_menu">
-						<button>
-							<span class="material-icons like" style="cursor: pointer; vertical-align: middle;">favorite_border</span> 11
-						</button>
-						<button>
-							<span class="material-icons save" style="cursor: pointer; vertical-align: middle;">bookmark_border</span> 45
-						</button>
-						<button>
-							<span class="material-icons comment" style="cursor: pointer; vertical-align: middle;">chat_bubble_outline</span> 23
-						</button>
-					</aside>
-				</div>
-			</div>
 
 
-			<div class="card_wrap seoul">
-				<div class="card_writer_wrap">
-					<a href="#" class="user_img">
-						<img src="${url}/Images/rose.jpeg" />
-					</a>
-					<a href="#" class="id">abcdef</a>
-					&#183;
-					<button class="followBtn">팔로우</button>
-					<p>소개 소개 소개 소개 소개 소개</p>
-				</div>
-				<div class="card_content_wrap">
-					<div class="card_main_img_wrap">
-						<a href="${url}/community/communityView">
-							<img src="${url}/Images/feed.jpeg" class="card_img" />
-						</a>
-					</div>
-					<aside class="side_menu">
-						<button>
-							<span class="material-icons like" style="cursor: pointer; vertical-align: middle;">favorite_border</span> 11
-						</button>
-						<button>
-							<span class="material-icons save" style="cursor: pointer; vertical-align: middle;">bookmark_border</span> 45
-						</button>
-						<button>
-							<span class="material-icons comment" style="cursor: pointer; vertical-align: middle;">chat_bubble_outline</span> 23
-						</button>
-					</aside>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>

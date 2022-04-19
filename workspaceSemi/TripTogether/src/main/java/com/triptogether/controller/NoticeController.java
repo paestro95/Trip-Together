@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.triptogether.service.NoticeService;
 import com.triptogether.vo.NoticeVO;
+import com.triptogether.vo.PagingVO;
+
 
 @RestController
 public class NoticeController {
@@ -27,9 +30,13 @@ public class NoticeController {
 	
 	//공지사항 메인페이지, 리스트
 	@GetMapping("/notice/noticeList")
-	public ModelAndView allSelect() {	//공지사랑 리스트, 주소설정
+	public ModelAndView allSelect(PagingVO pVO) {	//공지사랑 리스트, 주소설정
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("lst", service.allSelect());	//allSelect()사용
+		
+		pVO.setTotalRecord(service.totalRecord(pVO));
+		
+		mav.addObject("lst", service.allSelect(pVO));	//allSelect()사용
+		mav.addObject("pVO", pVO);
 		mav.setViewName("notice/noticeList");
 		return mav;
 	}
@@ -50,10 +57,10 @@ public class NoticeController {
 		mav.setViewName("notice/noticeWrite");
 		return mav;
 	}
+	@ExceptionHandler
 	@PostMapping("/notice/noticeWriteOk")
-	public ResponseEntity<String> noticeWriteOk(NoticeVO vo, HttpServletRequest request){
+	public ResponseEntity<String> noticeWriteOk(NoticeVO vo, HttpServletRequest request){		
 		vo.setId((String)request.getSession().getAttribute("logId"));
-		//vo.setIp(request.getRemoteAddr());
 		
 		ResponseEntity<String> entity = null;
 		HttpHeaders headers = new HttpHeaders();
@@ -65,6 +72,7 @@ public class NoticeController {
 			String msg = "<script>alert('글이 등록되었습니다.');location.href='/notice/noticeList';</script>"; 
 			entity = new ResponseEntity<String>(msg, headers,HttpStatus.OK);
 		}catch(Exception e) {
+			e.printStackTrace();
 			//공지사항 등록 실패시 글등록 폼으로 이동
 			String msg = "<script>alert('글등록이 실패하였습니다.');history.back();</script>";
 			entity = new ResponseEntity<String>(msg, headers, HttpStatus.BAD_REQUEST);
@@ -73,7 +81,7 @@ public class NoticeController {
 	}
 	
 	//공지사항 게시물 수정
-	@GetMapping("notice/noticeUpdate")
+	@GetMapping("/notice/noticeUpdate")
 	public ModelAndView noticeUpdate(int no) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("vo", service.noticeSelect(no));	//noticeSelect() 사용
@@ -89,9 +97,13 @@ public class NoticeController {
 		headers.add("Content-Type", "text/html; charset=UTF-8");
 		try {
 			service.noticeUpdate(vo);	//noticeUpdate() 사용
-			
-			String msg = "<script>alert('글이 수정되었습니다.'); location.href='/notice/noticeView?no'"+vo.getNo()+"';</script>";
-			entity = new ResponseEntity<String>(msg,headers,HttpStatus.OK);	//성공시 수정완료게시물로 이동
+			int result = service.noticeUpdate(vo);
+			if(result>0) {
+			String msg = "<script>alert('글이 수정되었습니다.'); location.href='/notice/noticeView?no="+vo.getNotice_no()+"';</script>";
+			entity = new ResponseEntity<String>(msg,headers,HttpStatus.OK);	}//성공시 수정완료게시물로 이동
+			else {
+				throw new Exception();
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 			String msg = "<script>alert('글수정 실패하였습니다.');history.go(-1);</script>";

@@ -1,27 +1,93 @@
-#myPlan_profile {
+
+.mypage_container {
+	background-color: white;
+	width: 100%;
+	height: 750px;
+}
+
+#mypage_profile {
 	width: 30%;
 	height: 750px;
 	text-align: center;
-	background-color: #777;
+	background-color: #EBEBEB;
 	float: left;
 }
 
-#myPlan_profile ul {
+#mypage_profile ul {
 	margin: 0px;
 	padding: 0px;
 	list-style-type: none;
 }
 
-#myPlan_profile ul>li {
+#mypage_profile a {
+	color: black;
+}
+
+#mypage_profile ul>li {
 	margin: 30px;
 }
 
-#myPlan_profile ul>li:nth-child(8), #myPlan_profile ul>li:nth-child(4) {
+#mypage_profile ul>li:nth-child(8), #mypage_profile ul>li:nth-child(4) {
 	margin-top: 60px;
 }
 
-#myPlan_profile_img {
-	width: 200px;
-	height: 200px;
+#mypage_profile_img {
+	width: 250px;
+	height: 250px;
+	/*height: 60%;*/
 	border-radius: 50%;
+}
+
+
+/*myPlan only*/
+#myPlan_List {
+	width: 60%;
+	height: 700px;
+	margin: 5%;
+	float: left;
+}
+#myPlan_List ul {
+	list-style-type: none;
+	width:70%;
+}
+
+
+/* from userView.css*/
+.hot_post_card_wrap {
+	float: left;
+	width: 30%;
+}
+/*
+.hot_post_card_wrap:not(:last-child) {
+	margin-right: 50px;
+}*/
+
+.place_list {
+	height: 210px;
+	padding: 0px;
+	float: left;
+}
+
+.place_list a {
+	color: #000;
+}
+
+.place_list li {
+	height: 40px;
+	line-height: 40px;
+}
+
+.place_list li:first-child {
+	background-color: #CAD4EB;
+	padding-left: 10px;
+	font-size: 19px;
+	width:100%;
+	height: auto;
+	line-height: 35px;
+}
+
+.place_list li:not(:first-child) {
+	padding-left: 15px;
+	margin-left: 10px;
+	border-left: 1px solid gray;
 }

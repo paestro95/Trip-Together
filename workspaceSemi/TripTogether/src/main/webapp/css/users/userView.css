@@ -74,6 +74,13 @@ body, ul, li {
 	overflow: auto;
 	padding: 0px 30px;
 	margin-bottom: 50px;
+	display: flex;
+}
+
+.hot_post_title{
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .hot_post_card_wrap {

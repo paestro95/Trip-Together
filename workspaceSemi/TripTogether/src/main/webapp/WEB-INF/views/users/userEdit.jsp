@@ -13,7 +13,7 @@
 <div class="wrap">
 	<div class="userEdit_wrap">
 		<div>
-			<form method="post" id="mFrm" action="/users/userEditOk" onsubmit='return editCheck()'>
+			<form method="post" id="mFrm" action="/users/userEditOk" onsubmit='return editCheck()' enctype="multipart/form-data">
 				<div id="join_img_wrap">
 					<!-- img src 변경 필요 = DB에 이미지경로 값 추가 -> 해당 값으로 대체 -->
 					<span id="img_upload_phr">Click here!</span> <img src="" id="join_img" />

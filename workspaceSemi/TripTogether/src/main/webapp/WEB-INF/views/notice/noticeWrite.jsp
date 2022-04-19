@@ -3,15 +3,29 @@
 <link rel="stylesheet" href="${url}/css/notice/noticeWrite.css" type="text/css" />
 <link rel="stylesheet" href="${url}/css/main/main.css" type="text/css" />
 <link rel="stylesheet" href="${url}css/bottom.css" type="text/css" />
-<!-- 클래식 에디터 -->
-<script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <script src="${url}/js/notice/noticeWrite.js"></script>
 <script src="${url}/js/main/main.js"></script>
 <script src="${url}/js/underBar.js"></script>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" 	content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<!-- 클래식 에디터 -->
+	<script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
+	<title>Home</title>
+	
+	<!-- 넓이 높이 조절 -->
+	<style>
+	.ck.ck-editor {
+    	max-width: 800px;
+	}
+	.ck-editor__editable {
+	    min-height: 500px;
+	}
+	</style>
+</head>
 <script>
 $(function() {
 
@@ -22,7 +36,7 @@ $(function() {
 			alert("제목을 입력하세요");
 			return false;
 		}
-		if (CKEDITOR.instances.content.getData() == '') {	//내용 미입력시 alert
+		if ($("#content".val() == '') {	//내용 미입력시 alert
 			alert("내용을 입력하세요");
 			return false;
 		}
@@ -38,15 +52,16 @@ $(function() {
 		<hr />
 
 		<div id="classic">
-			<p>내용을 입력하세요.</p>
-		</div>
-		<script>
+			<textarea name="content" id="content" placeholder="내용을 입력하세요."></textarea>
+		
+		<script>		
 				    ClassicEditor
-				        .create( document.querySelector( '#classic' ))
+				        .create( document.querySelector( '#content' ))
 				        .catch( error => {
 				            console.error( error );
 				        } );
-				</script>
+		</script>
+		</div>
 		<div>
 			<input type="submit" value="등록" id="upload">
 		</div>

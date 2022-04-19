@@ -64,17 +64,20 @@ main {
 	margin: 0 auto;
 	padding-top: 94px;
 	padding-bottom: 40px;
+	height:auto;
 }
 
 .main-right {
 	width: 340px;
 	display: inline-block;
 	position: fixed;
-	top: 94px;
+	/* top: 94px; */
+	
 }
 
 .feeds {
 	width: 900px;
+	
 	margin-right: 34px;
 	display: inline-block;
 }
@@ -93,18 +96,11 @@ article {
 	width: 310px;
 	padding: 14px 16px;
 	overflow-y: hidden;
-	height: 212px;
+	height: 310px;
 	margin-bottom: 20px;
 }
 
 /* article */
-header {
-	height: 60px;
-	padding: 0 16px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
 
 .profile-of-article {
 	display: flex;
@@ -287,3 +283,24 @@ div.gradient-wrap {
 	font-weight: 600;
 	font-size: 12px;
 }
+
+
+/* 2022-04-19 오어진 추가*/
+.feeds .title {
+	margin: 5%;
+}
+
+article {
+	text-align: center;
+}
+article .content {
+	margin-bottom: 7%;
+}
+.content-Img img{
+	width: 155px;
+	height: 155px;
+}
+
+
+
+

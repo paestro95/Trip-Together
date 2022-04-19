@@ -1,7 +1,7 @@
 //가입하기 클릭 시
 function memberCheck() {
 	//아이디 입력 여부
-	let userid = document.getElementById("id");
+	let userid = document.getElementById("join_id");
 	if (userid.value == '') {
 		alert("아이디를 입력하세요.");
 		userid.focus();
@@ -15,7 +15,7 @@ function memberCheck() {
 	}
 
 	//비밀번호 입력 여부 + 확인란 체크
-	let userpwd = document.getElementById("pwd");
+	let userpwd = document.getElementById("join_pwd");
 	let userpwd2 = document.getElementById("pwd2");
 	if (userpwd.value == '' || userpwd2.value == '') {
 		alert("비밀번호와 비밀번호 확인란을 모두 입력해주세요.");
@@ -54,16 +54,16 @@ function memberCheck() {
 }
 
 $(function() {
-
+/*
 	$("#profileImg").change(function() {
 		$("#join_img").attr('src', "/css/img_changed.png");
-	});
+	});*/
 
 
 
 	//아이디 중복검사
-	$("#id").keyup(function() {
-		var id = $("#id").val();
+	$("#join_id").keyup(function() {
+		var id = $("#join_id").val();
 		//공백이 아니고 && 6글자 이상일 때만 가능
 		if (id != '' && id.length >= 6 && id.length <= 16) {		// + 정규표현식도 맞춰주기!
 			var url = "/users/userIdCheck"
@@ -92,8 +92,8 @@ $(function() {
 
 	//유효성 검사
 	//비밀번호
-	$("#pwd").keyup(function() {
-		if ($("#pwd").val().length < 8) {
+	$("#join_pwd").keyup(function() {
+		if ($("#join_pwd").val().length < 8) {
 			$("#pwdChk").html("취약한 비밀번호입니다.").css('color', 'red').css("font-size", "14px");
 		} else {
 			$("#pwdChk").html("사용 가능한 비밀번호입니다.").css('color', 'blue').css("font-size", "14px");
@@ -102,7 +102,7 @@ $(function() {
 
 	//비밀번호 확인
 	$("#pwd2").keyup(function() {
-		if ($("#pwd").val() != $("#pwd2").val()) {
+		if ($("#join_pwd").val() != $("#pwd2").val()) {
 			$("#pwd2Chk").html("비밀번호가 일치하지 않습니다.").css('color', 'red').css("font-size", "14px");
 		} else {
 			$("#pwd2Chk").html("비밀번호가 일치합니다.").css('color', 'blue').css("font-size", "14px");

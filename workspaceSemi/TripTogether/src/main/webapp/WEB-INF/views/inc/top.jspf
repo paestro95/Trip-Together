@@ -32,14 +32,18 @@
 							<li><a href="${url}/main" class="submenu">HOME</a></li>
 							<li><a href="${url}/community/communityList" class="submenu">COMMUNITY</a></li>
 							<li><a href="${url}/plan/planSearch" class="submenu">PLAN</a></li>
-							<li><a href="#" class="log-in">
-									<c:if test="${logStatus !='Y'}">LOGIN</c:if>
-									<c:if test="${logStatus == 'Y'}">
-
-										<img src="/Images/rose.jpeg" id="top_profile_img">
-
-									</c:if>
-								</a></li>
+							<li>
+								<c:if test="${logStatus !='Y'}">
+									<a href="#" class="log-in">
+									LOGIN
+									</a>
+								</c:if>
+								<c:if test="${logStatus == 'Y'}">
+									<a href="/mypage/myPlan" class="log-in">
+									<img src="${logImg}" id="top_profile_img">
+									</a>
+								</c:if>
+							</li>
 						</ul>
 					</nav>
 					<span class="target"></span>
@@ -55,16 +59,33 @@
 		<form method="POST" action="/users/loginOk" id="logFrm" style="margin: 25px">
 			<div class="form-title">
 				<h2 tabindex="-1">
-					<span class="login-info">트투 고객님</span>
+					<!-- '트투 고객님' 출력되던 자리 -->
+					<span class="login-info">
+						<c:if test="${logStatus !='Y'}">방문자님, 환영합니다!</c:if>
+						<c:if test="${logStatus == 'Y'}">
+										
+							${logName} 님
+
+						</c:if>
+
+					</span>
 				</h2>
 				<br /> <br />
 				<div class="form-checkout2">
-					<a class="kakao_login" style="display: block; width: 100%;" href="javascript:KakaoLogin();">
+					<!-- <a class="kakao_login" style="display: block; width: 100%;" href="javascript:KakaoLogin();">
 						<input type="button" value="카카오 로그인" onclick="logFormCheck()" style="width: 100%; background-color: rgb(254, 229, 0); color: black;" class="form-checkout-submit" />
 					</a>
 					<a class="kakao_unlink" style="display: block; width: 100%; margin-left: 10px;" href="javascript:KakaoUnlink();">
 						<input type="button" value="카카오 로그아웃" onclick="logFormCheck()" style="width: 100%; background-color: rgb(254, 229, 0); color: black;" class="form-checkout-submit" />
-					</a>
+					</a>-->
+					<a class="kakao_login" style="display: block; width: 100%;">
+                        <!--   href="javascript:KakaoLogin();">-->
+                        <a href="https://kauth.kakao.com/oauth/authorize?client_id=66837c1b56e8c94b59ea0bf0ec332abe&redirect_uri=http://localhost:9060/users/auth/kakao/callback&response_type=code">
+                            <img src="/Images/kakao_login_medium_wide.png" />
+                        </a>
+                        <!--  <input type="button" value="카카오 로그인" onclick="logFormCheck()" style="width: 100%; background-color: rgb(254, 229, 0); color: black;" class="form-checkout-submit" /> -->
+                    </a>
+					
 				</div>
 				<br /> <br />
 				<h3>

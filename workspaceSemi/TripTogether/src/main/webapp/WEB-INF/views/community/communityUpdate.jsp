@@ -1,16 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet" href="${url}/css/community/communityUpdate.css" type="text/css">
-<link rel="stylesheet" href="${url}/css/main/main.css" type="text/css" />
-<link rel="stylesheet" href="${url}css/bottom.css" type="text/css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
 <script src="${url}/js/community/communityUpdate.js"></script>
 <script src="${url}/js/underBar.js"></script>
 <script src="${url}/js/main/main.js"></script>
+<script>
+$(function(){
+	var tags = $("#vo_tag_list").val();
+	var tagArr = tags.split(" ");
+	
+	console.log(tagArr);
+	
+	for(var i=0; i<tagArr.length; i++){
+		console.log(tagArr[i]);
+		$(".hashtag_list input:checkbox[value='"+tagArr[i]+"']").attr("checked", true);
+		$(".hashtag_list input:checkbox[value='"+tagArr[i]+"']").click();
+	}
+	
+});
+</script>
 <!-- 모달창 띄우기 위해 insert한 부분입니다 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
 <!-- 위치검색 모달창 내용부분입니다 -->
+<div class="opadiv" style="background-color: #EBEBEB; width: 100%; height: 100px"></div>
 <div id="ex1" class="modal">
 	<div id="menu_wrap" class="bg_white">
 		<div class="option">
@@ -232,30 +250,31 @@
 				}
 			</script>
 
-
-
 <div class="wrap">
-	<div class="communityWrite_wrap">
-		<form method="post" action="${url}/community/communityWriteOk">
+<input type="hidden" value="${vo.tags}" id="vo_tag_list">
+
+	<div class="communityUpdate_wrap">
+		<form method="post" action="${url}/community/communityUpdateOk" onsubmit="return boardCheck()" enctype="multipart/form-data">
+			<input type="hidden" name="board_no" value="${vo.board_no}">
 			<div class="write_menu_wrap">
 				<div class="write_select_wrap">
 					<select name="region" id="region">
 						<option value="지역">지역</option>
-						<option value="서울">서울</option>
-						<option value="경기">경기</option>
-						<option value="인천">인천</option>
-						<option value="강원">강원</option>
-						<option value="충청">충청</option>
-						<option value="전라">전라</option>
-						<option value="경상">경상</option>
-						<option value="제주">제주</option>
+						<option value="서울" <c:if test="${vo.region =='서울'}">selected</c:if>>서울</option>
+						<option value="경기" <c:if test="${vo.region =='경기'}">selected</c:if>>경기</option>
+						<option value="인천" <c:if test="${vo.region =='인천'}">selected</c:if>>인천</option>
+						<option value="강원" <c:if test="${vo.region =='강원'}">selected</c:if>>강원</option>
+						<option value="충청" <c:if test="${vo.region =='충청'}">selected</c:if>>충청</option>
+						<option value="전라" <c:if test="${vo.region =='전라'}">selected</c:if>>전라</option>
+						<option value="경상" <c:if test="${vo.region =='경상'}">selected</c:if>>경상</option>
+						<option value="제주" <c:if test="${vo.region =='제주'}">selected</c:if>>제주</option>
 					</select>
 					<select name="theme" id="theme">
 						<option value="분류">분류</option>
-						<option value="식당">식당</option>
-						<option value="카페">카페</option>
-						<option value="액티비티">액티비티</option>
-						<option value="숙박">숙박</option>
+						<option value="식당" <c:if test="${vo.theme =='식당'}">selected</c:if>>식당</option>
+						<option value="카페" <c:if test="${vo.theme =='카페'}">selected</c:if>>카페</option>
+						<option value="액티비티" <c:if test="${vo.theme =='액티비티'}">selected</c:if>>액티비티</option>
+						<option value="숙박" <c:if test="${vo.theme =='숙박'}">selected</c:if>>숙박</option>
 					</select>
 				</div>
 				<div class="write_submit_wrap">
@@ -263,21 +282,24 @@
 				</div>
 			</div>
 
-			<input type="text" name="title" id="title" placeholder="Title">
+			<input type="text" name="title" id="title" placeholder="Title" value="${vo.title}">
+			
 			<ul class="hashtag_list">
-				<li><input type="checkbox" name="tag">#혼자여행</li>
-				<li><input type="checkbox" name="tag">#포토존</li>
-				<li><input type="checkbox" name="tag">#힐링</li>
-				<li><input type="checkbox" name="tag">#가족여행</li>
-				<li><input type="checkbox" name="tag">#데이트</li>
-				<li><input type="checkbox" name="tag">#뷰맛집</li>
-				<li><input type="checkbox" name="tag">#힙한</li>
-				<li><input type="checkbox" name="tag">#애견동반</li>
-				<li><input type="checkbox" name="tag">#이국적</li>
-				<li><input type="checkbox" name="tag">#레트로</li>
-				<li><input type="checkbox" name="tag">#감성</li>
+				<li><input type="checkbox" name="tag" value="혼자여행">#혼자여행</li>
+				<li><input type="checkbox" name="tag" value="포토존">#포토존</li>
+				<li><input type="checkbox" name="tag" value="힐링">#힐링</li>
+				<li><input type="checkbox" name="tag" value="가족여행">#가족여행</li>
+				<li><input type="checkbox" name="tag" value="데이트">#데이트</li>
+				<li><input type="checkbox" name="tag" value="뷰맛집">#뷰맛집</li>
+				<li><input type="checkbox" name="tag" value="힙한">#힙한</li>
+				<li><input type="checkbox" name="tag" value="애견동반">#애견동반</li>
+				<li><input type="checkbox" name="tag" value="이국적">#이국적</li>
+				<li><input type="checkbox" name="tag" value="레트로">#레트로</li>
+				<li><input type="checkbox" name="tag" value="감성">#감성</li>
 			</ul>
-
+			
+			<input type="text" name="tags" id="tags" value="" style="display: none;">
+			
 			<!-- 메인 부분 -->
 			<div class="post_main_block_entire_wrap">
 				<div class="post_main_block_wrap">
@@ -285,29 +307,128 @@
 						<div class="img_upload">
 							<img src="" class="preview"> <span class="upload_phr"><span class="material-icons" style="vertical-align: middle;">file_upload</span>Upload a picture</span>
 						</div>
-						<input type="file" class="imgSelector" name="photo1" style="display: none;">
+						<input type="file" class="imgSelector" name="photo" style="display: none;">
 					</div>
 					<div class="place_content_wrap">
 						<div class="location_wrap">
-							<a href="#ex1" rel="modal:open">
-								<button class="location locationBtn">
-									<span class="material-icons" style="font-size: 14px; vertical-align: middle;">place</span>장소 찾기
-								</button>
-							</a>
-							<input type="text" disabled class=" location location1" value="" name="location1">
-							<input type="text" class="location location2" value="" name="location2">
+							<div class="locationBtn_delBtn_wrap" style="display: flex;">
+								<div style="flex: 1;">
+									<a href="#ex1" rel="modal:open">
+										<button class="location locationBtn">
+											<span class="material-icons" style="font-size: 14px; vertical-align: middle;">place</span>장소 찾기
+										</button>
+									</a>
+								</div>
+								<div class="delBtn" style="text-align: right;">
+									<span class="material-icons del" style="vertical-align: middle; color: gray; cursor: pointer;">delete</span>
+								</div>
+							</div>
+							<input type="text" class=" location location1" value="${vo.location1}" name="location" id="location1">
+							<input type="text" class="location location2" value="${vo.location_addr1 }" name="location_addr" id="location_addr1">
 						</div>
 						<hr>
-						<textarea placeholder="사진에 대해 설명해주세요."></textarea>
-
+						<textarea name="content" id="content1" placeholder="사진에 대해 설명해주세요.">${vo.content1}</textarea>
 					</div>
 				</div>
+				
+				<c:if test="${!empty vo.content2}">
+					<div class="post_main_block_wrap">
+						<div class="img_upload_wrap">
+							<div class="img_upload">
+								<img src="" class="preview"> <span class="upload_phr"><span class="material-icons" style="vertical-align: middle;">file_upload</span>Upload a picture</span>
+							</div>
+							<input type="file" class="imgSelector" name="photo" style="display: none;">
+						</div>
+						<div class="place_content_wrap">
+							<div class="location_wrap">
+								<div class="locationBtn_delBtn_wrap" style="display: flex;">
+									<div style="flex: 1;">
+										<a href="#ex1" rel="modal:open">
+											<button class="location locationBtn">
+												<span class="material-icons" style="font-size: 14px; vertical-align: middle;">place</span>장소 찾기
+											</button>
+										</a>
+									</div>
+									<div class="delBtn" style="text-align: right;">
+										<span class="material-icons del" style="vertical-align: middle; color: gray; cursor: pointer;">delete</span>
+									</div>
+								</div>
+								<input type="text" class=" location location1" value="${vo.location2}" name="location" id="location2">
+								<input type="text" class="location location2" value="${vo.location_addr2 }" name="location_addr" id="location_addr2">
+							</div>
+							<hr>
+							<textarea name="content" id="content2" placeholder="사진에 대해 설명해주세요.">${vo.content2}</textarea>
+						</div>
+					</div>
+				</c:if>
+				
+				<c:if test="${!empty vo.content3}">
+					<div class="post_main_block_wrap">
+						<div class="img_upload_wrap">
+							<div class="img_upload">
+								<img src="" class="preview"> <span class="upload_phr"><span class="material-icons" style="vertical-align: middle;">file_upload</span>Upload a picture</span>
+							</div>
+							<input type="file" class="imgSelector" name="photo" style="display: none;">
+						</div>
+						<div class="place_content_wrap">
+							<div class="location_wrap">
+								<div class="locationBtn_delBtn_wrap" style="display: flex;">
+									<div style="flex: 1;">
+										<a href="#ex1" rel="modal:open">
+											<button class="location locationBtn">
+												<span class="material-icons" style="font-size: 14px; vertical-align: middle;">place</span>장소 찾기
+											</button>
+										</a>
+									</div>
+									<div class="delBtn" style="text-align: right;">
+										<span class="material-icons del" style="vertical-align: middle; color: gray; cursor: pointer;">delete</span>
+									</div>
+								</div>
+								<input type="text" class=" location location1" value="${vo.location3}" name="location" id="location3">
+								<input type="text" class="location location2" value="${vo.location_addr3 }" name="location_addr" id="location_addr3">
+							</div>
+							<hr>
+							<textarea name="content" id="content3" placeholder="사진에 대해 설명해주세요.">${vo.content3}</textarea>
+						</div>
+					</div>
+				</c:if>
+				
+				<c:if test="${!empty vo.content4}">
+					<div class="post_main_block_wrap">
+						<div class="img_upload_wrap">
+							<div class="img_upload">
+								<img src="" class="preview"> <span class="upload_phr"><span class="material-icons" style="vertical-align: middle;">file_upload</span>Upload a picture</span>
+							</div>
+							<input type="file" class="imgSelector" name="photo" style="display: none;">
+						</div>
+						<div class="place_content_wrap">
+							<div class="location_wrap">
+								<div class="locationBtn_delBtn_wrap" style="display: flex;">
+									<div style="flex: 1;">
+										<a href="#ex1" rel="modal:open">
+											<button class="location locationBtn">
+												<span class="material-icons" style="font-size: 14px; vertical-align: middle;">place</span>장소 찾기
+											</button>
+										</a>
+									</div>
+									<div class="delBtn" style="text-align: right;">
+										<span class="material-icons del" style="vertical-align: middle; color: gray; cursor: pointer;">delete</span>
+									</div>
+								</div>
+								<input type="text" class=" location location1" value="${vo.location4}" name="location" id="location4">
+								<input type="text" class="location location2" value="${vo.location_addr4}" name="location_addr" id="location_addr4">
+							</div>
+							<hr>
+							<textarea name="content" id="content4" placeholder="사진에 대해 설명해주세요.">${vo.content4}</textarea>
+						</div>
+					</div>
+				</c:if>
 			</div>
-
-
-			<input type="button" value="+추가" id="addBtn">
-
+			
+			
+		<input type="button" value="+추가" id="addBtn">
+			
 		</form>
 	</div>
-
+<script src="${url}/js/underBar.js"></script>
 </div>

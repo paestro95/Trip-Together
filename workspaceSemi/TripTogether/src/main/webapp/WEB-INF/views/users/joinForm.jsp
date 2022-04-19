@@ -13,7 +13,7 @@
 <div class="wrap">
 
 	<div class="joinForm_wrap">
-		<form method="post" action="/users/joinOk"onsubmit='return memberCheck()' enctype="multipart/form-data">
+		<form method="post" action="/users/joinOk" onsubmit='return memberCheck()' enctype="multipart/form-data">
 			<div id="join_img_wrap">
 				<span id="img_upload_phr">Click here!</span> <img src=""	id="join_img" />
 			</div>
@@ -26,12 +26,12 @@
 					<li>아이디</li>
 					<li>
 						<input type="text" id="idchk" value='N' style="display: none; width: 30px; margin: 0px;">
-						<input type="text" name="id" placeholder="* 8자리 이상 / 16자리 이하" id="id" maxlength=16/>
+						<input type="text" name="id" placeholder="* 8자리 이상 / 16자리 이하" id="join_id" maxlength=16/>
 						<span id='chk'></span> 
 					</li>
 					<li>비밀번호</li>
 					<li>
-						<input type="password" name="pwd" id="pwd" placeholder="* 8자리 이상" />
+						<input type="password" name="pwd" id="join_pwd" placeholder="* 8자리 이상" />
 						<span id='pwdChk'></span>
 					</li>
 					<li>비밀번호 확인</li>

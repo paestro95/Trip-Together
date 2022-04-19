@@ -3,8 +3,8 @@
 
 <html>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${url}css/main/main.css" type="text/css" />
-<link rel="stylesheet" href="${url}css/bottom.css" type="text/css" />
+<link rel="stylesheet" href="${url}/css/main/main.css" type="text/css" />
+<link rel="stylesheet" href="${url}/css/bottom.css" type="text/css" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js></script>

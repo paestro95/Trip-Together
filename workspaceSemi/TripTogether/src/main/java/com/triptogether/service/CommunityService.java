@@ -5,9 +5,27 @@ import java.util.List;
 import com.triptogether.vo.CommunityVO;
 
 public interface CommunityService {
-	public List<CommunityVO> allSelect();
+	// 커뮤니티 목록
+	public List<CommunityVO> communityList();
+	
+	// 커뮤니티 게시물 1개 선택
 	public CommunityVO communitySelect(int no);
-	public int communityInsert(CommunityVO vo);
-	public int communityUpdate(CommunityVO vo);
+	
+	// 커뮤니티 글등록
+	public int communityInsert(CommunityVO vo, String[] filePath);
+	
+	// 커뮤니티 글수정
+	public int communityUpdate(CommunityVO vo, String[] filePath);
+	
+	// 커뮤니티 글삭제
 	public int communityDelete(int no, String id);	
+	
+	// user의 인기 게시물 가져오기(4개)
+	public List<CommunityVO> hotPostSelect(String id);
+	
+	// user의 모든 게시물 가져오기
+	public List<CommunityVO> userPostAllSelect(String id);
+	
+	//해당ID 유저의 대표사진만 불러오기
+	public List<CommunityVO> firstPhotoSelect(String id);
 }

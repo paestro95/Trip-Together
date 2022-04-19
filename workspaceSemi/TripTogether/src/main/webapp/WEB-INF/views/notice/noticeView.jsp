@@ -4,6 +4,15 @@
 <link rel="stylesheet" type="text/css" href="${url}/css/notice/noticeView.css">
 <link rel="stylesheet" href="${url}/css/main/main.css" type="text/css" />
 <link rel="stylesheet" href="${url}css/bottom.css" type="text/css" />
+
+<script>
+	function del(){
+		if(confirm('삭제할까요?')){
+			location.href="/notice/noticeDel?no=${vo.notice_no}";
+		}
+	}
+</script>
+
 <div class="wrap">
 	<div class="noticeView_wrap">
 		<h1>공지사항</h1>
@@ -11,7 +20,7 @@
 		
 		<!-- 본문 view(신수진) -->
 		<ul class="noticeView_main">
-			<li>${vo.no}</li>
+			<li>${vo.notice_no}</li>
 			<li>${vo.title}</li>
 			<li>${vo.writedate}</li>
 			<li>${vo.content}</li>
@@ -19,7 +28,7 @@
 		<!-- 수정, 목록, 삭제 버튼 wrap(신수진) -->
 		<div class="view_menu_wrap">
 			<div class="move_list_wrap"><a href="${url}/notice/noticeList">목록</a></div>
-			<div class="edit_del_wrap"><a href="${url}/notice/noticeUpdate">수정  |</a><a href="#"> 삭제</a></div>
+			<div class="edit_del_wrap"><a href="${url}/notice/noticeUpdate?no=${vo.notice_no}">수정  |</a><a href="javascript:del()"> 삭제</a></div> <!-- 수정(권지연) -->
 		</div>
 	</div>
 </div>

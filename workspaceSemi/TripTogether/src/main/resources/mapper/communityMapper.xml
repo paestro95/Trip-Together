@@ -3,20 +3,81 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.triptogether.dao.CommunityDAO">
-	<select id="allSelect" resultType="CommunityVO"><!-- 공지사항 나열 쿼리문 -->
-		select no, title, id, writedate from board order by no desc		
+	<select id="communityList" resultType="CommunityVO">
+		select b.board_no, user_img, b.id, info, photo1, likes, wish, comment, content1, region, theme, tags
+		from board as b 
+		inner join userjoin as u on b.id = u.id
+		left join (select board_no, count(like_no) likes from likes group by board_no) as l on b.board_no=l.board_no
+		left join (select board_no, count(wish_no) wish from wish group by board_no) as w on b.board_no=w.board_no
+		left join (select board_no, count(reply_no) comment from reply group by board_no) as r on b.board_no=r.board_no
+		group by b.board_no
+		order by likes desc
 	</select>
+	
 	<insert id="communityInsert">
-		insert into board(id, title, content)
-		values(#{id}, #{title}, #{content})
+		insert into board(id, region, theme, title, tags, 
+									photo1, location1, location_addr1, content1, 
+									photo2, location2, location_addr2, content2, 
+									photo3, location3, location_addr3, content3, 
+									photo4, location4, location_addr4, content4)
+		values(#{param1.id}, #{param1.region}, #{param1.theme}, #{param1.title}, #{param1.tags}, 
+					#{param2[0]}, #{param1.location1}, #{param1.location_addr1}, #{param1.content1}, 
+					#{param2[1]}, #{param1.location2}, #{param1.location_addr2}, #{param1.content2}, 
+					#{param2[2]}, #{param1.location3}, #{param1.location_addr3}, #{param1.content3}, 
+					#{param2[3]}, #{param1.location4}, #{param1.location_addr4}, #{param1.content4})
 	</insert>
+	
 	<select id="communitySelect" resultType="CommunityVO">
-		select no, title, id, writedate from board where no=${param1}
+		select board_no, title, id, region, theme, title, tags, 
+		photo1, location1, location_addr1, content1, 
+		photo2, location2, location_addr2, content2, 
+		photo3, location3, location_addr3, content3, 
+		photo4, location4, location_addr4, content4 
+		from board where board_no=${param1}
 	</select>
+	
 	<update id="communityUpdate">
-		update board set title=#{title}, content=#{content} where no=#{no} and id=#{id}
+		update board 
+		set region=#{param1.region}, theme=#{param1.theme}, title=#{param1.title}, tags=#{param1.tags},  
+		photo1=#{param2[0]}, location1=#{param1.location1}, location_addr1=#{param1.location_addr1}, content1=#{param1.content1}, 
+		photo2=#{param2[1]}, location2=#{param1.location2}, location_addr2=#{param1.location_addr2}, content2=#{param1.content2}, 
+		photo3=#{param2[2]}, location3=#{param1.location3}, location_addr3=#{param1.location_addr3}, content3=#{param1.content3}, 
+		photo4=#{param2[3]}, location4=#{param1.location4}, location_addr4=#{param1.location_addr4}, content4=#{param1.content4}
+		where board_no=#{param1.board_no} and id=#{param1.id}
 	</update>
+	
 	<delete id="communityDelete">
-		delete from board where no=#{param1} and id=#{param2}
+		delete from board where board_no=#{param1} and id=#{param2}
 	</delete>
+	
+	<select id="hotPostSelect" resultType="CommunityVO">
+		select b.board_no, b.id, title, location1, location2, location3, location4, likes, wish, comment
+		from board as b 
+        left join (select board_no, count(like_no) likes from likes group by board_no) as l on b.board_no=l.board_no
+		left join (select board_no, count(wish_no) wish from wish group by board_no) as w on b.board_no=w.board_no
+		left join (select board_no, count(reply_no) comment from reply group by board_no) as r on b.board_no=r.board_no
+        where b.id = #{param1} and likes is not null
+        group by board_no
+        order by likes desc
+        limit 4
+	</select>
+	
+	<select id="userPostAllSelect" resultType="CommunityVO">
+		select b.board_no, b.id, title, photo1, likes, comment, writedate
+		from board as b 
+        left join (select board_no, count(like_no) likes from likes group by board_no) as l on b.board_no=l.board_no
+		left join (select board_no, count(reply_no) comment from reply group by board_no) as r on b.board_no=r.board_no
+        where b.id = #{param1}
+        group by board_no
+        order by writedate desc
+	</select>
+	
+	<!-- 220419 오어진 추가 -->
+	<select id="firstPhotoSelect" resultType="CommunityVO">
+		select board_no, photo1 from board where id=#{param1}
+	</select>
+	
+	
+	
+	
 </mapper>

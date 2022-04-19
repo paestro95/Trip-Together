@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${url}/css/plan/planSearch.css" type="text/css" />
 <link rel="stylesheet" href="${url}/css/main/main.css" type="text/css" />
-<link rel="stylesheet" href="${url}css/bottom.css" type="text/css" />
+<link rel="stylesheet" href="${url}/css/inc/bottom.css" type="text/css" />
 
 </head>
 <body>

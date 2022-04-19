@@ -20,7 +20,7 @@ body, ul, li {
 }
 /**************************************/
 .communityWrite_wrap {
-	width: 900px;
+	width: 1000px;
 	margin: 0 auto;
 	margin-top: 70px;
 	margin-bottom: 150px;
@@ -47,6 +47,8 @@ body, ul, li {
 	border: 1px solid #CFCFCF;
 	border-radius: 5px;
 	color: gray;
+	height: 30px;
+	background-color: #fff;
 }
 
 .write_select_wrap #theme {
@@ -54,7 +56,7 @@ body, ul, li {
 }
 
 .write_submit_wrap input {
-	padding: 7px 11px;
+	padding: 8px 15px;
 	border: none;
 	border-radius: 30px;
 	background-color: #929292;
@@ -73,7 +75,7 @@ body, ul, li {
 
 .hashtag_list {
 	overflow: auto;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 
 .hashtag_list li {
@@ -101,14 +103,13 @@ body, ul, li {
 }
 
 .img_upload_wrap {
-	width: 40%;
+	width: 50%;
 }
 
 .img_upload {
 	border: 1px dashed #cfcfcf;
-	height: 351px;
 	border-radius: 10px;
-	line-height: 350px;
+	line-height: 330px;
 	text-align: center;
 	background-color: #EEEEEE;
 	overflow: hidden;
@@ -117,7 +118,7 @@ body, ul, li {
 }
 
 .img_upload img {
-	width: 370px;
+	width: 500px;
 	vertical-align: middle;
 }
 
@@ -133,7 +134,7 @@ body, ul, li {
 .place_content_wrap textarea {
 	width: 96%;
 	border: 1px solid #cfcfcf;
-	height: 230px;
+	height: 200px;
 	border-radius: 5px;
 	padding: 10px;
 	resize: none;
@@ -152,7 +153,7 @@ body, ul, li {
 	border: 1px solid #CFCFCF;
 	color: gray;
 	border-radius: 5px;
-	height: 20px;
+	height: 25px;
 }
 
 .location_wrap button {
@@ -165,7 +166,7 @@ body, ul, li {
 #addBtn {
 	width: 100%;
 	background-color: #8FAADC;
-	height: 50px;
+	height: 60px;
 	border: 1px solid #cfcfcf;
 	border-radius: 5px;
 	color: white;

@@ -12,15 +12,15 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1/triptogetherDB?characterEncoding=utf-8
     username: root
-    password: root1234
+    password: sasa6879
   devtools: # 서버 자동 시작
     livereload:
       enabled: true      
   servlet:  # multipart 설정
     multipart:
-      location: C:\\WebSemiProject\\workspaceSemi\\TripTogether\\src\\main\\webapp\\css\\
+      location: C:\\WebSemiProject\\workspaceSemi\\TripTogether\\src\\main\\webapp\\
       enabled: true
-      max-file-size: 2MB
+      max-file-size: 20MB
 
 mybatis: # mybatis에서 패키지를 생략할 수 있도록 설정
     type-aliases-package: com.triptogether.vo

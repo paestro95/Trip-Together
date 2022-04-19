@@ -145,8 +145,8 @@
 								<h4 id="login">LOGIN</h4>
 							</a>
 						</c:if> <c:if test="${logStatus == 'Y'}">
-							<a href="#">
-								<img src="/Images/rose.jpeg" id="home_profile_img" >
+							<a href="/mypage/myPlan">
+								<img src="${logImg }" id="home_profile_img" >
 							</a>
 						</c:if>
 					</span>

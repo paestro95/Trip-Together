@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.triptogether.dao.PlanDAO">
+ 	<insert id="planCreate">
+	 	insert into plan(id, start_date, end_date, location)
+			values(#{id}, STR_TO_DATE(#{start_date}, '%Y-%m-%d'), STR_TO_DATE(#{end_date}, '%Y-%m-%d'), #{location})
+ 	</insert>
+ 	<select id="planList" resultType="com.triptogether.vo.PlanVO">
+ 		select id, date_format(start_date, '%Y-%m-%d') start_date, date_format(end_date, '%Y-%m-%d') end_date, location, plan_no from plan
+ 		where id=#{param1} order by writedate desc
+ 	</select>
+ 	
+ 	<delete id="planDelete">
+ 		delete from plan where plan_no=#{param1} and id=#{param2}
+ 	</delete>
+ </mapper>

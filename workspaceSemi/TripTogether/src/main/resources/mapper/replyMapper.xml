@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.triptogether.dao.ReplyDAO">
+	<insert id="replyWrite">
+		insert into reply(board_no, id, comment) values(#{board_no}, #{id}, #{comment})
+	</insert>
+	<select id="replyList" resultType="ReplyVO">
+		select reply_no, id, comment, writedate from reply
+		where board_no=${param1}
+		order by reply_no desc
+	</select>
+	<update id="replyEdit">
+		update reply set comment=#{comment} where reply_no=${reply_no} and id=#{id}
+	</update>
+	<delete id="replyDel">
+		delete from reply where reply_no=${param1} and id=#{param2}
+	</delete>
+</mapper>

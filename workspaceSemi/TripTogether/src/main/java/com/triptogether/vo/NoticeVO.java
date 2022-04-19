@@ -1,17 +1,12 @@
 package com.triptogether.vo;
 
 public class NoticeVO {
-    private int no;            //공지사항 번호
+    private int notice_no;            //공지사항 번호
     private String title;    //공지사항 제목
-    private String id;    //공지사항 작성자 (ex.관리자1, 관리자2)
+    private String id;    //공지사항 작성자(admin)
     private String writedate;    //공지사항 업로드 날짜
     private String content;
-    public int getNo() {
-        return no;
-    }
-    public void setNo(int no) {
-        this.no = no;
-    }
+    
     public String getTitle() {
         return title;
     }
@@ -36,6 +31,10 @@ public class NoticeVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-    
-    
+	public int getNotice_no() {
+		return notice_no;
+	}
+	public void setNotice_no(int notice_no) {
+		this.notice_no = notice_no;
+	}     
 }

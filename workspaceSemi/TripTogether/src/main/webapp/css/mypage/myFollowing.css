@@ -1,1 +1,26 @@
-@charset "EUC-KR";
+@charset "UTF-8";
+
+#myFollowing_imgList {
+	width: 60%;
+	margin: 5%;
+	float: left;
+}
+
+
+#myFollowing_imgList ul, #myFollowing_imgList li {
+	margin:0px;
+	padding: 0px;
+	list-style-type: none;	
+}
+
+#myFollowing_imgList li {
+	float: left;
+	text-align: center;
+}
+
+#myFollowing_imgList img {
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	border-radius: 50%;
+}

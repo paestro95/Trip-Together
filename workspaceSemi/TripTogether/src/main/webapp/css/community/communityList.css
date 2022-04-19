@@ -20,7 +20,7 @@ button{
 
 .communityList_wrap{
 	margin: 0 auto;
-    width: 1000px;
+    width: 1200px;
     margin-bottom: 100px;
 }
 
@@ -28,8 +28,18 @@ button{
 /* 제목 */
 .communityList_wrap h1{
 	text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 0;
+    padding: 0;
+    font-size: 35px;
+}
+
+#underline_img{
+	text-align: center;
+    margin-bottom: 40px;
+}
+
+#underline_img img{
+	width: 240px;
 }
 
 
@@ -41,16 +51,16 @@ button{
 /* 카테고리 *************************************/
 .sort_wrap{
 	overflow: auto;
-	margin: 20px 5px;
+	margin: 20px 5px 30px;
 	color: gray;
 }
 
 .sort_wrap ul{
 	overflow: auto;
-	height: 35px;
-    line-height: 35px;
+	height: 40px;
+    line-height: 40px;
     text-align: center;
-    font-size: 15px;
+    font-size: 16px;
     border-bottom: 1px solid gainsboro;
     border-right: 1px solid gainsboro;
 }
@@ -89,8 +99,6 @@ button{
 	margin-right: 5px;
 }
 
-
-
 /**********************************************/
 
 /* 피드 */
@@ -101,7 +109,7 @@ button{
 .hot_new_writeBtn_wrap{
 	display: flex;
 	 height: 30px;
-	 margin-bottom: 20px;
+	 margin-bottom: 10px;
 }
 
 .hot_new_wrap{
@@ -117,7 +125,7 @@ button{
 }
 
 .writeBtn_wrap input{
-	padding: 7px 11px;
+	padding: 7px 15px;
     border: none;
     border-radius: 30px;
     background-color: #929292;
@@ -131,11 +139,17 @@ button{
     padding-bottom: 10px;
 }
 
+.user_img_wrap{
+	width: 35px;
+    height: 35px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
+    float: left;
+}
+
 .card_writer_wrap img{
 	width: 35px;
-    border-radius: 50%;
-    float: left;
-    margin-right: 10px;
 }
 
 /*팔로우 글*/
@@ -158,13 +172,13 @@ button{
     overflow: hidden;
     float: left;
     margin-top: 10px;
-    padding: 0px 12px;
+    padding: 0px 15px;
     margin-bottom: 30px;
 }
 
 .card_main_img_wrap{
 	width: 100%;
-    height: 225px;
+    height: 270px;
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 10px;
@@ -182,6 +196,10 @@ button{
 .side_menu button{
 	flex: 1;
 	color: #5E5E5E;
+}
+
+.side_menu span{
+	font-size: 28px;
 }
 
 

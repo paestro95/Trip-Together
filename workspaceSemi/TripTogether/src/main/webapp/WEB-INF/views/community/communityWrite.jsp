@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <link rel="stylesheet" href="${url}/css/community/communityWrite.css" type="text/css">
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 <script src="${url}/js/community/communityWrite.js"></script>
 <script src="${url}/js/underBar.js"></script>
@@ -238,7 +239,7 @@
 
 <div class="wrap">
 	<div class="communityWrite_wrap">
-		<form method="post" action="${url}/community/communityWriteOk">
+		<form method="post" action="${url}/community/communityWriteOk" onsubmit="return boardCheck()" enctype="multipart/form-data">
 			<div class="write_menu_wrap">
 				<div class="write_select_wrap">
 					<select name="region" id="region">
@@ -253,7 +254,7 @@
 						<option value="제주">제주</option>
 					</select>
 					<select name="theme" id="theme">
-						<option value="분류">분류</option>
+						<option value="">분류</option>
 						<option value="식당">식당</option>
 						<option value="카페">카페</option>
 						<option value="액티비티">액티비티</option>
@@ -266,20 +267,23 @@
 			</div>
 
 			<input type="text" name="title" id="title" placeholder="Title">
+			
 			<ul class="hashtag_list">
-				<li><input type="checkbox" name="tag">#혼자여행</li>
-				<li><input type="checkbox" name="tag">#포토존</li>
-				<li><input type="checkbox" name="tag">#힐링</li>
-				<li><input type="checkbox" name="tag">#가족여행</li>
-				<li><input type="checkbox" name="tag">#데이트</li>
-				<li><input type="checkbox" name="tag">#뷰맛집</li>
-				<li><input type="checkbox" name="tag">#힙한</li>
-				<li><input type="checkbox" name="tag">#애견동반</li>
-				<li><input type="checkbox" name="tag">#이국적</li>
-				<li><input type="checkbox" name="tag">#레트로</li>
-				<li><input type="checkbox" name="tag">#감성</li>
+				<li><input type="checkbox" name="tag" value="혼자여행">#혼자여행</li>
+				<li><input type="checkbox" name="tag" value="포토존">#포토존</li>
+				<li><input type="checkbox" name="tag" value="힐링">#힐링</li>
+				<li><input type="checkbox" name="tag" value="가족여행">#가족여행</li>
+				<li><input type="checkbox" name="tag" value="데이트">#데이트</li>
+				<li><input type="checkbox" name="tag" value="뷰맛집">#뷰맛집</li>
+				<li><input type="checkbox" name="tag" value="힙한">#힙한</li>
+				<li><input type="checkbox" name="tag" value="애견동반">#애견동반</li>
+				<li><input type="checkbox" name="tag" value="이국적">#이국적</li>
+				<li><input type="checkbox" name="tag" value="레트로">#레트로</li>
+				<li><input type="checkbox" name="tag" value="감성">#감성</li>
 			</ul>
-
+			
+			<input type="text" name="tags" id="tags" value="" style="display: none;">
+			
 			<!-- 메인 부분 -->
 			<div class="post_main_block_entire_wrap">
 				<div class="post_main_block_wrap">
@@ -287,20 +291,27 @@
 						<div class="img_upload">
 							<img src="" class="preview"> <span class="upload_phr"><span class="material-icons" style="vertical-align: middle;">file_upload</span>Upload a picture</span>
 						</div>
-						<input type="file" class="imgSelector" name="photo1" style="display: none;">
+						<input type="file" class="imgSelector" name="photo" style="display: none;">
 					</div>
 					<div class="place_content_wrap">
 						<div class="location_wrap">
-							<a href="#ex1" rel="modal:open">
-								<button class="location locationBtn">
-									<span class="material-icons" style="font-size: 14px; vertical-align: middle;">place</span>장소 찾기
-								</button>
-							</a>
-							<input type="text" disabled class=" location location1" value="" name="location1">
-							<input type="text" class="location location2" value="" name="location2">
+							<div class="locationBtn_delBtn_wrap" style="display: flex;">
+								<div style="flex: 1;">
+									<a href="#ex1" rel="modal:open">
+										<button class="location locationBtn">
+											<span class="material-icons" style="font-size: 14px; vertical-align: middle;">place</span>장소 찾기
+										</button>
+									</a>
+								</div>
+								<div class="delBtn" style="text-align: right;">
+									<span class="material-icons del" style="vertical-align: middle; color: gray; cursor: pointer;">delete</span>
+								</div>
+							</div>
+							<input type="text" class=" location location1" value="" name="location" id="location1">
+							<input type="text" class="location location2" value="" name="location_addr" id="location_addr1">
 						</div>
 						<hr>
-						<textarea placeholder="사진에 대해 설명해주세요."></textarea>
+						<textarea name="content" id="content" placeholder="사진에 대해 설명해주세요."></textarea>
 
 					</div>
 				</div>

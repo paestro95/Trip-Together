@@ -153,8 +153,9 @@ function displayPlaces(places) {
     }
 
     // 검색결과 항목들을 검색결과 목록 Element에 추가합니다
-    listEl.appendChild(fragment);
+	listEl.appendChild(fragment);
     menuEl.scrollTop = 0;
+    
 
     // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
     map.setBounds(bounds);
@@ -182,8 +183,11 @@ function getListItem(index, places) {
     
     el.className = 'item';
 	el.addEventListener("click", function() {
+		if ($("#planCreate_list")[0].childNodes.length < 6) {
    		$("#planCreate_list").append( $("<li id='trip_list_item'><span style='font-size:20px;'>" + $(this).find("h5").text()
-   									  +"</span><br/><span style='font-size:16px;'>"+$(this).find("h5").next().text() + "</span></li>"));
+   									  +"</span><br/><span style='font-size:16px;'>"+$(this).find("h5").next().text() + "</span>"
+   									  +"<input type='hidden' name='location' value="+$(this).find("h5").text()+"/></li>"));
+		}
 		$("#planCreate_list *").click(function() {
 			$(this).remove();
 		});

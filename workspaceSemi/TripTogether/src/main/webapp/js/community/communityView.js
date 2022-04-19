@@ -1,50 +1,41 @@
-//팔로우 기능 함수
-$("#followbtn").on('click', function() {
-	follow(true);
-});
-$("#unfollowbtn").on('click', function() {
-	follow(false);
+
+
+/* **************로그인 이벤트 출력************/
+// 로그인 이벤트 출력
+var loginbtn = document.querySelector(".log-in");
+var logindiv = document.querySelector(".logindiv");
+
+
+// 로그인 이벤트 끄기
+var exitlogo = document.querySelector(".exit-logo");
+loginbtn.addEventListener("click", function() {
+	logindiv.style.right = "0px";
+	for (let i = 0; i < opadiv.length; i++) {
+		opadiv[i].style.opacity = "0.5";
+	}
 });
 
-function follow(check) {
-	if (check) {
-		$.ajax({
-			type: "POST",
-			url: "/triptogether/follow/${user.id}",//팔로우, 유저 담을 공간 필요
-			headers: {
-				"Content-Type": "application/json",
-				"X-HTTP-Method-Override": "POST"
-			},
-			success: function(result) {
-				console.log("result : " + result);
-				if (result === "FollowOk") {
-					$(".follow").html("<button class='followbtn' id='unfollowbtn'>언팔로우</button)");
-					location.href = "/triptogether/post/${user.id}"
-				}
-			}
-		});
-	} else {
-		$.ajax({
-			type: "POST",
-			url: "triptogether/unfollow/${user.id}",
-			headers: {
-				"Content-Type": "application/json",
-				"X-HTTP-Method-Override": "POST"
-			},
-			success: function(result) {
-				console.log("result : " + result);
-				if (result === "UnFollowOk") {
-					$(".follow").html("<button class='followbtn' id='followbtn'>팔로우</button>");
-					location.href = "triptogether/post/${user.id}";
-				}
-			}
-		});
+var opadiv = document.querySelectorAll(".opadiv");
+exitlogo.addEventListener("click", function() {
+	logindiv.style.right = "-500px";
+	for (let i = 0; i < opadiv.length; i++) {
+		opadiv[i].style.opacity = "1";
 	}
-}
+});
 
-// 글삭제 기능
-function del() {
-	if (confirm('삭제할까요?')) {
-		location.href = "community/communityDel?no=${vo.no}";
-	}
-}
+$(function() {
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 500) {
+			$('#MOVE_TOP_BTN').fadeIn();
+		} else {
+			$('#MOVE_TOP_BTN').fadeOut();
+		}
+	});
+
+	$("#MOVE_TOP_BTN").click(function() {
+		$('html, body').animate({
+			scrollTop: 0
+		}, 400);
+		return false;
+	});
+});

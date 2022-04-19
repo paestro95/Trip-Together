@@ -1,4 +1,7 @@
 package com.triptogether.vo;
+
+import java.util.List;
+
 //id, info
 
 //following_id, likes, wish
@@ -6,148 +9,227 @@ package com.triptogether.vo;
 //tag
 
 public class CommunityVO {
-	private int no;
-	private String title; // 게시물 제목
-	private String photo; // 게시물 사진
-	private String content; // 게시물 내용
+	private String id;
+	private int board_no;
+	
+	private String region;
+	private String theme;
+	private String title;
+	private String tags;
+	//private String photo;
 
-	private int replyno; // 댓글 번호
-	private String id; // 게시물 작성자
-	private String comment; // 댓글
-	private String writedate; // 댓글 날짜
-
-	private String name; // 아이디 이름
-	private String info; // 유저 소개
-
-	private String userid;// 팔로우
-	private String following_id;// 팔로잉
-	private int likes; // 좋아요
-	private int wish; // 즐겨찾기
-
-	public String getTitle() {
-		return title;
+	private String location1;
+	private String location_addr1;
+	private String content1;
+	private String photo1;
+	
+	private String location2;
+	private String location_addr2;
+	private String content2;
+	private String photo2;
+	
+	private String location3;
+	private String location_addr3;
+	private String content3;
+	private String photo3;
+	
+	private String location4;
+	private String location_addr4;
+	private String content4;
+	private String photo4;
+	
+	
+	private String writedate;
+	private int likes;
+	private int wish;
+	
+	private String info;
+	private int comment;
+	
+	
+	/*220419 오어진 추가*/
+	private String user_img;
+	
+	public String getUser_img() {
+		return user_img;
 	}
-
-	public void setTitle(String title) {
-		this.title = title;
+	public void setUser_img(String user_img) {
+		this.user_img = user_img;
 	}
-
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public int getReplyno() {
-		return replyno;
-	}
-
-	public void setReplyno(int replyno) {
-		this.replyno = replyno;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getComment() {
+	
+	
+	
+	
+	public int getComment() {
 		return comment;
 	}
-
-	public void setComment(String comment) {
+	public void setComment(int comment) {
 		this.comment = comment;
 	}
-
-	public String getWritedate() {
-		return writedate;
-	}
-
-	public void setWritedate(String writedate) {
-		this.writedate = writedate;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getInfo() {
 		return info;
 	}
-
 	public void setInfo(String info) {
 		this.info = info;
 	}
-
-	public String getUserid() {
-		return userid;
+	public int getBoard_no() {
+		return board_no;
 	}
-
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setBoard_no(int board_no) {
+		this.board_no = board_no;
 	}
-
-	public String getFollowing_id() {
-		return following_id;
+	public String getRegion() {
+		return region;
 	}
-
-	public void setFollowing_id(String following_id) {
-		this.following_id = following_id;
+	public void setRegion(String region) {
+		this.region = region;
 	}
-
+	public String getTheme() {
+		return theme;
+	}
+	public void setTheme(String theme) {
+		this.theme = theme;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getTags() {
+		return tags;
+	}
+	public void setTags(String tags) {
+		this.tags = tags;
+	}
+	/*
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}*/
+	public String getLocation1() {
+		return location1;
+	}
+	public void setLocation1(String location1) {
+		this.location1 = location1;
+	}
+	public String getLocation_addr1() {
+		return location_addr1;
+	}
+	public void setLocation_addr1(String location_addr1) {
+		this.location_addr1 = location_addr1;
+	}
+	public String getContent1() {
+		return content1;
+	}
+	public void setContent1(String content1) {
+		this.content1 = content1;
+	}
+	public String getLocation2() {
+		return location2;
+	}
+	public void setLocation2(String location2) {
+		this.location2 = location2;
+	}
+	public String getLocation_addr2() {
+		return location_addr2;
+	}
+	public void setLocation_addr2(String location_addr2) {
+		this.location_addr2 = location_addr2;
+	}
+	public String getContent2() {
+		return content2;
+	}
+	public void setContent2(String content2) {
+		this.content2 = content2;
+	}
+	public String getLocation3() {
+		return location3;
+	}
+	public void setLocation3(String location3) {
+		this.location3 = location3;
+	}
+	public String getLocation_addr3() {
+		return location_addr3;
+	}
+	public void setLocation_addr3(String location_addr3) {
+		this.location_addr3 = location_addr3;
+	}
+	public String getContent3() {
+		return content3;
+	}
+	public void setContent3(String content3) {
+		this.content3 = content3;
+	}	
+	public String getLocation4() {
+		return location4;
+	}
+	public void setLocation4(String location4) {
+		this.location4 = location4;
+	}
+	public String getLocation_addr4() {
+		return location_addr4;
+	}
+	public void setLocation_addr4(String location_addr4) {
+		this.location_addr4 = location_addr4;
+	}
+	public String getContent4() {
+		return content4;
+	}
+	public void setContent4(String content4) {
+		this.content4 = content4;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getWritedate() {
+		return writedate;
+	}
+	public void setWritedate(String writedate) {
+		this.writedate = writedate;
+	}
 	public int getLikes() {
 		return likes;
 	}
-
 	public void setLikes(int likes) {
 		this.likes = likes;
 	}
-
 	public int getWish() {
 		return wish;
 	}
-
 	public void setWish(int wish) {
 		this.wish = wish;
 	}
-
-	public int getNo() {
-		return no;
+	
+	public String getPhoto1() {
+		return photo1;
+	}
+	public void setPhoto1(String photo1) {
+		this.photo1 = photo1;
+	}
+	public String getPhoto2() {
+		return photo2;
+	}
+	public void setPhoto2(String photo2) {
+		this.photo2 = photo2;
+	}
+	public String getPhoto3() {
+		return photo3;
+	}
+	public void setPhoto3(String photo3) {
+		this.photo3 = photo3;
+	}
+	public String getPhoto4() {
+		return photo4;
+	}
+	public void setPhoto4(String photo4) {
+		this.photo4 = photo4;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
-	}
-
-	/*
-	 * private String id;//타유저 아이디 보이게 private String info; private String
-	 * following_id; private int likes; private int wish; private String tag;
-	 * 
-	 * public String getId() { return id; } public void setId(String id) { this.id =
-	 * id; } public String getInfo() { return info; } public void setInfo(String
-	 * info) { this.info = info; } public String getFollowing_id() { return
-	 * following_id; } public void setFollowing_id(String following_id) {
-	 * this.following_id = following_id; } public int getLikes() { return likes; }
-	 * public void setLikes(int likes) { this.likes = likes; } public int getWish()
-	 * { return wish; } public void setWish(int wish) { this.wish = wish; } public
-	 * String getTag() { return tag; } public void setTag(String tag) { this.tag =
-	 * tag; }
-	 */
+	
 }

@@ -1,1 +1,25 @@
-@charset "EUC-KR";
+@charset "UTF-8";
+
+#myPlace_imgList {
+	width: 60%;
+	margin: 5%;
+	float: left;
+}
+
+
+#myPlace_imgList ul, #myPlace_imgList li {
+	margin:0px;
+	padding: 0px;
+	list-style-type: none;	
+}
+
+#myPlace_imgList li {
+	float: left;
+}
+
+#myPlace_imgList img {
+	width: 200px;
+	height: 200px;
+	margin: 5px;
+	border-radius: 10px;
+}

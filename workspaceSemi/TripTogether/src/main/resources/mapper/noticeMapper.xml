@@ -2,20 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.triptogether.dao.NoticeDAO">
-    <select id="allSelect" resultType="com.triptogether.vo.NoticeVO"><!-- 공지사항 나열 쿼리문 -->
-        select no, title, id, date_format(writedate, '%Y.%m.%d') writedate from board  where u_type=2 order by no desc        
+    <select id="allSelect" resultType="NoticeVO"><!-- 공지사항 나열 쿼리문 -->
+        select notice_no, title, id, date_format(writedate, '%Y.%m.%d') writedate from notice
+        <if test='searchWord != null'>
+			where ${searchKey} like '%${searchWord}%'
+		</if>
+		order by notice_no desc 
+		limit ${onePageRecord} offset ${offsetIndex}	       
     </select>
     <insert id="noticeInsert">
-        insert into board(id, title, content)
+        insert into notice(id, title, content)
         values(#{id}, #{title}, #{content})
     </insert>
-    <select id="noticeSelect" resultType="com.triptogether.vo.NoticeVO">
-        select no, title, id, date_format(writedate, '%Y.%m.%d') writedate, content from board where no=${param1}
+    <select id="noticeSelect" resultType="NoticeVO">
+        select notice_no, title, id, date_format(writedate, '%Y.%m.%d') writedate, content from notice where notice_no=${param1}
     </select>
     <update id="noticeUpdate">
-        update board set title=#{title}, content=#{content} where no=#{no} and id=#{id}
+        update notice set title=#{title}, content=#{content} where notice_no=#{notice_no} and id=#{id}
     </update>
     <delete id="noticeDelete">
-        delete from board where no=#{param1} and id=#{param2}
+        delete from notice where notice_no=#{param1} and id=#{param2}
     </delete>
+    <select id = "totalRecord" resultType="int">
+        select count(notice_no) cnt from notice
+        <if test='searchWord!=null'>
+            where ${searchKey} like '%${searchWord}%'
+        </if>
+    </select>
+    <select id="latestNoticeSelect" resultType="NoticeVO">
+        select notice_no, title, id, date_format(writedate, '%Y.%m.%d') writedate, content from notice
+        where notice_no =(select max(notice_no) from notice)
+    </select>
 </mapper>

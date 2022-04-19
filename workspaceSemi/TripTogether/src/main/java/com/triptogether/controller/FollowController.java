@@ -1,10 +1,10 @@
 package com.triptogether.controller;
 
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
 
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.LoggerFactory;
+//import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,10 +25,10 @@ public class FollowController {
 	@Autowired
 	private UserService userService;
 	
-	//ÆÈ·Î¿ì 
+	//횈횊쨌횓쩔챙 
 	@PostMapping("/follow/{id}")
 	public String follow(@PathVariable String id, HttpSession session, Model model) throws Exception{
-		//LOGGER.info("/follow"+id+"´ÔÀÇ ÆÈ·Î¿ì ¿äÃ»");
+		//LOGGER.info("/follow"+id+"쨈횚�횉 횈횊쨌횓쩔챙 쩔채횄쨩");
 		
 		Object object = session.getAttribute("login");
 		UserVO followingUser = (UserVO)object;
@@ -43,10 +43,10 @@ public class FollowController {
 		return "FollowOk";
 	}
 	
-	//¾ðÆÈ·Î¿ì
+	//쩐챨횈횊쨌횓쩔챙
 	@PostMapping("/unfollow/{id}")
 	public String unfollow(@PathVariable String id, HttpSession session, Model model) throws Exception{
-		//LOGGER.info("/unfollow/"+id+"´ÔÀÇ ¾ðÆÈ·Î¿ì ¿äÃ»");
+		//LOGGER.info("/unfollow/"+id+"쨈횚�횉 쩐챨횈횊쨌횓쩔챙 쩔채횄쨩");
 		
 		Object object = session.getAttribute("login");
 		UserVO followingUser = (UserVO)object;

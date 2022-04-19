@@ -1,217 +1,218 @@
 @charset "UTF-8";
 
 /* 스타일 기본설정 (신수진 */
-body, ul, li{
+body, ul, li {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 }
 
-.wrap a{
+
+.wrap a {
 	text-decoration: #000;
 	color: black;
 }
 
 /**************************************/
-.top{
+.top {
 	height: 80px;
 	border-bottom: 1px solid #D5D5D5;
 }
 /**************************************/
-.communityWrite_wrap{
-	width: 900px;
+.communityUpdate_wrap {
+	width: 1000px;
 	margin: 0 auto;
 	margin-top: 70px;
+	margin-bottom: 150px;
 }
 
 /* 메뉴 카테고리 영역 (신수진) */
-.write_menu_wrap{
+.write_menu_wrap {
 	display: flex;
 	margin-bottom: 10px;
 }
 
-.write_select_wrap{
+.write_select_wrap {
 	flex: 1;
 }
 
-.write_submit_wrap{
+.write_submit_wrap {
 	flex: 1;
-    text-align: right;
+	text-align: right;
 }
 
-.write_select_wrap #region,
-.write_select_wrap #theme{
+.write_select_wrap #region, .write_select_wrap #theme {
 	width: 80px;
-    padding: 5px;
-    border: 1px solid #CFCFCF;
-    border-radius: 5px;
-    color: gray;
+	padding: 5px;
+	border: 1px solid #CFCFCF;
+	border-radius: 5px;
+	color: gray;
+	height: 30px;
+	background-color: #fff;
 }
 
-.write_select_wrap #theme{
+.write_select_wrap #theme {
 	width: 120px;
 }
 
-.write_submit_wrap input{
-	padding: 7px 11px;
-    border: none;
-    border-radius: 30px;
-    background-color: #929292;
-    color: white;
-    cursor: pointer;
+.write_submit_wrap input {
+	padding: 8px 15px;
+	border: none;
+	border-radius: 30px;
+	background-color: #929292;
+	color: white;
+	cursor: pointer;
 }
 
-#title{
+#title {
 	width: 98%;
-    height: 30px;
-    border: 1px solid #cfcfcf;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+	height: 30px;
+	border: 1px solid #cfcfcf;
+	border-radius: 5px;
+	padding: 10px;
+	margin-bottom: 10px;
 }
 
-.hashtag_list{
+.hashtag_list {
 	overflow: auto;
-    margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 
-.hashtag_list li{
+.hashtag_list li {
 	float: left;
 	background-color: #E2E2E2;
-    padding: 8px;
-    border-radius: 10px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    color: gray;
-    font-size: 14px;
-    cursor: pointer;
+	padding: 8px;
+	border-radius: 10px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	color: gray;
+	font-size: 14px;
+	cursor: pointer;
 }
 
-.hashtag_list input{
+.hashtag_list input {
 	display: none;
 }
 
 /*****************************/
-.post_main_block_wrap{
+
+
+.post_main_block_wrap {
 	display: flex;
 	margin-bottom: 30px;
 }
 
-.img_upload_wrap{
-	width: 40%;
+.img_upload_wrap {
+	width: 50%;
 }
 
-.img_upload{
+.img_upload {
 	border: 1px dashed #cfcfcf;
-    height: 351px;
-    border-radius: 10px;
-    line-height: 350px;
-    text-align: center;
-    background-color: #EEEEEE;
-    overflow: hidden;
-    margin-bottom: 5px;
-    cursor: pointer;
+	border-radius: 10px;
+	line-height: 330px;
+	text-align: center;
+	background-color: #EEEEEE;
+	overflow: hidden;
+	margin-bottom: 5px;
+	cursor: pointer;
 }
 
-.img_upload img{
-	width: 370px;
+.img_upload img {
+	width: 500px;
 	vertical-align: middle;
 }
 
-.upload_phr{
+.upload_phr {
 	color: gray;
 }
 
-.place_content_wrap{
+.place_content_wrap {
 	flex: 1;
 	margin-left: 30px;
 }
 
-.place_content_wrap textarea{
+.place_content_wrap textarea {
 	width: 96%;
-    border: 1px solid #cfcfcf;
-    height: 230px;
-    border-radius: 5px;
-    padding: 10px;
-    resize: none;
+	border: 1px solid #cfcfcf;
+	height: 200px;
+	border-radius: 5px;
+	padding: 10px;
+	resize: none;
 }
 
-.location1,
-.location2{
+.location1, .location2 {
 	width: 97.2%;
 	padding-left: 10px;
 }
 
-.location1{
+.location1 {
 	margin-bottom: 5px;
 }
 
-.location{
+.location {
 	border: 1px solid #CFCFCF;
 	color: gray;
 	border-radius: 5px;
-	height: 20px;
-	
+	height: 25px;
 }
 
-.location_wrap button{
+.location_wrap button {
 	background-color: #fff;
 	margin-bottom: 5px;
 	cursor: pointer;
 	height: 25px;
 }
 
-#addBtn{
+#addBtn {
 	width: 100%;
-    background-color: #8FAADC;
-    height: 50px;
-    border: 1px solid #cfcfcf;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    letter-spacing: 5px;
-    cursor: pointer;
+	background-color: #8FAADC;
+	height: 60px;
+	border: 1px solid #cfcfcf;
+	border-radius: 5px;
+	color: white;
+	font-size: 16px;
+	letter-spacing: 5px;
+	cursor: pointer;
 }
 
-#map{
+#map {
 	display: none;
 }
 
-ul, li{
+ul, li {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
 }
 
-#keyword{
+#keyword {
 	width: 50%;
 	height: 30px;
 	border: none;
 }
 
-.search_box button{
+.search_box button {
 	border: none;
 	background-color: #fff;
 	vertical-align: middle;
 }
 
-.info{
+.info {
 	border-bottom: 1px solid gray;
 	padding: 10px;
 }
 
-.info h5{
-    margin: 0;
-    margin-bottom: 10px;
-    cursor: pointer;
+.info h5 {
+	margin: 0;
+	margin-bottom: 10px;
+	cursor: pointer;
 }
 
-.info span{
+.info span {
 	font-size: 13px;
 }
 
-
-/* ******************top.css (김진영)*************************/
+/* ****************top.css 김진영***************************/
 @font-face {
 	font-family: 'GangwonEdu_OTFBoldA';
 	src:

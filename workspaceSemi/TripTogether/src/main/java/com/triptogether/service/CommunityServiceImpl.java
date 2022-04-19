@@ -13,23 +13,24 @@ import com.triptogether.vo.CommunityVO;
 public class CommunityServiceImpl implements CommunityService {
 	@Inject CommunityDAO dao;
 	@Override
-	public List<CommunityVO> allSelect() {
-		return dao.allSelect();
+	public List<CommunityVO> communityList() {
+		return dao.communityList();
 	}
 
 	@Override
 	public CommunityVO communitySelect(int no) {
+		// TODO Auto-generated method stub
 		return dao.communitySelect(no);
 	}
 
 	@Override
-	public int communityInsert(CommunityVO vo) {
-		return dao.communityInsert(vo);
+	public int communityInsert(CommunityVO vo, String[] filePath) {
+		return dao.communityInsert(vo, filePath);
 	}
 
 	@Override
-	public int communityUpdate(CommunityVO vo) {
-		return dao.communityUpdate(vo);
+	public int communityUpdate(CommunityVO vo, String[] filePath) {
+		return dao.communityUpdate(vo, filePath);
 	}
 
 	@Override
@@ -44,4 +45,25 @@ public class CommunityServiceImpl implements CommunityService {
 	 * @Override public CommunityVO communitySelect(int id) { return
 	 * dao.communitySelect(id); }
 	 */
+
+	@Override
+	public List<CommunityVO> hotPostSelect(String id) {
+		// TODO Auto-generated method stub
+		return dao.hotPostSelect(id);
+	}
+
+	@Override
+	public List<CommunityVO> userPostAllSelect(String id) {
+		// TODO Auto-generated method stub
+		return dao.userPostAllSelect(id);
+	}
+
+	@Override
+	public List<CommunityVO> firstPhotoSelect(String id) {
+		return dao.firstPhotoSelect(id);
+	}
+
+
+
+
 }

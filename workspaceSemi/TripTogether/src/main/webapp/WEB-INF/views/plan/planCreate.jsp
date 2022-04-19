@@ -22,8 +22,14 @@
   
 <script>
 	$( function() {
-		$( "#datepicker1" ).datepicker();
-		$( "#datepicker2" ).datepicker();
+		$( "#datepicker1" ).datepicker({
+			closeText: '닫기',
+			dateFormat: "yy-mm-dd"
+		});
+		$( "#datepicker2" ).datepicker({
+			closeText: '닫기',
+			dateFormat: "yy-mm-dd"
+		});
 	} );
 </script>
 </head>
@@ -34,16 +40,16 @@
 <div class="container">
 
 	<!-- 좌측 planer -->
-	<form>
+	<form method="post" action="/plan/planCreateOk">
 		<div id="planCreate_nav" class="planCreate_item">
 			<h2>${loc}</h2>
 			
-			<input type="text" id="datepicker1" placeholder="출발일" style="text-align:center"/><br/>
+			<input type="text" id="datepicker1" placeholder="출발일" style="text-align:center" name="start_date"/><br/>
 			~<br/>
-			<input type="text" id="datepicker2" placeholder="도착일" style="text-align:center"/><br/>
+			<input type="text" id="datepicker2" placeholder="도착일" style="text-align:center" name="end_date"/><br/>
 			<div id="planCreate_trip_title">여행 일정 리스트</div>
 			<div id="planCreate_trip_list">
-				<ul id=planCreate_list>
+				<ul id="planCreate_list">
 					
 				</ul>
 			</div>

@@ -1,1 +1,192 @@
-@charset "EUC-KR";
+@charset "UTF-8";
+
+#myWishList_imgList {
+	width: 60%;
+	margin: 5%;
+	float: left;
+}
+
+
+/* 스타일 기본설정 (신수진) */
+/*body, ul, li{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}*/
+
+.wrap a{
+	text-decoration: #000;
+	color: black;
+}
+/**************************************/
+
+button{
+	background-color: #fff;
+	border: none;
+}
+
+.communityList_wrap{
+	margin: 0 auto;
+    width: 1000px;
+    margin-bottom: 100px;
+}
+
+
+/* 제목 */
+.communityList_wrap h1{
+	text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+/* 공지사항 */
+.notice_wrap div{
+	float: left;
+}
+
+/* 카테고리 *************************************/
+.sort_wrap{
+	overflow: auto;
+	margin: 20px 5px;
+	color: gray;
+}
+
+.sort_wrap ul{
+	overflow: auto;
+	height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 15px;
+    border-bottom: 1px solid gainsboro;
+    border-right: 1px solid gainsboro;
+}
+
+.sort_wrap ul:first-child{
+	border-top: 1px solid gainsboro;
+}
+
+.sort_wrap ul li{
+	float: left;
+	width: 8.3%;
+}
+
+.sort_wrap .category_list li:first-child{
+	background-color: gainsboro;
+}
+
+.sort_wrap a{
+	color: gray;
+}
+
+.select_cate_wrap{
+	margin-top: 5px;
+	overflow: wrap;
+}
+
+.select_cate_wrap div,
+.select_cate_wrap span{
+	font-size: 13px;
+	background-color: #F3F3F3;	
+}
+
+.select_cate_wrap div{
+	float: left;
+	padding: 5px;
+	margin-right: 5px;
+}
+
+
+
+/**********************************************/
+
+/* 피드 */
+.container_card_wrap{
+	overflow: auto;
+}
+
+.hot_new_writeBtn_wrap{
+	display: flex;
+	 height: 30px;
+	 margin-bottom: 20px;
+}
+
+.hot_new_wrap{
+	flex: 1;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+.writeBtn_wrap{
+	flex: 1;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.writeBtn_wrap input{
+	padding: 7px 11px;
+    border: none;
+    border-radius: 30px;
+    background-color: #929292;
+    color: white;
+    cursor: pointer;
+}
+
+/* 리스트 글쓴이 */
+.card_writer_wrap{
+	overflow: auto;
+    padding-bottom: 10px;
+}
+
+.card_writer_wrap img{
+	width: 35px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 10px;
+}
+
+/*팔로우 글*/
+.card_writer_wrap button{
+	font-size: 16px;
+	color: #59C3F0;
+	cursor: pointer;
+}
+
+.card_writer_wrap p{
+	margin: 0;
+    padding-left: 45px;
+    font-size: 13px;
+    color: gray;
+    width: 180px;
+}
+
+.card_wrap{
+	width: 22.5%;
+    overflow: hidden;
+    float: left;
+    margin-top: 10px;
+    padding: 0px 12px;
+    margin-bottom: 30px;
+}
+
+.card_main_img_wrap{
+	width: 100%;
+    height: 170px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.card_main_img_wrap img{
+	width: 100%;
+}
+
+.side_menu{
+	display: flex;
+    margin: 10px 5px;
+}
+
+.side_menu button{
+	flex: 1;
+	color: #5E5E5E;
+}
