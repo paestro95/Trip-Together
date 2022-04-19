@@ -167,7 +167,7 @@ function getListItem(index, places) {
     var el = document.createElement('li'),
     itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
                 '<div class="info">' +
-                '   <h5>' + places.place_name + '</h5>';
+                '   <h5 style="font-size: 1.3em; margin: 0;">' + places.place_name + '</h5>';
 
     if (places.road_address_name) {
         itemStr += '    <span class="planCreate_addr">' + places.road_address_name + '</span>' +
@@ -175,23 +175,23 @@ function getListItem(index, places) {
     } else {
         itemStr += '    <span>' +  places.address_name  + '</span>'; 
     }
-                 
+
       itemStr += '  <span class="tel">' + places.phone  + '</span>' +
-                '</div>';           
+                '</div>';
 
     el.innerHTML = itemStr;
-    
+
     el.className = 'item';
-	el.addEventListener("click", function() {
+    el.addEventListener("click", function() {
 		if ($("#planCreate_list")[0].childNodes.length < 6) {
-   		$("#planCreate_list").append( $("<li id='trip_list_item'><span style='font-size:20px;'>" + $(this).find("h5").text()
-   									  +"</span><br/><span style='font-size:16px;'>"+$(this).find("h5").next().text() + "</span>"
-   									  +"<input type='hidden' name='location' value="+$(this).find("h5").text()+"/></li>"));
-		}
-		$("#planCreate_list *").click(function() {
-			$(this).remove();
-		});
-	});
+        	$("#planCreate_list").append( $("<li id='trip_list_item' style='cursor: pointer;'><span style='font-size:18px;'>" + $(this).find("h5").text()
+                                         +"</span><br/><span style='font-size:13px;'>"+$(this).find("h5").next().text() + "</span>"
+                                         +"<input type='hidden' name='location' value="+$(this).find("h5").text()+"/></li>"));
+        }
+        $("#planCreate_list *").click(function() {
+            $(this).remove();
+        });
+    });
     return el;
 }
 

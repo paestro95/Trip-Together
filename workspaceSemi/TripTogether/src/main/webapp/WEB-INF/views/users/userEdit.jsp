@@ -12,13 +12,14 @@
 
 <div class="wrap">
 	<div class="userEdit_wrap">
+	<h2 style="text-align: center; margin: 50px 0px 40px; font-size: 35px;">회원정보 수정</h2>
 		<div>
 			<form method="post" id="mFrm" action="/users/userEditOk" onsubmit='return editCheck()' enctype="multipart/form-data">
 				<div id="join_img_wrap">
 					<!-- img src 변경 필요 = DB에 이미지경로 값 추가 -> 해당 값으로 대체 -->
-					<span id="img_upload_phr">Click here!</span> <img src="" id="join_img" />
+					<span id="img_upload_phr" style='display: none'>Click here!</span> <img src="${logImg }" id="join_img" />
 				</div>
-				<input type="file" name="profileImg" id="profileImg" style="display: none;" />
+				<input type="file" name="profileImg" id="profileImg" style="display: none;" value="${logImg}" />
 
 				<fieldset>
 					<legend>계정 정보</legend>

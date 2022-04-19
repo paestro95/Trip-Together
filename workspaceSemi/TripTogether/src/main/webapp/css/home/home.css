@@ -251,7 +251,7 @@ a:link, a:hover, a:visited, a:active {
 	height: 3rem;
 	width: 100%;
 	padding: 0 1rem;
-	border: 1px solid #eae8e4;
+	border: 1px solid #CECECE;
 	color: black;
 	font-size: 1rem;
 	font-weight: 500;
@@ -294,7 +294,7 @@ a:link, a:hover, a:visited, a:active {
 	width: 100%;
 	height: 3rem;
 	padding: 0 1rem;
-	border: 1px solid #eae8e4;
+	border: 1px solid #CECECE;
 	color: #19110b;
 	font-size: 1rem;
 	font-weight: 500;
@@ -345,4 +345,43 @@ a#MOVE_TOP_BTN {
 	bottom: 50px;
 	display: none;
 	z-index: 999;
+}
+
+#intro_img2{
+	width: 900px;
+	margin-top: 50px;
+    margin-right: 50px;
+}
+
+#intro_img3{
+    width: 700px;
+    height: 450px;
+    margin-top: 90px;
+    margin-left: 130px;
+}
+
+.intro_img_wrap{
+	flex: 1;
+}
+
+.intro_phar_wrap{
+	flex: 1;
+}
+
+.intro_phar_wrap div{
+	text-align: center;
+    font-size: 1.5em;
+    margin-top: 260px;
+    color: gray;
+    line-height: 35px;
+}
+
+.intro_phar_wrap button{
+	border: 1.5px solid gray;
+    padding: 10px 15px;
+    font-size: 18px;
+    margin-top: 10px;
+    background-color: #fff;
+    color: gray;
+    cursor: pointer;
 }

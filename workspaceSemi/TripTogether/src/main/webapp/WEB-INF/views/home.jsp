@@ -145,8 +145,8 @@
 								<h4 id="login">LOGIN</h4>
 							</a>
 						</c:if> <c:if test="${logStatus == 'Y'}">
-							<a href="/mypage/myPlan">
-								<img src="${logImg }" id="home_profile_img" >
+							<a href="${url}/mypage/myPlan">
+								<img src="${logImg}" id="home_profile_img" >
 							</a>
 						</c:if>
 					</span>
@@ -163,23 +163,57 @@
 		</div>
 	</header>
 
-	<div style="background: black; z-index: -1; position: relative;">
+	<!-- <div style="background: black; z-index: -1; position: relative;"> -->
 		<div class="opadiv" style="width: 100%; height: 1050px;">
 			<video class="video" autoplay muted loop>
 				<source src="${url}/videos/trip.mp4" type="video/mp4" />
-				<div style="background-color: red; position: absolute; width: 100px; height: 100px;">test</div>
 			</video>
 		</div>
-		<div class="opadiv" style="width: 100%; height: 500px; background-color: white;">
-			<img src="/Images/home_introduce.PNG" style="width:100%;">
-		</div>
-		<div class="opadiv" style="width: 100%; height: 300px; background-color: lightgray;"></div>
 		
-	</div>
+		<div class="opadiv" style="width: 100%; height: 650px; background-color: white; display: flex;">
+			<div class="intro_img_wrap"><a href="${url}/plan/planSearch"><img src="${url}/Images/intro_map.png" id="intro_img3"></a></div>
+			<div class="intro_phar_wrap">
+				<div>
+					나만의 여행계획을 세워보세요<br>
+					Make your own travel plan<br>
+					<button onclick="location.href='${url}/plan/planSearch'">+More</button>
+				</div>
+			</div>
+		</div>
+		
+		<div class="opadiv" style="width: 100%; height: 650px; background-color: lightgray; display: flex;">
+			<div class="intro_phar_wrap">
+				<div>
+					트투 친구들과 여행을 공유해보세요<br>
+					Share your travel plan <br>
+					with Trip Together friends<br>
+					<button style="background-color: lightgray" onclick="location.href='${url}/community/communityList'">+More</button>
+				</div>
+			</div>
+			<div class="intro_img_wrap">
+				<a href="${url}/community/communityList"><img src="${url}/Images/intro_img2.png" id="intro_img2"></a>
+			</div>
+		</div>
+		
+		<div class="opadiv" style="width: 100%; height: 650px; background-color: white; display: flex;">
+			<div class="intro_img_wrap"><img src="${url}/Images/intro_img4.png" id="intro_img3" style="width: 600px; margin-top: 110px; height: 400px;"></div>
+			<div class="intro_phar_wrap">
+				<div style="font-size: 1.4em; margin-top: 220px; line-height: 45px;">
+					주변에서 특별함을 찾는데 도움을 드립니다<br>
+					소개하고 싶은 데이트 코스를 소개해보세요<br>
+					가고싶은 곳에 대한 궁금증을 해소해 드립니다<br>
+					MBTI가 P이신가요? <a href="${url}/users/joinForm" style="color: gray;"><span style="font-weight: bold">회원가입</span></a> 하세요
+				</div>
+			</div>
+		</div>
+		
+	<!-- </div>  -->
 
 	<a id="MOVE_TOP_BTN" href="#">
 		<img src="${url}/Images/back-to-top.png" style="width: 30px;">
 	</a>
+	
+	
 </body>
 
 <script src="${url}/js/login.js"></script>

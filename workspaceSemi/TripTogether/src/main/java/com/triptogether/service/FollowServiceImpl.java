@@ -12,36 +12,31 @@ import com.triptogether.vo.FollowVO;
 @Service
 public class FollowServiceImpl implements FollowService{
 	@Inject FollowDAO dao;
-	private FollowDAO followDAO;
-
+	
 	@Override
 	public void follow(FollowVO follow) {
-		followDAO.follow(follow);
+		dao.follow(follow);
 	}
-
 	@Override
 	public void unfollow(FollowVO follow) {
-		followDAO.unfollow(follow);
+		dao.unfollow(follow);	
 	}
-
 	@Override
-	public int oxFollow(FollowVO follow) {
+	public int oxFollow(FollowVO follow) {	
 		return dao.oxFollow(follow);
 	}
-
 	@Override
-	public List<FollowVO> selectFollowingList(int followingUser) {
-		return dao.selectFollowingList(followingUser);
+	public List<FollowVO> selectFollowingList(String follow_id) {	
+		return dao.selectFollowingList(follow_id);
+	}
+	@Override
+	public List<FollowVO> selectFollowerList(String follow_id) {
+		return dao.selectFollowerList(follow_id);
+	}
+	@Override
+	public void deleteUserAllFollow(String follow_id) {
+		
 	}
 
-	@Override
-	public List<FollowVO> selectFollowerList(int followerUser) {
-		return dao.selectFollowerList(followerUser);
-	}
-
-	@Override
-	public void deleteUserAllFollow(int followingUser) {	
-		return;
-	}
-
+	
 }

@@ -31,6 +31,8 @@ button{
     margin: 0;
     padding: 0;
     font-size: 35px;
+    margin-top: 50px;
+    margin-bottom: 60px;
 }
 
 #underline_img{
@@ -51,7 +53,7 @@ button{
 /* 카테고리 *************************************/
 .sort_wrap{
 	overflow: auto;
-	margin: 20px 5px 30px;
+	margin: 5px 5px 30px;
 	color: gray;
 }
 
@@ -200,6 +202,12 @@ button{
 
 .side_menu span{
 	font-size: 28px;
+}
+
+.content_prev{
+	height: 60px; 
+	padding: 0px 5px; 
+	color: #5E5E5E;
 }
 
 

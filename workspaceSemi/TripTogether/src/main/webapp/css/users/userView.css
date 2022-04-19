@@ -25,6 +25,7 @@ body, ul, li {
 	width: 200px;
 	height: 200px;
 	margin-left: 20px;
+	border: 1px solid gray;
 }
 
 .user_profile_img img {

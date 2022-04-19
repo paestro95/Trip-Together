@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="${url}/css/users/joinForm.css" type="text/css">
 <link rel="stylesheet" href="${url}/css/main/main.css" type="text/css" />
-<link rel="stylesheet" href="${url}css/bottom.css" type="text/css" />
+<link rel="stylesheet" href="${url}/css/bottom.css" type="text/css" />
 <script src="${url}/js/users/joinForm.js"></script>
 
 
@@ -13,11 +13,12 @@
 <div class="wrap">
 
 	<div class="joinForm_wrap">
+		<h2 style="text-align: center; margin: 50px 0px 40px; font-size: 35px;">회원가입</h2>
 		<form method="post" action="/users/joinOk" onsubmit='return memberCheck()' enctype="multipart/form-data">
 			<div id="join_img_wrap">
-				<span id="img_upload_phr">Click here!</span> <img src=""	id="join_img" />
+				<span id="img_upload_phr">Click here!</span> <img src="/Images/profile_icon.jpg" id="join_img" />
 			</div>
-			<input type="file" name="profileImg" id="profileImg" style="display: none;" />
+			<input type="file" src="/Images/intro_mp" name="profileImg" id="profileImg" style="display: none;" />
 
 			<fieldset>
 				<legend> 로그인 정보 </legend>

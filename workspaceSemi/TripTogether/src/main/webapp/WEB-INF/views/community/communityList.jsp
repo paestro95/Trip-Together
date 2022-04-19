@@ -12,7 +12,6 @@
 <div class="wrap">
 	<div class="communityList_wrap">
 		<h1>여기 같이 가볼까?</h1>
-		<div id="underline_img"><img src="${url}/Images/h_underline.png"></div>
 
 		<div class="notice_wrap">
 			<a href="${url}/notice/noticeList">

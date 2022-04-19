@@ -9,7 +9,6 @@
 <div class="opadiv" style="background-color: #EBEBEB; width: 100%; height: 100px"></div>
 <div class="noticeList_wrap">
 	<h1>공지사항</h1>
-	<div id="underline_img"><img src="${url}/Images/h_underline2.png"></div>
 	<h2>Trip Together의 다양한 소식을 확인하세요!</h2>
 	<ul id="nList"> <!-- 공지사항 리스트 아이디 nList -->
 		<li>번호</li>

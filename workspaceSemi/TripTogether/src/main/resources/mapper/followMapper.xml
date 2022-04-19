@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.triptogether.dao.FollowDAO">    
+    <!-- 팔로우 기능 -->
+    <insert id="follow" >
+    	insert into follow(id, follow_id) values(#{id}, #{follow_id})
+    </insert>
+    
+    <!-- 언팔 기능 -->
+    <delete id="unfollow">
+    	delete from follow where follow_id=#{follow_id} and id=#{id}
+    </delete>
+    
+    <!-- 팔로우 유무 조회 기능 -->
+    <select id="oxFollow" resultType="int">
+    	select count(*) from follow where follow_id=#{follow_id} and id=#{id}
+    </select>
+    
+    <!-- 팔로우 리스트 불러오기 -->
+    <select id="selectFollowingList">
+    	select follow_id
+    	where id=#{id}
+    	order by regDate desc
+    </select>
+
+     <!-- 팔로워 리스트 불러오기 -->
+    <select id="selectFollowerList">
+    	select id
+    	where follow_id=#{follow_id}
+    	order by regDate desc;
+    </select>
+   
+    
+    <!-- 탈퇴시 팔로우 없애기 -->
+    <delete id="deleteUserAllFollow">
+    	delete from follow where follow_id=#{follow_id}
+    </delete>
+</mapper>

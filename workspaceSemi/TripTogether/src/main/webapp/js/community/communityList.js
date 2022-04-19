@@ -32,8 +32,19 @@
 	// 이미지 hover시 확대
 	$(".card_img").hover(function(){
 		$(this).css("transform", "scale(1.1)").css("transition", "transform .5s");	
+		$(this).closest(".card_main_img_wrap").next().next().css("opacity", "50%");
 	}, function(){
-		$(this).css("transform", "scale(1)").css("transition", "transform .5s");
+		$(this).css("transform", "scale(1)");
+		$(this).closest(".card_main_img_wrap").next().next().css("opacity", "initial");
+	});
+	
+	// 글 hover 시 색바꿈
+	$(".content_prev a").hover(function(){
+		$(this).css("opacity", "50%");
+		$(this).parent().prev().prev().children().children().css("transform", "scale(1.1)").css("transition", "transform .5s");	
+	}, function(){
+		$(this).css("opacity", "initial");
+		$(this).parent().prev().prev().children().children().css("transform", "scale(1)");
 	});
 
 	// 좋아요 버튼 클릭 시 색바꾸기
@@ -78,20 +89,38 @@
 		
 		$(".card_wrap").css("display", "none");
 		
-		if(tCate.length == 0){
+		if(tCate.length == 0 && hCate.length == 0){
 			for(var i=0; i<rCate.length; i++){
 			$("." + rCate[i]).css("display", "block");
 			}
 		}
 		
-		if(tCate.length > 0){
+		
+		if(rCate.length > 0 && tCate.length > 0){
+			for(var i=0; i<rCate.length; i++){
+				for(var j=0; j<tCate.length; j++){
+					for(var z=0; z<hCate.length; z++)
+					$("." + rCate[i]+"."+tCate[j]+"."+hCate[j]).css("display", "block");
+				}	
+			}
+		}
+		
+			
+		if(tCate.length > 0 && hCate.length == 0){
 			for(var i=0; i<rCate.length; i++){
 				for(var j=0; j<tCate.length; j++){
 					$("." + rCate[i]+"."+tCate[j]).css("display", "block");
 				}	
 			}
+		}	
+			
+		if(tCate.length == 0 && hCate.length > 0){
+			for(var i=0; i<rCate.length; i++){
+				for(var j=0; j<hCate.length; j++){
+					$("." + rCate[i]+"."+hCate[j]).css("display", "block");
+				}	
+			}
 		}
-
 	});
 	
 	/* 분류 카테고리 선택 */
@@ -102,20 +131,40 @@
 		
 		$(".card_wrap").css("display", "none");
 		
-		if(rCate.length == 0){
+		if(rCate.length == 0 && hCate.length == 0){
 			for(var i=0; i<tCate.length; i++){
 				$("."+tCate[i]).css("display", "block");
 			}
 		}
 		
-		if(rCate.length > 0){
+		
+		if(rCate.length > 0 && hCate.length > 0){
+			for(var i=0; i<rCate.length; i++){
+				for(var j=0; j<tCate.length; j++){
+					for(var z=0; z<hCate.length; z++)
+					$("." + rCate[i]+"."+tCate[j]+"."+hCate[j]).css("display", "block");
+				}	
+			}
+		}
+		
+			
+		if(rCate.length > 0 && hCate.length == 0){
 			for(var i=0; i<rCate.length; i++){
 				for(var j=0; j<tCate.length; j++){
 					$("." + rCate[i]+"."+tCate[j]).css("display", "block");
 				}	
 			}
 		}
-	})
+		
+		if(rCate.length == 0 && hCate.length > 0){
+			for(var i=0; i<tCate.length; i++){
+				for(var j=0; j<hCate.length; j++){
+					$("." + tCate[i]+"."+hCate[j]).css("display", "block");
+				}	
+			}
+		}		
+			
+	});
 	
 	/* 해시태그 카테고리 선택 */
 	$(".hashtag li").click(function(){
@@ -125,13 +174,22 @@
 		
 		$(".card_wrap").css("display", "none");
 		
-		if(rCate.length == 0){
+		if(rCate.length == 0 && tCate.length == 0){
 			for(var i=0; i<hCate.length; i++){
 				$("."+hCate[i]).css("display", "block");
 			}
 		}
 		
-		if(rCate.length > 0){
+		if(rCate.length > 0 && tCate.length > 0){
+			for(var i=0; i<rCate.length; i++){
+				for(var j=0; j<tCate.length; j++){
+					for(var z=0; z<hCate.length; z++)
+					$("." + rCate[i]+"."+tCate[j]+"."+hCate[j]).css("display", "block");
+				}	
+			}
+		}
+		
+		if(rCate.length > 0 && tCate.length == 0){
 			for(var i=0; i<rCate.length; i++){
 				for(var j=0; j<hCate.length; j++){
 					$("." + rCate[i]+"."+hCate[j]).css("display", "block");
@@ -139,12 +197,20 @@
 			}
 		}
 		
+		if(rCate.length == 0 && tCate.length > 0){
+			for(var i=0; i<tCate.length; i++){
+				for(var j=0; j<hCate.length; j++){
+					$("." + tCate[i]+"."+hCate[j]).css("display", "block");
+				}	
+			}
+		}		
+		
 	});
 	
 	// x버튼 누르면 선택 메뉴 삭제
 	$(document).on("click", ".selected span", function(){
 		
-		var delCate = $(this).parent().attr("value");;
+		var delCate = $(this).parent().attr("value");
 		$(this).parent().remove();
 		$(".card_wrap").css("display", "none");
 		
@@ -162,27 +228,62 @@
 		  }
 		}
 		
-		if(rCate.length == 0){
-			for(var i=0; i<tCate.length; i++){
-				$("."+tCate[i]).css("display", "block");
-			}
+		for(let i = 0; i < hCate.length; i++) {
+		  if(hCate[i] === delCate)  {
+		    hCate.splice(i, 1);
+		    i--;
+		  }
 		}
 		
-		if(rCate.length > 0){
-			for(var i=0; i<rCate.length; i++){
-				for(var j=0; j<tCate.length; j++){
-					$("." + rCate[i]+"."+tCate[j]).css("display", "block");
-				}	
-			}
-		}
-		
-		if(tCate.length == 0){
+		/* 지역 */
+		if(tCate.length == 0 && hCate.length == 0){
 			for(var i=0; i<rCate.length; i++){
 			$("." + rCate[i]).css("display", "block");
 			}
 		}
 		
-		if(tCate.length > 0){
+		if(rCate.length > 0 && tCate.length > 0){
+			for(var i=0; i<rCate.length; i++){
+				for(var j=0; j<tCate.length; j++){
+					for(var z=0; z<hCate.length; z++)
+					$("." + rCate[i]+"."+tCate[j]+"."+hCate[j]).css("display", "block");
+				}	
+			}
+		}
+			
+		if(tCate.length > 0 && hCate.length == 0){
+			for(var i=0; i<rCate.length; i++){
+				for(var j=0; j<tCate.length; j++){
+					$("." + rCate[i]+"."+tCate[j]).css("display", "block");
+				}	
+			}
+		}	
+			
+		if(tCate.length == 0 && hCate.length > 0){
+			for(var i=0; i<rCate.length; i++){
+				for(var j=0; j<hCate.length; j++){
+					$("." + rCate[i]+"."+hCate[j]).css("display", "block");
+				}	
+			}
+		}
+		
+		/* 분류 */
+		if(rCate.length == 0 && hCate.length == 0){
+			for(var i=0; i<tCate.length; i++){
+				$("."+tCate[i]).css("display", "block");
+			}
+		}
+		
+		if(rCate.length > 0 && hCate.length > 0){
+			for(var i=0; i<rCate.length; i++){
+				for(var j=0; j<tCate.length; j++){
+					for(var z=0; z<hCate.length; z++)
+					$("." + rCate[i]+"."+tCate[j]+"."+hCate[j]).css("display", "block");
+				}	
+			}
+		}
+			
+		if(rCate.length > 0 && hCate.length == 0){
 			for(var i=0; i<rCate.length; i++){
 				for(var j=0; j<tCate.length; j++){
 					$("." + rCate[i]+"."+tCate[j]).css("display", "block");
@@ -190,7 +291,47 @@
 			}
 		}
 		
+		if(rCate.length == 0 && hCate.length > 0){
+			for(var i=0; i<tCate.length; i++){
+				for(var j=0; j<hCate.length; j++){
+					$("." + tCate[i]+"."+hCate[j]).css("display", "block");
+				}	
+			}
+		}		
+		
+		/* 해시태그 */
 		if(rCate.length == 0 && tCate.length == 0){
+			for(var i=0; i<hCate.length; i++){
+				$("."+hCate[i]).css("display", "block");
+			}
+		}
+		
+		if(rCate.length > 0 && tCate.length > 0){
+			for(var i=0; i<rCate.length; i++){
+				for(var j=0; j<tCate.length; j++){
+					for(var z=0; z<hCate.length; z++)
+					$("." + rCate[i]+"."+tCate[j]+"."+hCate[j]).css("display", "block");
+				}	
+			}
+		}
+		
+		if(rCate.length > 0 && tCate.length == 0){
+			for(var i=0; i<rCate.length; i++){
+				for(var j=0; j<hCate.length; j++){
+					$("." + rCate[i]+"."+hCate[j]).css("display", "block");
+				}	
+			}
+		}
+		
+		if(rCate.length == 0 && tCate.length > 0){
+			for(var i=0; i<tCate.length; i++){
+				for(var j=0; j<hCate.length; j++){
+					$("." + tCate[i]+"."+hCate[j]).css("display", "block");
+				}	
+			}
+		}		
+		
+		if(rCate.length == 0 && tCate.length == 0 && hCate.length == 0){
 			$(".card_wrap").css("display", "block");
 		}
 
@@ -202,6 +343,7 @@
 		$(".card_wrap").css("display", "block");
 		rCate = [];
 		tCate = [];
+		hCate = [];
 	});
 	
 });

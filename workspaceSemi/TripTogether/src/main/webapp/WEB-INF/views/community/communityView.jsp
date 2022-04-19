@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="${url}/css/community/communityView.css" type="text/css" />
 <link rel="stylesheet" href="${url}/css/main/main.css" type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -14,6 +14,7 @@ function del(){
 			location.href = "${url}/community/communityDel?no=${vo.board_no}";
 		}
 }
+
 //댓글 js 권지연
 $(function(){
 		//댓글목록을 가져오는 함수
@@ -27,7 +28,8 @@ $(function(){
 				data:params,
 				success:function(result){
 					var $result = $(result);
-					
+					var len = $result.length;
+                    $("h3 span").text(len);
 					var tag = "<ul>";
 					
 					$result.each(function(idx, vo){
@@ -135,7 +137,7 @@ $(function(){
 		
 	})
 	function follow(obj, fid){
-		//alert(obj+"/"+fid)
+		alert(obj+"/"+fid)
 		var btText=$(obj).text();
 		if(btText=='팔로우'){
 			$.ajax({
@@ -158,92 +160,115 @@ $(function(){
 		}
 	}
 </script>
+
 <div class="opadiv" style="background-color: #EBEBEB; width: 100%; height: 100px"></div>
 
 <!-- main -->
 <main>
 	<div class="feeds">
-	<input type="hidden" id="no" name="board_no" value="${vo.board_no}">
+		<input type="hidden" id="no" name="board_no" value="${vo.board_no}">
 		<!-- article -->
 		<article>
 			<header>
-				<h1 class="title">${vo.title}</h1>
+				<div style="display: flex;">
+					<div id="region_theme_wrap">${vo.region} | ${vo.theme}</div>
+					<c:if test="${!empty vo.tags}">
+						<div id="hashtag_wrap">${vo.tags}</div>
+					</c:if>
+				</div>
+				<h2>${vo.title}</h2>
 			</header>
-			
-			<c:if test="${vo.photo1 != null}">
+
+
+			<div class="main_content_wrap">
 				<div class="main-image">
 					<!-- 게시물 대표사진을 불러와용 -->
-					<img src="${vo.photo1 }" alt="대표사진" class="mainPic">
+					<img src="${vo.photo1}">
 				</div>
-				<div class="content">
-					<!-- 유저의 게시물을 불러옴 -->
-					${vo.location1 } ${vo.location_addr1 } ${vo.content1 }
+				<div class="contents">
+					<div class="location">"${vo.location1}"</div>
+					<div class="location_addr">${vo.location_addr1}</div>
+					<div class="content">${vo.content1}</div>
 				</div>
-			</c:if>
-			
-			<c:if test="${vo.photo2 != null}">
-				<div class="main-image">
-					<!-- 게시물 대표사진을 불러와용 -->
-					<img src="${vo.photo2 }" alt="대표사진" class="mainPic">
-				</div>
-				<div class="content">
-					<!-- 유저의 게시물을 불러옴 -->
-					${vo.location2 } ${vo.location_addr2 } ${vo.content2 }
-				</div>
-			</c:if>
-			
-			<c:if test="${vo.photo3 != null}">
-				<div class="main-image">
-					<!-- 게시물 대표사진을 불러와용 -->
-					<img src="${vo.photo3 }" alt="대표사진" class="mainPic">
-				</div>
-				<div class="content">
-					<!-- 유저의 게시물을 불러옴 -->
-					${vo.location3 } ${vo.location_addr3 } ${vo.content3 }
-				</div>
-			</c:if>
-			
-			<c:if test="${vo.photo4 != null}">
-				<div class="main-image">
-					<!-- 게시물 대표사진을 불러와용 -->
-					<img src="${vo.photo4 }" alt="대표사진" class="mainPic">
-				</div>
-				<div class="content">
-					<!-- 유저의 게시물을 불러옴 -->
-					${vo.location4 } ${vo.location_addr4 } ${vo.content4 }
-				</div>
-			</c:if>
-			
-			<div class="hl"></div>
-			
-			
-			
-			
-			
-			<!-- 댓글달기 -->
-			<div class="comment">
-				
-				<form method="post" id="replyFrm">
-				<input type="hidden"name="id" value="${vo.id}">
-				<input type="hidden" name="board_no" value="${vo.board_no}">
-				<input name="comment" class="input-comment" placeholder="댓글 달기..."/>
-				<input type="submit" class="submit-comment" value="게시"/>
-			 	<!-- <input id="input-comment" class="input-comment" type="text" placeholder="댓글 달기...">
-				<button type="submit" class="submit-comment">게시</button> -->
-				</form>
-			
 			</div>
+
+			<c:if test="${!empty vo.content2}">
+				<div class="main_content_wrap">
+					<div class="main-image">
+						<!-- 게시물 대표사진을 불러와용 -->
+						<img src="${vo.photo2}">
+					</div>
+					<div class="contents">
+						<div class="location">"${vo.location2}"</div>
+						<div class="location_addr">${vo.location_addr2}</div>
+						<div class="content">${vo.content2}</div>
+					</div>
+				</div>
+			</c:if>
+
+			<c:if test="${!empty vo.content3}">
+				<div class="main_content_wrap">
+					<div class="main-image">
+						<!-- 게시물 대표사진을 불러와용 -->
+						<img src="${vo.photo3}">
+					</div>
+					<div class="contents">
+						<div class="location">"${vo.location3}"</div>
+						<div class="location_addr">${vo.location_addr3}</div>
+						<div class="content">${vo.content3}</div>
+					</div>
+				</div>
+			</c:if>
+
+			<c:if test="${!empty vo.content4}">
+				<div class="main_content_wrap">
+					<div class="main-image">
+						<!-- 게시물 대표사진을 불러와용 -->
+						<img src="${vo.photo4}">
+					</div>
+					<div class="contents">
+						<div class="location">"${vo.location4}"</div>
+						<div class="location_addr">${vo.location_addr4}</div>
+						<div class="content">${vo.content4}</div>
+					</div>
+				</div>
+			</c:if>
+
+
+			<!-- 댓글달기 -->
+			<h3>
+				댓글 <span id="replyCnt" style="color: #A3BDF0;">00</span>
+			</h3>
+			
+			<div class="comment">
+				<form method="post" id="replyFrm">
+					<input type="hidden" value="${vo.id}">
+					<input type="hidden" name="board_no" value="${vo.board_no}">
+					<div style="display: flex;">
+						<div class="comment_submit_wrap">
+							<input name="comment" class="input_comment" id="comment" placeholder="댓글 달기..." />
+							<input type="submit" class="submit_comment" value="게시" />
+						</div>
+					</div>
+				</form>
+			</div>
+			
 			<!-- 댓글목록 -->
-			<div id="replyList"></div>
+			<div id="replyList">
+
+			</div>
 		</article>
 	</div>
 
 	<!-- main-right -->
 	<div class="main-right">
 		<div class="myProfile">
-			<img class="pic" src="${uVo.user_img }" alt="프로필 사진">
-			<div>
-				<span class="id">${uVo.id }</span> <span class="info">${uVo.info}</span>
+			<div id="user_img_wrap">
+				<a href="${url}/users/userView?id=${uVo.id}"><img src="${uVo.user_img }"></a>
+			</div>
+			<div id="user_id_info_wrap">
+				<div id="user_id"><a href="${url}/users/userView?id=${uVo.id}">${uVo.id}</a></div>
+				<div>${uVo.info}</div>
 			</div>
 		</div>
 		<div class="midbtn">						
@@ -270,30 +295,38 @@ $(function(){
 		</div>
 		<!-- 게시물더보기-->
 		<div class="section-story">
-			<div class="menu-title">
-				<span class="sub-title">게시물</span> <span class="find-more">모두 보기</span>
-			</div>
 			<ul class="story-list">
 				<li>
 					<div class="content-Img">
-						<img src="../img/jiii.jpg" alt="게시물 사진">
+						<img src="${vo.photo1}">
 					</div>
 				</li>
+				<li>
+					<div class="content-Img">
+						<img src="${vo.photo2}">
+					</div>
+				</li>
+				<li>
+					<div class="content-Img">
+						<img src="${vo.photo3}">
+					</div>
+				</li>
+				<li>
+					<div class="content-Img">
+						<img src="${vo.photo4}">
+					</div>
+				</li>
+				
 			</ul>
 		</div>
+		
+		
 		<c:if test="${logId == vo.id }">
-		<div class="bottombtn">
-			${vo.tags}
-			${vo.board_no}
-				<ul>
-					<li><a href="/community/communityUpdate?no=${vo.board_no}">수정</a></li>
-					<li>
-						<a href="javascript:del()">
-							삭제
-						</a>
-					</li>
-				</ul>
+			<div class="bottombtn">
+				<div><a href="/community/communityUpdate?no=${vo.board_no}">수정</a></div>
+				<div><a href="javascript:del()"> 삭제</a></div>
 			</div>
 		</c:if>
+
 	</div>
 </main>

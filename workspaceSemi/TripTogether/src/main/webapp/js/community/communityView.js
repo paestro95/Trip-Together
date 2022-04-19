@@ -1,4 +1,15 @@
+$(function(){
+	var tagList = $("#hashtag_wrap").text();
+	
+	tagList = tagList.split(" ");
+	var setTag = " ";
+	
+	for(var i=0; i<tagList.length; i++){
+		setTag += "#" + tagList[i] + " ";
+	}
 
+	$("#hashtag_wrap").text(setTag);
+});
 
 /* **************로그인 이벤트 출력************/
 // 로그인 이벤트 출력

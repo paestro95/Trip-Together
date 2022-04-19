@@ -2,72 +2,29 @@ package com.triptogether.vo;
 
 import java.util.Date;
 
-public class FollowVO {
-	private int followNo;
-	private int followingUser;
-	private int followerUser;
+public class FollowVO {	
+	private String id;
+	private String follow_id;
 	private Date regDate;
 	
-	private String followingId;
-	private String followeId;
-	
-	private String profileName;
-
-	public int getFollowNo() {
-		return followNo;
+	//private int ? String? 
+		
+	public String getId() {
+		return id;
 	}
-
-	public void setFollowNo(int followNo) {
-		this.followNo = followNo;
+	public void setId(String id) {
+		this.id = id;
 	}
-
-	public int getFollowingUser() {
-		return followingUser;
+	public String getFollow_id() {
+		return follow_id;
 	}
-
-	public void setFollowingUser(int followingUser) {
-		this.followingUser = followingUser;
+	public void setFollow_id(String follow_id) {
+		this.follow_id = follow_id;
 	}
-
-	public int getFollowerUser() {
-		return followerUser;
-	}
-
-	public void setFollowerUser(int followerUser) {
-		this.followerUser = followerUser;
-	}
-
 	public Date getRegDate() {
 		return regDate;
 	}
-
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
-	}
-
-	public String getFollowingId() {
-		return followingId;
-	}
-
-	public void setFollowingId(String followingId) {
-		this.followingId = followingId;
-	}
-
-	public String getFolloweId() {
-		return followeId;
-	}
-
-	public void setFolloweId(String followeId) {
-		this.followeId = followeId;
-	}
-
-	public String getProfileName() {
-		return profileName;
-	}
-
-	public void setProfileName(String profileName) {
-		this.profileName = profileName;
-	}
-
-	
+	}		
 }

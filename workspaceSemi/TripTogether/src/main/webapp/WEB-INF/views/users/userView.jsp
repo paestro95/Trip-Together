@@ -18,7 +18,7 @@ console.log(postCnt);
 	<div class="userView_wrap">
 		<div class="user_profile_wrap">
 			<div class="user_profile_img">
-				<img src="${url}/Images/jennie.jpeg">
+				<img src="${vo.user_img}">
 			</div>
 			<div class="user_profile_info">
 				<div class="id_btn_wrap">
@@ -46,19 +46,7 @@ console.log(postCnt);
 		<div class="hot_post_wrap">
 			<c:if test="${empty hList}">
 				<div>
-<pre>
-.  ╭┈┈┈┈╯   ╰┈┈┈╮
-
-  ╰┳┳╯    ╰┳┳╯
- 
-   인　    　　 는
- 
-    기  　    　　건
-       ╰┈┈╯
-  가 ╭━━━━━╮　 가   
-       ┈┈┈┈
- 　　없     　　 요?     
-</pre>
+					아직 인기 게시물이 없어요..!
 				</div>
 			</c:if>
 			<c:forEach var="hVO" items="${hList}">					

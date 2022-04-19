@@ -34,20 +34,13 @@
 	font-feature-settings: 'liga';
 }
 
-ul, li {
-	margin: 0;
-	padding: 0;
+ ul, li {
+ 	margin: 0;
+ 	padding: 0;
+
 	list-style-type: none;
 	list-style-position: inside;
-	float: left;
-	text-align: center;
-}
-
-.pic {
-	border-radius: 100%;
-	border-radius: 70%;
-	overflow: hidden;
-}
+} 
 
 span.id {
 	margin-right: 5px;
@@ -60,47 +53,274 @@ span.info {
 
 /* main */
 main {
-	width: 1200px;
-	margin: 0 auto;
-	padding-top: 94px;
-	padding-bottom: 40px;
-	height:auto;
-}
-
-.main-right {
-	width: 340px;
-	display: inline-block;
-	position: fixed;
-	/* top: 94px; */
-	
+    width: 1300px;
+    margin: 0 auto;
+    margin-top: 95px;
+    margin-bottom: 100px;
 }
 
 .feeds {
-	width: 900px;
-	
+	width: 850px;
 	margin-right: 34px;
 	display: inline-block;
 }
 
-article, .section-story {
+article{
+	padding: 20px;
+}
+
+#region_theme_wrap{
+	float: left;
+	flex: 1;
+}
+
+#hashtag_wrap{
+	text-align: right;
+}
+
+header div{
+	color: gray;
+}
+
+header h2{
+	margin: 0;
+    padding: 5px 0px 10px;
+    font-size: 35px;
+    border-bottom: 1px solid #cfcfcf;
+    margin-bottom: 20px;
+}
+
+.main_content_wrap{
+	text-align: center;	
+}
+
+.main-image{
+	margin-bottom: 30px;
+}
+
+.main-image img {
+	width: 100%;
+}
+
+.location{
+	font-weight: bold;
+    font-size: 20px;
+}
+
+.location_addr{
+	margin-bottom: 20px;
+	font-size: 15px;
+}
+
+.content{
+    margin-bottom: 60px;
+}
+
+h3{
+	border-top: 1px solid #cfcfcf;
+	padding-top: 20px;
+}
+
+/* comment input */
+.comment_submit_wrap{
+    border: 1px solid #cfcfcf;
+    height: 40px;
+    border-radius: 3px;
+	padding:0px 0px 0px 10px;
+	width: 100%;
+    margin-bottom: 10px;
+}
+
+.input_comment {
+    border: none;
+    height: 20px;
+    border-radius: 3px;
+    width: 90%;
+}
+
+ .input_comment:focus {
+	outline: none;
+} 
+
+.input_comment::placeholder {
+	color: #8e8e8e;
+}
+
+.submit_comment {
+	color: #0095f6;
+	background-color: #fff;
+	border-style: none;
+	height: 40px;
+	width: 60px;
+	padding: 4px;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.submit-comment:disabled {
+	color: #B9DFFC;
+}
+
+.submit-comment:focus {
+	outline: none;
+}
+/* comment output */
+#replyList ul{
+	padding: 0px 10px;
+}
+
+.edit-comment,
+.del-comment{
+	border: none;
+    background: #fff;
+    color: #cfcfcf;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.del-comment:hover,
+.edit-comment:hover{
+	text-decoration: underline;	
+}
+
+hr{ 
+	color: #222222;
+}
+
+.edit_comment_wrap{
+	border: 1px solid #cfcfcf;
+    border-radius: 3px;
+    height: 25px;
+    padding-left: 5px;
+    width: 100%;
+    line-height: 23px;
+}
+
+.input-comment{
+	border: none;
+	width: 91%;
+}
+
+.edit_submit{
+	color: gray;
+    background: #fff;
+    border-style: none;
+    width: 60px;
+    cursor: pointer;
+}
+
+
+/* main-right */
+.main-right {
+	width: 440px;
+	display: inline-block;
+	position: fixed;
+	/* top: 94px; */
+}
+
+.myProfile {
+	margin-top: 10px;
+	margin-bottom: 25px;
+	display: flex;
+	align-items: center;
+}
+
+#user_img_wrap{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid #DBDBDB;
+    float: left;
+    margin: 0;
+}
+
+#user_img_wrap img{
+	width: 150px;
+}
+
+#user_id_info_wrap{
+	display: flex;
+    flex-direction: column;
+    height: 150px;
+    margin-left: 30px;
+}
+
+#user_id{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-top: 15px;
+    margin-bottom: 20px;
+}
+
+.bottombtn{
+	overflow: auto;
+	display: flex;
+	padding: 0px 40px;
+	height: 50px;
+    line-height: 50px;
+}
+
+.bottombtn div{
+	float: left;
+	flex: 1;
+	text-align: center;
+}
+
+.bottombtn a{
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: #D5D5D5;
+}
+
+.fix{
+	display: flex;
+	padding: 0px 50px;
+}
+
+.fix button{
+	flex: 1;
+    margin: 0px 10px;
+    border-radius: 5px;
+    height: 35px;
+    cursor: pointer;
+}
+
+/*게시물 사진 모음*/
+.section-story{
+    overflow: auto;
+    margin: 20px 0px 5px;
+    padding: 0px 5px;
+}
+
+.section-story li{
+	float: left;
+	width: 210px;
+	height: 210px;
+	overflow: hidden;
+	margin-right: 3px;
+	margin-bottom: 3px;
+	border-radius: 5px;
+}
+
+.section-story img{
+	width: 210px;
+}
+
+
+
+/* article */
+article {
 	background-color: #fff;
 	border-radius: 3px;
 	border: 1px solid #DBDBDB;
 }
 
 article {
+
 	margin-bottom: 60px;
 }
-
-.section-story {
-	width: 310px;
-	padding: 14px 16px;
-	overflow-y: hidden;
-	height: 310px;
-	margin-bottom: 20px;
-}
-
-/* article */
 
 .profile-of-article {
 	display: flex;
@@ -114,9 +334,7 @@ article {
 	border-radius: 100%;
 }
 
-.main-image img {
-	width: 612px;
-}
+
 
 .main-id {
 	margin-left: 14px;
@@ -164,82 +382,10 @@ ul.comments li {
 	font-size: 14px;
 }
 
-.hl {
-	border-top: 1px solid #DBDBDB;
-	width: 800px;
-}
-/* comment input */
-.input-comment {
-	font-size: 14px;
-	width: 800px;
-	height: 18px;
-	padding: 28px 16px;
-	border-style: none;
-	box-sizing: border-box;
-	color: #262626;
-}
 
-.input-comment:focus {
-	outline: none;
-}
 
-.input-comment::placeholder {
-	color: #8e8e8e;
-}
 
-button.submit-comment {
-	color: #0095f6;
-	background-color: #fff;
-	border-style: none;
-	height: 40px;
-	width: 40px;
-	padding: 4px;
-	font-size: 14px;
-	font-weight: 600;
-}
 
-.submit-comment:disabled {
-	color: #B9DFFC;
-}
-
-button.submit-comment:focus {
-	outline: none;
-}
-/* main-right */
-.myProfile {
-	height: 56px;
-	margin-top: 10px;
-	margin-bottom: 25px;
-	padding-left: 12px;
-	display: flex;
-	align-items: center;
-}
-
-.myProfile img {
-	width: 56px;
-	height: 56px;
-}
-
-.myProfile div {
-	display: inline-block;
-	margin-left: 14px;
-}
-
-.myProfile div span {
-	display: block;
-}
-
-.myProfile div span.id {
-	margin-bottom: 4px;
-}
-
-<!--
-게시물 더보기-->.menu-title {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 14px;
-}
 
 .sub-title {
 	font-size: 14px;
@@ -253,7 +399,7 @@ button.submit-comment:focus {
 	color: #262626;
 }
 
-.story-list li, .recommend-list li {
+.recommend-list li {
 	display: flex;
 	align-items: flex-start;
 }
@@ -273,10 +419,6 @@ div.gradient-wrap {
 	background: radial-gradient(circle at bottom left, #F58529 20%, #C42D91);
 }
 
-.midbtn, .bottombtn {
-	float: left;
-}
-
 .btn-follow {
 	padding-top: 7px;
 	color: #0095f6;
@@ -284,23 +426,21 @@ div.gradient-wrap {
 	font-size: 12px;
 }
 
+button{
+	background-color: #8FAADC;
+	color:white;
+	border: none;
+} 
 
-/* 2022-04-19 오어진 추가*/
-.feeds .title {
-	margin: 5%;
+.midbtn{
+    display: flex;
+    padding: 0px 50px;
 }
 
-article {
-	text-align: center;
+.midbtn button{
+    flex: 1;
+    margin: 0px 10px;
+    border-radius: 5px;
+    height: 35px;
+    cursor: pointer;
 }
-article .content {
-	margin-bottom: 7%;
-}
-.content-Img img{
-	width: 155px;
-	height: 155px;
-}
-
-
-
-

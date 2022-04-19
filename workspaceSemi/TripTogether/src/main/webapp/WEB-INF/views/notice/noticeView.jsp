@@ -12,7 +12,7 @@
 		}
 	}
 </script>
-
+<div class="opadiv" style="background-color: #EBEBEB; width: 100%; height: 100px"></div>
 <div class="wrap">
 	<div class="noticeView_wrap">
 		<h1>공지사항</h1>
