@@ -20,4 +20,7 @@ public interface UserService {
    
    //다른사람 프로필 불러다 보기 (userView)
    public UserVO userView(String id);
+   
+   //회원탈퇴	-- 220421 진영님 추가
+   public int userDelete(String id);
 }

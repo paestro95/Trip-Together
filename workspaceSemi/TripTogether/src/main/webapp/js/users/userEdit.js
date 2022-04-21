@@ -37,7 +37,7 @@ $(function() {
 	});
 
 	$("#mFrm").submit(function() {
-		alert("회원정보 수정이 완료되었습니다. \\n이름을 바꾸신 경우 다음 로그인부터 홈페이지에 적용됩니다.");
+		alert("회원정보 수정이 완료되었습니다.");
 		return true;
 	});
 

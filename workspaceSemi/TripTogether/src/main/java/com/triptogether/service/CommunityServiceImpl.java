@@ -13,8 +13,13 @@ import com.triptogether.vo.CommunityVO;
 public class CommunityServiceImpl implements CommunityService {
 	@Inject CommunityDAO dao;
 	@Override
-	public List<CommunityVO> communityList() {
-		return dao.communityList();
+	public List<CommunityVO> communityList(String id) {
+		return dao.communityList(id);
+	}
+	
+	@Override
+	public List<CommunityVO> communityNewList(String id) {
+		return dao.communityNewList(id);
 	}
 
 	@Override
@@ -62,6 +67,17 @@ public class CommunityServiceImpl implements CommunityService {
 	public List<CommunityVO> firstPhotoSelect(String id) {
 		return dao.firstPhotoSelect(id);
 	}
+
+	@Override
+	public List<CommunityVO> bestPostSelect() {
+		return dao.bestPostSelect();
+	}
+
+	@Override
+	public List<CommunityVO> weeklyPostSelect() {
+		return dao.weeklyPostSelect();
+	}
+
 
 
 

@@ -18,16 +18,17 @@
     	select count(*) from follow where follow_id=#{follow_id} and id=#{id}
     </select>
     
-    <!-- 팔로우 리스트 불러오기 -->
-    <select id="selectFollowingList">
-    	select follow_id
-    	where id=#{id}
+    <!-- 팔로우 리스트 불러오기 //220420 오어진 수정 -->
+    <select id="selectFollowingList" resultType="FollowVO">
+    	select f.follow_id, u.user_img from follow as f
+		inner join userjoin as u on f.follow_id = u.id
+		where f.id=#{param1}
     	order by regDate desc
     </select>
 
      <!-- 팔로워 리스트 불러오기 -->
-    <select id="selectFollowerList">
-    	select id
+    <select id="selectFollowerList" resultType="FollowVO">
+    	select id from follow
     	where follow_id=#{follow_id}
     	order by regDate desc;
     </select>
@@ -37,4 +38,20 @@
     <delete id="deleteUserAllFollow">
     	delete from follow where follow_id=#{follow_id}
     </delete>
+    
+    
+    <!-- 220420 오어진 추가 -->
+    <!-- 팔로잉(내'가' 팔로우하는 사람) 인원수 받아오기 -->
+    <select id="followingCnt" resultType="int">
+    	select count(id) cnt from follow
+		where id=#{param1};
+    </select>
+    <!-- 팔로워(나'를' 팔로우하는 사람) 인원수 받아오기 -->
+    <select id="followerCnt" resultType="int">
+    	select count(id) cnt from follow
+		where follow_id=#{param1};
+    </select>
+    
+    
+    
 </mapper>

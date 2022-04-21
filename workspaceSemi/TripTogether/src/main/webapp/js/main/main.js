@@ -35,4 +35,14 @@ $(function() {
 			}, 400);
 			return false;
 		});
+		
+		$(".travelog_img_wrap li").hover(function(){
+            $(this).children('a').children('img').css("filter", "brightness(70%)");
+            $(this).children('div').css("display", "block");
+        }, function(){
+            $(this).children('a').children('img').css("filter", "brightness(100%)");
+            $(this).children('div').css("display", "none");
+        });
 });
+
+

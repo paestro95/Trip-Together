@@ -28,7 +28,9 @@
 		<!-- 수정, 목록, 삭제 버튼 wrap(신수진) -->
 		<div class="view_menu_wrap">
 			<div class="move_list_wrap"><a href="${url}/notice/noticeList">목록</a></div>
-			<div class="edit_del_wrap"><a href="${url}/notice/noticeUpdate?no=${vo.notice_no}">수정  |</a><a href="javascript:del()"> 삭제</a></div> <!-- 수정(권지연) -->
+			<c:if test="${logId == 'admin'}">
+	        	<div class="edit_del_wrap"><a href="${url}/notice/noticeUpdate?no=${vo.notice_no}">수정  |</a><a href="javascript:del()"> 삭제</a></div> <!-- 수정(권지연) -->
+	        </c:if>
 		</div>
 	</div>
 </div>

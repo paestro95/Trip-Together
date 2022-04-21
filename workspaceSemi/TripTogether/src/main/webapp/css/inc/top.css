@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+* {
+    font-family: 'GangwonEdu_OTFBoldA';
+}
 
 @font-face {
 	font-family: 'GangwonEdu_OTFBoldA';
@@ -321,7 +324,6 @@ a:link, a:hover, a:visited, a:active {
 	width:100%;
 	color:black;
 	display: flex;
-	width:100%;
 	justify-content: space-evenly;
 	align-items: center;
 	box-sizing: border-box;

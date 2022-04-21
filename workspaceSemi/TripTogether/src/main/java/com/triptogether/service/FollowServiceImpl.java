@@ -14,12 +14,12 @@ public class FollowServiceImpl implements FollowService{
 	@Inject FollowDAO dao;
 	
 	@Override
-	public void follow(FollowVO follow) {
-		dao.follow(follow);
+	public int follow(FollowVO follow) {
+		return dao.follow(follow);
 	}
 	@Override
-	public void unfollow(FollowVO follow) {
-		dao.unfollow(follow);	
+	public int unfollow(FollowVO follow) {
+		return dao.unfollow(follow);	
 	}
 	@Override
 	public int oxFollow(FollowVO follow) {	
@@ -36,6 +36,14 @@ public class FollowServiceImpl implements FollowService{
 	@Override
 	public void deleteUserAllFollow(String follow_id) {
 		
+	}
+	@Override
+	public int followingCnt(String id) {
+		return dao.followingCnt(id);
+	}
+	@Override
+	public int followerCnt(String id) {
+		return dao.followerCnt(id);
 	}
 
 	

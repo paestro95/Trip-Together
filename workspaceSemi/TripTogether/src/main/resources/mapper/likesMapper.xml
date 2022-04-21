@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.triptogether.dao.LikesDAO">  
+	<insert id="likes">
+		insert into likes(id, board_no) values(#{id}, #{board_no})
+	</insert>
+	
+	<delete id="unlikes">
+		delete from likes where id=#{id} and board_no=#{board_no}
+	</delete>
+	
+	<select id="oxLikes" resultType="int">
+		select count(*) from likes
+		where board_no=#{board_no} and id=#{id}
+	</select>
+
+	<select id="likesCnt" resultType="int">
+		select count(*) from likes
+		where board_no=#{board_no}
+		group by board_no
+	</select>
+	
+</mapper>

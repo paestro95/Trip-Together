@@ -305,7 +305,7 @@ $(function(){
 				<div class="post_main_block_wrap">
 					<div class="img_upload_wrap">
 						<div class="img_upload">
-							<img src="" class="preview"> <span class="upload_phr"><span class="material-icons" style="vertical-align: middle;">file_upload</span>Upload a picture</span>
+							<img src="${vo.photo1 }" class="preview"> <span class="upload_phr" style="display: none;"><span class="material-icons" style="vertical-align: middle;">file_upload</span>Upload a picture</span>
 						</div>
 						<input type="file" class="imgSelector" name="photo" style="display: none;">
 					</div>
@@ -335,9 +335,10 @@ $(function(){
 					<div class="post_main_block_wrap">
 						<div class="img_upload_wrap">
 							<div class="img_upload">
-								<img src="" class="preview"> <span class="upload_phr"><span class="material-icons" style="vertical-align: middle;">file_upload</span>Upload a picture</span>
+								<img src="${vo.photo2 }" class="preview"> <span class="upload_phr" style="display: none;"><span class="material-icons" style="vertical-align: middle;">file_upload</span>Upload a picture</span>
 							</div>
 							<input type="file" class="imgSelector" name="photo" style="display: none;">
+							
 						</div>
 						<div class="place_content_wrap">
 							<div class="location_wrap">
@@ -366,9 +367,10 @@ $(function(){
 					<div class="post_main_block_wrap">
 						<div class="img_upload_wrap">
 							<div class="img_upload">
-								<img src="" class="preview"> <span class="upload_phr"><span class="material-icons" style="vertical-align: middle;">file_upload</span>Upload a picture</span>
+								<img src="${vo.photo3 }" class="preview"> <span class="upload_phr" style="display: none;"><span class="material-icons" style="vertical-align: middle;">file_upload</span>Upload a picture</span>
 							</div>
 							<input type="file" class="imgSelector" name="photo" style="display: none;">
+							
 						</div>
 						<div class="place_content_wrap">
 							<div class="location_wrap">
@@ -397,9 +399,10 @@ $(function(){
 					<div class="post_main_block_wrap">
 						<div class="img_upload_wrap">
 							<div class="img_upload">
-								<img src="" class="preview"> <span class="upload_phr"><span class="material-icons" style="vertical-align: middle;">file_upload</span>Upload a picture</span>
+								<img src="${vo.photo4 }" class="preview"> <span class="upload_phr" style="display: none;"><span class="material-icons" style="vertical-align: middle;">file_upload</span>Upload a picture</span>
 							</div>
 							<input type="file" class="imgSelector" name="photo" style="display: none;">
+							
 						</div>
 						<div class="place_content_wrap">
 							<div class="location_wrap">

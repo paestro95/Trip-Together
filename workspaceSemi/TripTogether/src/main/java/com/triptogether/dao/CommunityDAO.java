@@ -11,7 +11,10 @@ import com.triptogether.vo.CommunityVO;
 @Repository
 public interface CommunityDAO {
 	// 커뮤니티 목록
-	public List<CommunityVO> communityList();
+	public List<CommunityVO> communityList(String id);
+
+	// 커뮤니티 리스트 신규순으로 불러오기
+	public List<CommunityVO> communityNewList(String id);
 	
 	// 커뮤니티 게시물 1개 선택
 	public CommunityVO communitySelect(int no);
@@ -33,4 +36,10 @@ public interface CommunityDAO {
 	
 	//해당ID 유저의 대표사진만 불러오기
 	public List<CommunityVO> firstPhotoSelect(String id);
+	
+	// 이번주 인기 여행지 선택
+    public List<CommunityVO> bestPostSelect();
+
+    // 이번주 여행지 선택(3개)
+    public List<CommunityVO> weeklyPostSelect();
 }

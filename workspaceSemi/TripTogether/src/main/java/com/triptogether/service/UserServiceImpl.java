@@ -46,6 +46,11 @@ public class UserServiceImpl implements UserService {
 	public UserVO userView(String id) {
 		return dao.userView(id);
 	}
+
+	@Override
+	public int userDelete(String id) {
+		return dao.userDelete(id);
+	}
    
 
 }

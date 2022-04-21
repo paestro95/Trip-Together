@@ -11,6 +11,11 @@ $(function(){
 	$("#hashtag_wrap").text(setTag);
 });
 
+function btn_notlogin(){
+	alert("로그인 후 이용해 주세요.");
+	$(".logindiv").css("right", "0px");
+}
+
 /* **************로그인 이벤트 출력************/
 // 로그인 이벤트 출력
 var loginbtn = document.querySelector(".log-in");

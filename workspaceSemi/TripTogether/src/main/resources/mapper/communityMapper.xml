@@ -4,15 +4,32 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.triptogether.dao.CommunityDAO">
 	<select id="communityList" resultType="CommunityVO">
-		select b.board_no, user_img, b.id, info, photo1, likes, wish, comment, content1, region, theme, tags
+		select a.board_no, a.user_img, a.id, a.info, a.title, a.photo1, a.likes, a.wish, a.comment, a.content1, a.region, a.theme, a.tags, c.id likesid, w.id wishid
+		from (select b.board_no, user_img, b.id, info, title, photo1, likes, wish, comment, content1, region, theme, tags
 		from board as b 
 		inner join userjoin as u on b.id = u.id
-		left join (select board_no, count(like_no) likes from likes group by board_no) as l on b.board_no=l.board_no
-		left join (select board_no, count(wish_no) wish from wish group by board_no) as w on b.board_no=w.board_no
+		left join (select board_no, count(id) likes from likes group by board_no) as l on b.board_no=l.board_no
+		left join (select board_no, count(id) wish from wish group by board_no) as w on b.board_no=w.board_no
 		left join (select board_no, count(reply_no) comment from reply group by board_no) as r on b.board_no=r.board_no
-		group by b.board_no
-		order by likes desc
+		group by b.board_no 
+		order by likes desc ) a left outer join (select board_no, id from likes where id=#{param1}) c on a.board_no=c.board_no
+        left outer join (select board_no, id from wish where id =#{param1}) w on a.board_no=w.board_no
 	</select>
+	
+	<select id="communityNewList" resultType="CommunityVO">
+		select a.board_no, a.user_img, a.id, a.info, a.title, a.photo1, a.likes, a.wish, a.comment, a.content1, a.region, a.theme, a.tags, c.id likesid, w.id wishid
+		from (select b.board_no, user_img, b.id, info, title, photo1, likes, wish, comment, content1, region, theme, tags
+		from board as b 
+		inner join userjoin as u on b.id = u.id
+		left join (select board_no, count(id) likes from likes group by board_no) as l on b.board_no=l.board_no
+		left join (select board_no, count(id) wish from wish group by board_no) as w on b.board_no=w.board_no
+		left join (select board_no, count(reply_no) comment from reply group by board_no) as r on b.board_no=r.board_no
+		group by b.board_no 
+		order by writedate desc ) a left outer join (select board_no, id from likes where id=#{param1}) c on a.board_no=c.board_no
+        left outer join (select board_no, id from wish where id =#{param1}) w on a.board_no=w.board_no
+	</select>
+	
+	
 	
 	<insert id="communityInsert">
 		insert into board(id, region, theme, title, tags, 
@@ -28,13 +45,16 @@
 	</insert>
 	
 	<select id="communitySelect" resultType="CommunityVO">
-		select board_no, title, id, region, theme, title, tags, 
-		photo1, location1, location_addr1, content1, 
-		photo2, location2, location_addr2, content2, 
-		photo3, location3, location_addr3, content3, 
-		photo4, location4, location_addr4, content4 
-		from board where board_no=${param1}
-	</select>
+        select board_no, title, id, region, theme, title, tags, 
+        photo1, location1, location_addr1, content1, 
+        photo2, location2, location_addr2, content2, 
+        photo3, location3, location_addr3, content3, 
+        photo4, location4, location_addr4, content4,
+        (select count(*) from likes where board_no=#{param1} group by board_no) likes,
+        (select count(*) from wish where board_no=#{param1} group by board_no) wish
+        from board 
+        where board_no=#{param1};
+    </select>
 	
 	<update id="communityUpdate">
 		update board 
@@ -53,8 +73,8 @@
 	<select id="hotPostSelect" resultType="CommunityVO">
 		select b.board_no, b.id, title, location1, location2, location3, location4, likes, wish, comment
 		from board as b 
-        left join (select board_no, count(like_no) likes from likes group by board_no) as l on b.board_no=l.board_no
-		left join (select board_no, count(wish_no) wish from wish group by board_no) as w on b.board_no=w.board_no
+        left join (select board_no, count(*) likes from likes group by board_no) as l on b.board_no=l.board_no
+		left join (select board_no, count(*) wish from wish group by board_no) as w on b.board_no=w.board_no
 		left join (select board_no, count(reply_no) comment from reply group by board_no) as r on b.board_no=r.board_no
         where b.id = #{param1} and likes is not null
         group by board_no
@@ -65,7 +85,7 @@
 	<select id="userPostAllSelect" resultType="CommunityVO">
 		select b.board_no, b.id, title, photo1, likes, comment, writedate
 		from board as b 
-        left join (select board_no, count(like_no) likes from likes group by board_no) as l on b.board_no=l.board_no
+        left join (select board_no, count(*) likes from likes group by board_no) as l on b.board_no=l.board_no
 		left join (select board_no, count(reply_no) comment from reply group by board_no) as r on b.board_no=r.board_no
         where b.id = #{param1}
         group by board_no
@@ -77,7 +97,22 @@
 		select board_no, photo1 from board where id=#{param1}
 	</select>
 	
-	
+	<!-- 인기게시물 -->
+	<select id="bestPostSelect" resultType="CommunityVO">
+        select b.board_no, b.id, photo1, user_img, likes
+        from board as b join userjoin as u on b.id=u.id
+        left join (select board_no, count(id) likes from likes group by board_no) as l on b.board_no=l.board_no
+        order by likes desc
+        limit 1
+    </select>
+
+	<!--  주간 게시물 ! -->
+    <select id="weeklyPostSelect" resultType="CommunityVO">
+        select board_no, id, photo1, title, writedate
+        from board 
+        order by writedate desc
+        limit 3
+    </select>
 	
 	
 </mapper>

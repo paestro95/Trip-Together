@@ -16,11 +16,12 @@
 		where id=#{param1}
 	</select>
 	<select id="userSelect" resultType="com.triptogether.vo.UserVO">
-		select id, info, name, tel, email, gender, user_img from userjoin
+		select id, info, name, tel, email, gender, user_img, age from userjoin
 		where id=#{param1}
 	</select>
 	<update id="userUpdate">
-		update userjoin set info=#{param1.info}, name=#{param1.name}, tel=#{param1.tel}, email=#{param1.email}, user_img=#{param2} 
+		update userjoin set info=#{param1.info}, name=#{param1.name}, tel=#{param1.tel}, 
+		email=#{param1.email}, gender=#{param1.gender}, user_img=#{param2}, age=#{param1.age}
 		where id=#{param1.id}
 	</update>
 	<select id="loginCheck" resultType="com.triptogether.vo.UserVO">

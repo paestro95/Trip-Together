@@ -54,8 +54,9 @@
 
 /* from userView.css*/
 .hot_post_card_wrap {
-	float: left;
-	width: 30%;
+    float: left;
+    width: 30%;
+    height: 320px;
 }
 /*
 .hot_post_card_wrap:not(:last-child) {

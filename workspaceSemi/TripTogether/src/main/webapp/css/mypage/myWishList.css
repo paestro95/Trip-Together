@@ -6,6 +6,16 @@
 	float: left;
 }
 
+#myWishList_imgList ul, #myWishList_imgList li {
+	margin: 0 5% 0 0;
+	padding: 0px;
+	list-style-type: none;
+	float: left;
+}
+#myWishList_imgList>ul>li {
+	width: 20%;
+}
+
 
 /* 스타일 기본설정 (신수진) */
 /*body, ul, li{
@@ -161,7 +171,7 @@ button{
 }
 
 .card_wrap{
-	width: 22.5%;
+	width: 100%;
     overflow: hidden;
     float: left;
     margin-top: 10px;

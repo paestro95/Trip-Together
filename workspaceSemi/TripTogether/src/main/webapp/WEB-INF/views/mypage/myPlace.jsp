@@ -17,7 +17,7 @@
 	<div class="mypage_container">
 
 		<div id="mypage_profile">
-			<h3>MY PAGE</h3>
+			<h3 style="font-size: 1.7em; margin-top: 50px;">MY PAGE</h3>
 			<ul>
 				<li>
 					<a href="/users/userView?id=${logId}">
@@ -29,7 +29,7 @@
 				<li><a href="${url}/mypage/myPlace">PLACE</a></li>
 				<li><a href="${url}/mypage/myWishList">WISH LIST</a></li>
 				<li><a href="${url}/mypage/myFollowing">FOLLOWING</a></li>
-				<li><a href="${url}/users/userEdit">About</a> | <a href="${url}/users/logout">Log Out</a></li>
+				<li style="margin-top: 60px;"><a href="${url}/users/userEdit">About</a> | <a href="${url}/users/logout">Log Out</a></li>
 			</ul>
 		</div>
 

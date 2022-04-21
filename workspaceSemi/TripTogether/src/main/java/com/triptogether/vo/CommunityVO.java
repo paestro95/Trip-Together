@@ -43,6 +43,9 @@ public class CommunityVO {
 	private int likes;
 	private int wish;
 	
+	private String likesid;
+    private String wishid;
+	
 	private String info;
 	private int comment;
 	
@@ -229,6 +232,18 @@ public class CommunityVO {
 	}
 	public void setPhoto4(String photo4) {
 		this.photo4 = photo4;
+	}
+	public String getLikesid() {
+		return likesid;
+	}
+	public void setLikesid(String likesid) {
+		this.likesid = likesid;
+	}
+	public String getWishid() {
+		return wishid;
+	}
+	public void setWishid(String wishid) {
+		this.wishid = wishid;
 	}
 
 	

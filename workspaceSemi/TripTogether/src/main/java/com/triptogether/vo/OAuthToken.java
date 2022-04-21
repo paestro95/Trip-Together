@@ -1,6 +1,6 @@
 package com.triptogether.vo;
 
-
+/*********************** Kakao OAuthToken VO (±èÁø¿µ_220418) ***********************/
 public class OAuthToken {
 	private String access_token;
 	private String token_type;
@@ -8,7 +8,6 @@ public class OAuthToken {
 	private int expires_in;
 	private String scope;
 	private int refresh_token_expires_in;
-	
 	
 	public String getAccess_token() {
 		return access_token;
@@ -46,6 +45,4 @@ public class OAuthToken {
 	public void setRefresh_token_expires_in(int refresh_token_expires_in) {
 		this.refresh_token_expires_in = refresh_token_expires_in;
 	}
-	
-	
 }

@@ -8,9 +8,37 @@
 <script src="${url}/js/main/main.js"></script>
 <script>
 console.log("Aaaaa");
-var postCtn = ${pList}.length;
+//var postCtn = ${pList}.length;
 
-console.log(postCnt);
+//console.log(postCnt);
+/* 220420 지연님 추가 */
+//팔로우 기능
+function follow(obj, fid){
+	alert(fid)
+	var btText=$(obj).text();
+	alert(btText)
+	if(btText=='팔로우'){
+		alert('f')
+		$.ajax({
+			type:'post',
+			url:'/follow/'+fid,
+			success:function(res){
+				alert(res);
+				$(obj).text('언팔로우');
+			}
+		})
+	}else if(btText=="언팔로우"){
+		alert('uf')
+		$.ajax({
+			type:'post',
+			url:'/unfollow/'+fid,
+			success:function(res){
+				alert(res);
+				$(obj).text('팔로우');
+			}
+		});
+	}
+}
 </script>
 
 <div class="opadiv" style="background-color: #EBEBEB; width: 100%; height: 100px"></div>
@@ -23,7 +51,9 @@ console.log(postCnt);
 			<div class="user_profile_info">
 				<div class="id_btn_wrap">
 					<span style="font-weight: bold;">${vo.id}</span>
-					<input type="button" value="팔로우" name="follow">
+					<button class="followbtn" onclick="follow(this,'${vo.id}')"><c:if test="${isFollow==''||isFollow=='U'}">팔로우</c:if>
+					<c:if test="${isFollow!='' && isFollow=='F'}">언팔로우</c:if></button>
+					
 					<c:if test="${logId == vo.id}">
 						<a href="${url}/users/userEdit"><span class="material-icons" style="color: gray;">settings</span></a>
 					</c:if>
@@ -31,7 +61,7 @@ console.log(postCnt);
 				<div class="post_follower_wrap">
 					<ul>
 						<li>게시물 <span style="font-weight: bold;" id="postCnt">${pSize}</span></li>
-						<li>팔로워 <span style="font-weight: bold;">000</span></li>
+						<li>팔로워 <span style="font-weight: bold;" id="followerCnt">${fSize}</span></li>
 					</ul>
 				</div>
 				<div class="info_wrap">

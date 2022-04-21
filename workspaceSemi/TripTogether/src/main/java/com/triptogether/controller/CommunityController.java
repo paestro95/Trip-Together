@@ -32,11 +32,17 @@ import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.triptogether.service.CommunityService;
+import com.triptogether.service.FollowService;
+import com.triptogether.service.LikesService;
 import com.triptogether.service.NoticeService;
 import com.triptogether.service.UserService;
+import com.triptogether.service.WishService;
 import com.triptogether.vo.CommunityVO;
+import com.triptogether.vo.FollowVO;
+import com.triptogether.vo.LikesVO;
 import com.triptogether.vo.NoticeVO;
 import com.triptogether.vo.UserVO;
+import com.triptogether.vo.WishVO;
 
 @RestController
 public class CommunityController {
@@ -52,14 +58,26 @@ public class CommunityController {
 	
 	@Inject
 	UserService uService;
+	
+	@Inject
+	FollowService fservice;
+	
+	@Inject
+	WishService wservice;
+	
+	@Inject
+	LikesService lService;
 
 	// 커뮤니티 리스트 페이지
 	@GetMapping("/community/communityList")
-	public ModelAndView communityList() {
+	public ModelAndView communityList(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		String logId = (String)session.getAttribute("logId");
 		
 		// DB처리
-		mav.addObject("list", service.communityList());
+		mav.addObject("list", service.communityList(logId));
+		mav.addObject("newList", service.communityNewList(logId));
+		
 		
 		NoticeVO nVO = nService.latestNoticeSelect();
 		mav.addObject("nVO", nVO);
@@ -181,8 +199,44 @@ public class CommunityController {
 
 	// 커뮤니티뷰 communityView
 	@RequestMapping("/community/communityView")
-	public ModelAndView communityView(int no, String id) {
+	public ModelAndView communityView(int no, String id, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		var logId = (String)session.getAttribute("logId");
+		//팔로우 220420 지연님 추가
+		FollowVO fvo= new FollowVO();
+		fvo.setFollow_id(id);
+		fvo.setId((String)session.getAttribute("logId"));
+		int cnt=fservice.oxFollow(fvo);
+		if(cnt>0) {
+			session.setAttribute("isFollow", "F");
+		} else {
+			session.setAttribute("isFollow", "U");
+		}//////
+		
+		// 좋아요
+		LikesVO lvo = new LikesVO();
+		lvo.setId(logId);
+		lvo.setBoard_no(no);
+		int lCnt = lService.oxLikes(lvo);
+		System.out.println("lCnt"+lCnt);
+		if(lCnt > 0) {
+			session.setAttribute("isLikes", "L");
+		}else {
+			session.setAttribute("isLikes", "U");
+		}
+		
+		//wish
+        WishVO wvo = new WishVO();
+        wvo.setBoard_no(no);
+        wvo.setId(logId);
+        int wcnt=wservice.oxWish(wvo);
+        if(wcnt>0) {
+            session.setAttribute("isWish", "W");
+        }else {
+            session.setAttribute("isWish", "N");
+        }
+		
+		
 		
 		mav.addObject("bp", service.firstPhotoSelect(id));
 		mav.addObject("vo", service.communitySelect(no));
@@ -320,7 +374,7 @@ public class CommunityController {
 			}
 			
 			service.communityUpdate(vo, pathName);
-			String msg = "<script>alert('글이 수정되었습니다.'); location.href='/community/communityView?no="+vo.getBoard_no()+"';</script>";
+			String msg = "<script>alert('글이 수정되었습니다.'); location.href='/community/communityView?no="+vo.getBoard_no()+"&id="+vo.getId()+"';</script>";
 				entity = new ResponseEntity<String>(msg, headers, HttpStatus.OK); // 성공시 수정완료게시물로 이동
 
 		} catch (Exception e) {

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.triptogether.dao.WishDAO">    
+    <!-- 즐겨찾기 -->
+    <insert id="wish" >
+    	insert into wish(id,board_no) values(#{id},  #{board_no})
+    </insert>
+    
+    <!-- 즐겨찾기 취소 -->
+    <delete id="unwish">
+    	delete from wish where board_no=#{board_no} and id=#{id}
+    </delete>
+    
+    <!-- 즐겨찾기 유무 조회 -->
+	<select id="oxWish" resultType="int">
+		select count(*) from wish where id=#{id} and board_no=#{board_no}
+	</select>
+
+	<!-- 즐찾개수 -->
+	<select id="wishCnt" resultType="int">
+		select count(*) from wish where board_no=#{board_no} group by board_no
+	</select>
+
+	<!-- 즐겨찾기 리스트 불러오기 -->
+	<select id="selectWishList" resultType="WishVO">
+		select w.board_no, u.id, u.user_img, b.photo1 from wish as w
+		inner join board as b on w.board_no = b.board_no
+	    inner join userjoin as u on u.id = b.id
+		where w.id=#{param1};
+	</select>
+</mapper>

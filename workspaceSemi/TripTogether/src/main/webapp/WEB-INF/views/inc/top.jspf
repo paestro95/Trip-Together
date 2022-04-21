@@ -53,22 +53,20 @@
 	</header>
 	<div class="logindiv">
 		<span style="float: right; width: auto; height: auto"> <a href="#" style="padding: 0px">
-				<img class="exit-logo" src="${url}/Images/exit-logo.png" />
-			</a>
-		</span>
-		<form method="POST" action="/users/loginOk" id="logFrm" style="margin: 25px">
-			<div class="form-title">
-				<h2 tabindex="-1">
-					<!-- '트투 고객님' 출력되던 자리 -->
-					<span class="login-info">
-						<c:if test="${logStatus !='Y'}">방문자님, 환영합니다!</c:if>
-						<c:if test="${logStatus == 'Y'}">
-										
-							${logName} 님
+            <img class="exit-logo" src="${url}/Images/exit-logo.png" />
+         </a>
+      </span>
+      <form method="POST" action="/users/loginOk" id="logFrm" style="margin: 25px">
+         <div class="form-title">
+            <h2 tabindex="-1">
+               <!-- '트투 고객님' 출력되던 자리 -->
+               <span class="login-info"> <c:if test="${logStatus !='Y'}">방문자님, 환영합니다!</c:if> <c:if test="${logStatus == 'Y'}">
+                              
+                     ${logName} 님
 
-						</c:if>
+                  </c:if>
 
-					</span>
+               </span>
 				</h2>
 				<br /> <br />
 				<div class="form-checkout2">

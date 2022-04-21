@@ -1,5 +1,40 @@
 @charset "UTF-8";
+@font-face {
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://example.com/MaterialIcons-Regular.eot);
+	/* For IE6-8 */
+	src: local('Material Icons'), local('MaterialIcons-Regular'),
+		url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+		url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+		url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
 
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
 /* 스타일 기본설정 (신수진) */
 body, ul, li{
 	margin: 0;
@@ -46,6 +81,10 @@ button{
 
 
 /* 공지사항 */
+.notice_wrap{
+	margin-bottom: 10px;
+}
+
 .notice_wrap div{
 	float: left;
 }
@@ -120,6 +159,10 @@ button{
     padding-left: 10px;
 }
 
+.hot_new_wrap span{
+	cursor: pointer;
+}
+
 .writeBtn_wrap{
 	flex: 1;
 	text-align: right;
@@ -163,10 +206,11 @@ button{
 
 .card_writer_wrap p{
 	margin: 0;
-    padding-left: 45px;
     font-size: 13px;
     color: gray;
     width: 180px;
+    height: 14px;
+    overflow: hidden;
 }
 
 .card_wrap{
@@ -175,19 +219,24 @@ button{
     float: left;
     margin-top: 10px;
     padding: 0px 15px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .card_main_img_wrap{
-	width: 100%;
+    width: 100%;
     height: 270px;
     border-radius: 10px;
+    vertical-align: middle;
     overflow: hidden;
     margin-bottom: 10px;
+    line-height: 270px;
+    text-align: center;
 }
 
 .card_main_img_wrap img{
 	width: 100%;
+    vertical-align: middle;
+    max-height: 270px;
 }
 
 .side_menu{
@@ -200,9 +249,7 @@ button{
 	color: #5E5E5E;
 }
 
-.side_menu span{
-	font-size: 28px;
-}
+
 
 .content_prev{
 	height: 60px; 

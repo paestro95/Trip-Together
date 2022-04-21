@@ -7,8 +7,19 @@ public class FollowVO {
 	private String follow_id;
 	private Date regDate;
 	
+	
+	private String user_img;
+	public String getUser_img() {
+		return user_img;
+	}
+	public void setUser_img(String user_img) {
+		this.user_img = user_img;
+	}
+	
+	
 	//private int ? String? 
 		
+	
 	public String getId() {
 		return id;
 	}
