@@ -47,7 +47,7 @@ import com.triptogether.vo.WishVO;
 @RestController
 public class CommunityController {
 	
-	@Value("C:\\WebSemiProject\\workspaceSemi\\TripTogether\\src\\main\\webapp\\communityImg\\")
+	@Value("/communityImg/")
 	private String fileRealPath;
 	
 	@Inject

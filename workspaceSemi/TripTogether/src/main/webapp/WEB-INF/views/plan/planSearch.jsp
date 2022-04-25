@@ -9,10 +9,10 @@
 <link rel="stylesheet" href="${url}/css/inc/bottom.css" type="text/css" />
 
 </head>
+<div class="opadiv" style="background-color: #EBEBEB; width: 100%; height: 100px"></div>
 <body>
 
-	<div class="opadiv" style="background-color: #EBEBEB; width: 100%; height: 100px"></div>
-	
+
 	<div class="container">
 
 		<p id="planSearch_title">어디로 여행을 떠나시나요??</p>

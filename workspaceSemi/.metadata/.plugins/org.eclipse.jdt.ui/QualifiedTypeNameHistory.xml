@@ -46,11 +46,11 @@
     <fullyQualifiedTypeName name="com.triptogether.service.WishService"/>
     <fullyQualifiedTypeName name="com.triptogether.vo.WishVO"/>
     <fullyQualifiedTypeName name="com.triptogether.vo.CommunityVO"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="javax.inject.Inject"/>
     <fullyQualifiedTypeName name="com.triptogether.service.CommunityService"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
     <fullyQualifiedTypeName name="com.triptogether.service.LikesService"/>
     <fullyQualifiedTypeName name="com.triptogether.vo.LikesVO"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

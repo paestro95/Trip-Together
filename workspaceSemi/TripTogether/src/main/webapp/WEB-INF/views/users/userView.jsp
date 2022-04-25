@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" href="${url}/css/users/userView.css" type="text/css">
 <link rel="stylesheet" href="${url}/css/main/main.css" type="text/css">
@@ -7,38 +7,31 @@
 <script src="${url}/js/underBar.js"></script>
 <script src="${url}/js/main/main.js"></script>
 <script>
-console.log("Aaaaa");
-//var postCtn = ${pList}.length;
+	//var postCtn = ${pList}.length;
 
-//console.log(postCnt);
-/* 220420 지연님 추가 */
-//팔로우 기능
-function follow(obj, fid){
-	alert(fid)
-	var btText=$(obj).text();
-	alert(btText)
-	if(btText=='팔로우'){
-		alert('f')
-		$.ajax({
-			type:'post',
-			url:'/follow/'+fid,
-			success:function(res){
-				alert(res);
-				$(obj).text('언팔로우');
-			}
-		})
-	}else if(btText=="언팔로우"){
-		alert('uf')
-		$.ajax({
-			type:'post',
-			url:'/unfollow/'+fid,
-			success:function(res){
-				alert(res);
-				$(obj).text('팔로우');
-			}
-		});
+	//console.log(postCnt);
+	/* 220420 지연님 추가 */
+	//팔로우 기능
+	function follow(obj, fid) {
+		var btText = $(obj).text().trim();
+		if (btText == '팔로우') {
+			$.ajax({
+				type : 'post',
+				url : '/follow/' + fid,
+				success : function(res) {
+					$(obj).text('언팔로우');
+				}
+			})
+		} else if (btText == "언팔로우") {
+			$.ajax({
+				type : 'post',
+				url : '/unfollow/' + fid,
+				success : function(res) {
+					$(obj).text('팔로우');
+				}
+			});
+		}
 	}
-}
 </script>
 
 <div class="opadiv" style="background-color: #EBEBEB; width: 100%; height: 100px"></div>
@@ -51,11 +44,16 @@ function follow(obj, fid){
 			<div class="user_profile_info">
 				<div class="id_btn_wrap">
 					<span style="font-weight: bold;">${vo.id}</span>
-					<button class="followbtn" onclick="follow(this,'${vo.id}')"><c:if test="${isFollow==''||isFollow=='U'}">팔로우</c:if>
-					<c:if test="${isFollow!='' && isFollow=='F'}">언팔로우</c:if></button>
-					
+					<!--   <c:if test="${logId != vo.id}">-->
+						<button class="followbtn" onclick="follow(this,'${vo.id}')">
+							<c:if test="${isFollow==''||isFollow=='U'}">팔로우</c:if>
+							<c:if test="${isFollow!='' && isFollow=='F'}">언팔로우</c:if>
+						</button>
+					<!-- </c:if> -->
 					<c:if test="${logId == vo.id}">
-						<a href="${url}/users/userEdit"><span class="material-icons" style="color: gray;">settings</span></a>
+						<a href="${url}/users/userEdit">
+							<span class="material-icons" style="color: gray;">settings</span>
+						</a>
 					</c:if>
 				</div>
 				<div class="post_follower_wrap">
@@ -64,40 +62,35 @@ function follow(obj, fid){
 						<li>팔로워 <span style="font-weight: bold;" id="followerCnt">${fSize}</span></li>
 					</ul>
 				</div>
-				<div class="info_wrap">
-					${vo.info}
-				</div>
+				<div class="info_wrap">${vo.info}</div>
 			</div>
 		</div>
 
 		<hr>
-		
+
 		<h3 style="padding-left: 20px; margin-top: 60px; font-size: 24px;">인기 게시물</h3>
 		<div class="hot_post_wrap">
 			<c:if test="${empty hList}">
-				<div>
-					아직 인기 게시물이 없어요..!
-				</div>
+				<div>아직 인기 게시물이 없어요..!</div>
 			</c:if>
-			<c:forEach var="hVO" items="${hList}">					
-				<div class="hot_post_card_wrap">	
-				<input type="hidden" value="${hVO.board_no}">
+			<c:forEach var="hVO" items="${hList}">
+				<div class="hot_post_card_wrap">
+					<input type="hidden" value="${hVO.board_no}">
 					<ul class="place_list">
-						<li class="hot_post_title"><a href="${url}/community/communityView?no=${hVO.board_no}">${hVO.title}</a></li>
-						<li><a href="${url}/community/communityView?no=${hVO.board_no}">${hVO.location1}</a></li>
-						<li><a href="${url}/community/communityView?no=${hVO.board_no}">${hVO.location2}</a></li>
-						<li><a href="${url}/community/communityView?no=${hVO.board_no}">${hVO.location3}</a></li>
-						<li><a href="${url}/community/communityView?no=${hVO.board_no}">${hVO.location4}</a></li>
-					</ul>
-					<ul class="btn_list">
-						<li><span class="material-icons like" style="cursor: pointer;">favorite_border</span>&nbsp;${hVO.likes}</li>
-						<li><span class="material-icons save" style="cursor: pointer;">bookmark_border</span>&nbsp;${hVO.wish}</li>
-						<li><span class="material-icons comment" style="cursor: pointer;">chat_bubble_outline</span>&nbsp;${hVO.comment}</li>
+						<li class="hot_post_title"><a href="${url}/community/communityView?no=${hVO.board_no}&id=${hVO.id}
+						">${hVO.title}</a></li>
+						<li><a href="${url}/community/communityView?no=${hVO.board_no}&id=${hVO.id}
+						">${hVO.location1}</a></li>
+						<li><a href="${url}/community/communityView?no=${hVO.board_no}&id=${hVO.id}">${hVO.location2}</a></li>
+						<li><a href="${url}/community/communityView?no=${hVO.board_no}&id=${hVO.id}
+						">${hVO.location3}</a></li>
+						<li><a href="${url}/community/communityView?no=${hVO.board_no}&id=${hVO.id}
+						">${hVO.location4}</a></li>
 					</ul>
 				</div>
 			</c:forEach>
 		</div>
-		
+
 		<h3 style="padding-left: 20px; margin-top: 60px; font-size: 24px;">게시물</h3>
 		<div class="all_post_wrap">
 			<c:forEach var="pVO" items="${pList}">

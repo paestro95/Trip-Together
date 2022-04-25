@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +18,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-  
+
 <script>
 	$( function() {
 		$( "#datepicker1" ).datepicker({
@@ -36,56 +35,57 @@
 <div class="opadiv" style="background-color: #EBEBEB; width: 100%; height: 100px"></div>
 <body onload="mapSetter(${x}, ${y})">
 
-<hr/>
-<div class="container">
+	<div class="container">
 
-	<!-- 좌측 planer -->
-	<form method="post" action="/plan/planCreateOk">
-		<div id="planCreate_nav" class="planCreate_item">
-			<h2>${loc}</h2>
-			
-			<input type="text" id="datepicker1" placeholder="출발일" style="text-align:center" name="start_date"/><br/>
-			~<br/>
-			<input type="text" id="datepicker2" placeholder="도착일" style="text-align:center" name="end_date"/><br/>
-			<div id="planCreate_trip_title">여행 일정 리스트</div>
-			<div id="planCreate_trip_list">
-				<ul id="planCreate_list">
-					
-				</ul>
+		<!-- 좌측 planer -->
+		<form method="post" action="/plan/planCreateOk">
+			<div id="planCreate_nav" class="planCreate_item">
+				<h2>${loc}</h2>
+
+				<input type="text" id="datepicker1" placeholder="출발일" style="text-align: center" name="start_date" />
+				<br /> ~<br />
+				<input type="text" id="datepicker2" placeholder="도착일" style="text-align: center" name="end_date" />
+				<br />
+				<div id="planCreate_trip_title">여행 일정 리스트</div>
+				<div id="planCreate_trip_list">
+					<ul id="planCreate_list">
+
+					</ul>
+				</div>
+				<input type="submit" value="저장하기" id="planCreate_save" />
 			</div>
-			<input type="submit" value="저장하기" id="planCreate_save"/>
+		</form>
+
+
+
+		<!-- 중앙 MAP -->
+		<div id="planCreate_map"></div>
+
+
+		<!-- 검색/결과 LIST -->
+		<div id="menu_wrap" class="bg_white">
+			<div class="option">
+				<div>
+					<form onsubmit="searchPlaces(); return false;">
+						키워드 :
+						<input type="text" value="${loc }" id="keyword" size="15">
+						<button type="submit">검색하기</button>
+					</form>
+				</div>
+			</div>
+			<hr>
+			<ul id="placesList"></ul>
+			<div id="pagination"></div>
 		</div>
-	</form>
 
-	
 
-	<!-- 중앙 MAP -->
-	<div id="planCreate_map">
-		
-		
 	</div>
-	
-	
-	<!-- 검색/결과 LIST -->
-	<div id="menu_wrap" class="bg_white">
-        <div class="option">
-            <div>
-                <form onsubmit="searchPlaces(); return false;">
-                    키워드 : <input type="text" value="${loc }" id="keyword" size="15"> 
-                    <button type="submit">검색하기</button> 
-                </form>
-            </div>
-        </div>
-        <hr>
-        <ul id="placesList"></ul>
-        <div id="pagination"></div>
-    </div>
-	
-	
-</div>
-<script src="/js/plan/planCreate.js"></script>
-<script src="${url}/js/inc/top.js"></script>
-<script src="${url}/js/underBar.js"></script>
+	<a id="MOVE_TOP_BTN" href="#">
+		<img src="${url}/Images/back-to-top.png" style="width: 30px;">
+	</a>
+	<script src="/js/plan/planCreate.js"></script>
+	<script src="${url}/js/inc/top.js"></script>
+	<script src="${url}/js/underBar.js"></script>
 
 </body>
 </html>

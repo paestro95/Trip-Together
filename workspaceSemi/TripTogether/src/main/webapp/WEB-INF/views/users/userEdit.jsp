@@ -7,6 +7,14 @@
 <script src="${url}/js/underBar.js"></script>
 <script src="${url}/js/main/main.js"></script>
 <script src="/js/users/userEdit.js"></script>
+<script>
+function userDel() {
+	if(confirm("정말로 탈퇴하시겠습니까?")) {
+		location.href="${url}/users/userDel";
+	}
+}
+</script>
+
 
 <div class="opadiv" style="background-color: #EBEBEB; width: 100%; height: 100px"></div>
 
@@ -80,7 +88,7 @@
 
 				<div class="submit_button_wrap">
 					<input type="submit" value="수 정 하 기" style="margin-left: 3px; margin-right: 5px;" />
-					<input type="button" value="탈 퇴 하 기" style="margin-left: 5px; margin-right: 3px;" />
+					<input type="button" value="탈 퇴 하 기" style="margin-left: 5px; margin-right: 3px;" onclick='userDel()'/>
 				</div>
 
 			</form>

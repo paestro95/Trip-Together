@@ -5,7 +5,41 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-04-21T11:25:20Z</updated>
+  <updated>2022-04-22T00:00:00Z</updated>
+  <entry>
+    <title>A Bootiful Podcast: Spring Cloud legend Glenn Renfro about batch processing, tasks, stream processing, data flow, and t-shirts</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/04/21/a-bootiful-podcast-spring-cloud-legend-glenn-renfro-about-batch-processing-tasks-stream-processing-data-flow-and-t-shirts" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2022-04-22:4778</id>
+    <updated>2022-04-22T00:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;A Bootiful Podcast&lt;/em&gt;! In this installment Josh Long (@starbuxman) talks to Spring Cloud luminary and all around lovable guy Glenn Renfro (@cppwfs) about batch processing, tasks, messaging, integration, data flow, and a million other things. Also: t-shirts! &lt;/p&gt;
+&lt;iframe title="Spring Cloud legend Glenn Renfro about batch processing, tasks, stream processing, data flow, and t-shirts " allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=vvc7f-1208e35-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;logo_link=episode_page&amp;btn-skin=7"&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Boot 2.7.0-RC1 is now available</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/04/21/spring-boot-2-7-0-rc1-is-now-available" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Madhura Bhave</name>
+    </author>
+    <id>tag:spring.io,2022-04-21:4777</id>
+    <updated>2022-04-21T22:12:30Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Boot &lt;code&gt;2.7.0-RC1&lt;/code&gt; has been released and is now available from &lt;a href="https://repo.spring.io/milestone"&gt;https://repo.spring.io/milestone&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This release includes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.0-RC1"&gt;more than a 100 bug fixes, enhancements, documentation improvements, and dependency upgrades&lt;/a&gt;. Notable new features include:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Auto-configuration for Kafka Retry Topics&lt;/li&gt;
+  &lt;li&gt;Auto-configuration for RSocket support in GraphQL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please see the &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.7.0-RC1-Release-Notes"&gt;release notes&lt;/a&gt; for more details and upgrade instructions.&lt;/p&gt;
+&lt;p&gt;Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
+&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-boot/docs/2.7.0-RC1/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Boot 2.6.7 available now</title>
     <link rel="alternate" href="https://spring.io/blog/2022/04/21/spring-boot-2-6-7-available-now" />
@@ -697,35 +731,6 @@ compile &amp;#39;org.springframework.cloud:spring-cloud-starter-netflix-eureka-c
 &lt;p&gt;Upgrading to Spring Framework &lt;strong&gt;5.3.18+&lt;/strong&gt; or &lt;strong&gt;5.2.20+&lt;/strong&gt; continues to be our main recommendation not only because it addresses the root cause and prevents other possible attack vectors, but also because it adds protection for other CVEs addressed since the current version in use. &lt;/p&gt;
 &lt;p&gt;For older, unsupported versions of the Spring Framework, the Tomcat releases provide an adequate solution for the reported attack vector. Nevertheless, we must stress that this should only be seen as a tactical solution, while the main goal should still be to upgrade to a currently &lt;a href="https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions"&gt;supported Spring Framework version&lt;/a&gt; as soon as possible.&lt;/p&gt;
 &lt;p&gt;Last but not least, it&amp;rsquo;s worth mentioning that downgrading to Java 8 provides another viable workaround, which may be another tactical solution option.&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>A Bootiful Podcast: Kubernetes cofounder and vice president of R&amp;D at VMware, Craig McLuckie</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/03/31/a-bootiful-podcast-kubernetes-cofounder-and-vice-president-of-r-d-at-vmware-craig-mcluckie" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2022-03-31:4758</id>
-    <updated>2022-03-31T16:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of a Bootiful Podcast! In this episode, Josh Long (@starbuxman) talks to Kubernetes cofounder, all-around nice person, and vice president of R&amp;amp;D at VMware, Craig McLuckie (@cmcluck).&lt;/p&gt;
-&lt;iframe title="Craig McLuckie, Kubernetes cofounder and vice president of R&amp;D at VMware " allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=2jfyx-11e87b6-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;logo_link=episode_page&amp;btn-skin=7"&gt;&lt;/iframe&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 2.6.6 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/03/31/spring-boot-2-6-6-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>St?phane Nicoll</name>
-    </author>
-    <id>tag:spring.io,2022-03-31:4757</id>
-    <updated>2022-03-31T14:40:28Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Boot &lt;code&gt;2.6.6&lt;/code&gt; has been released and is now available from Maven Central.&lt;/p&gt;
-&lt;p&gt;The Spring Framework version in this release includes a fix for &lt;a href="https://tanzu.vmware.com/security/cve-2022-22965"&gt;CVE-2022-22965&lt;/a&gt;, check the &lt;a href="https://spring.io/blog/2022/03/31/spring-framework-rce-early-announcement"&gt;dedicated blog post&lt;/a&gt; for more details.&lt;/p&gt;
-&lt;p&gt;This release includes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.6.6"&gt;6 bug fixes, documentation improvements, and dependency upgrades&lt;/a&gt;. Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
-&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-boot/docs/2.6.6/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

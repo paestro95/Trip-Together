@@ -12,7 +12,8 @@ public class UserVO {
 	private int is_admin; 		// 0: user, 1: admin
 	private String user_img; 	// img url
 	private int age;			// 1: 10s, 2: 20s, 3: 30s, ... input=radio
-
+	private String[] noList;
+	
 	public String getId() {
 		return id;
 	}
@@ -104,5 +105,15 @@ public class UserVO {
 	public void setAge(int age) {
 		this.age = age;
 	}
+
+	public String[] getNoList() {
+		return noList;
+	}
+
+	public void setNoList(String[] noList) {
+		this.noList = noList;
+	}
+	
+	
 
 }

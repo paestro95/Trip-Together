@@ -429,4 +429,8 @@ function wish(obj, wid) {
 		</c:if>
 
 	</div>
+	
+		<a id="MOVE_TOP_BTN" href="#">
+		<img src="${url}/Images/back-to-top.png" style="width: 30px;">
+	</a>
 </main>

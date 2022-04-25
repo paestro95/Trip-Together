@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" href="${url}/css/community/communityList.css" type="text/css" />
 <script src="${url}/js/community/communityList.js"></script>
@@ -166,9 +166,7 @@ function wish(obj, wid) {
 		<div class="container_card_wrap">
 			<div class="hot_new_writeBtn_wrap">
 				<div class="hot_new_wrap">
-					<span id="hotBtn" style="font-weight: bold">인기</span>
-					|
-					<span id="newBtn">신규</span>
+					<span id="hotBtn" style="font-weight: bold">인기</span> | <span id="newBtn">신규</span>
 				</div>
 				<div class="writeBtn_wrap">
 					<c:if test="${logStatus == 'Y'}">
@@ -178,7 +176,7 @@ function wish(obj, wid) {
 					</c:if>
 				</div>
 			</div>
-			
+
 			<c:forEach var="vo" items="${list}">
 				<div class="${vo.theme} card_wrap ${vo.region} hot ${vo.tags}">
 					<div class="card_writer_wrap">
@@ -201,20 +199,14 @@ function wish(obj, wid) {
 								<%-- 로그인 상태일 때, --%>
 								<c:when test="${logStatus == 'Y' }">
 									<button class="likesBtn" onclick="likesClick(this, '${vo.board_no}');">
-										<span class="material-icons like" style="cursor: pointer; vertical-align: middle;">
-											<c:if test="${vo.likesid !=logId}">favorite_border</c:if>
-											<c:if test="${vo.likesid == logId}">favorite</c:if> 
-										</span> 
-										&nbsp;
-										<span class="likesCnt">${vo.likes}</span>
+										<span class="material-icons like" style="cursor: pointer; vertical-align: middle;"> <c:if test="${vo.likesid !=logId}">favorite_border</c:if> <c:if test="${vo.likesid == logId}">favorite</c:if>
+										</span> &nbsp; <span class="likesCnt">${vo.likes}</span>
 									</button>
-									<button> <%--  onclick="wish(this,'${vo.id}')" --%>
-                                        <span class="material-icons save" data-no="${vo.board_no}" style="cursor: pointer; vertical-align: middle;" onclick="wish(this,'${vo.board_no}')">
-                                        	<c:if test="${vo.wishid == logId}">bookmark</c:if>
-                                        	<c:if test="${vo.wishid != logId}">bookmark_border</c:if>
-                                        </span> 
-                                		<span class="wishCnt">${vo.wish}</span>
-                                    </button>
+									<button>
+										<%--  onclick="wish(this,'${vo.id}')" --%>
+										<span class="material-icons save" data-no="${vo.board_no}" style="cursor: pointer; vertical-align: middle;" onclick="wish(this,'${vo.board_no}')"> <c:if test="${vo.wishid == logId}">bookmark</c:if> <c:if test="${vo.wishid != logId}">bookmark_border</c:if>
+										</span> <span class="wishCnt">${vo.wish}</span>
+									</button>
 								</c:when>
 								<%-- 로그인 상태가 아닐 때, alert + 로그인 div가 오른쪽에 나타남 --%>
 								<c:otherwise>
@@ -228,16 +220,18 @@ function wish(obj, wid) {
 							</c:choose>
 							<%-- 댓글 아이콘 클릭 시 해당 게시물 view 페이지로 이동 --%>
 							<button>
-								<span class="material-icons comment" style="cursor: pointer; vertical-align: middle;" onclick="location.href='${url}/community/communityView?no=${vo.board_no}' " >chat_bubble_outline</span> ${vo.comment }
+								<span class="material-icons comment" style="cursor: pointer; vertical-align: middle;" onclick="location.href='${url}/community/communityView?no=${vo.board_no}&id=${vo.id}' ">chat_bubble_outline</span> ${vo.comment }
 							</button>
 						</aside>
-						<div class="content_prev"><a href="${url}/community/communityView?no=${vo.board_no}" style="color: #5E5E5E;">${vo.content1}</a></div>
+						<div class="content_prev">
+							<a href="${url}/community/communityView?no=${vo.board_no}" style="color: #5E5E5E;">${vo.content1}</a>
+						</div>
 					</div>
 				</div>
 			</c:forEach>
-			
+
 			<c:forEach var="vo" items="${newList}">
-				<div class="${vo.theme} card_wrap ${vo.region} new ${vo.tags}" style="display:none">
+				<div class="${vo.theme} card_wrap ${vo.region} new ${vo.tags}" style="display: none">
 					<div class="card_writer_wrap">
 						<div class="user_img_wrap">
 							<a href="${url}/users/userView?id=${vo.id}" class="user_img">
@@ -258,20 +252,14 @@ function wish(obj, wid) {
 								<%-- 로그인 상태일 때, --%>
 								<c:when test="${logStatus == 'Y' }">
 									<button class="likesBtn" onclick="likesClick(this, '${vo.board_no}');">
-										<span class="material-icons like" style="cursor: pointer; vertical-align: middle;">
-											<c:if test="${vo.likesid !=logId}">favorite_border</c:if>
-											<c:if test="${vo.likesid == logId}">favorite</c:if> 
-										</span> 
-										&nbsp;
-										<span class="likesCnt">${vo.likes}</span>
+										<span class="material-icons like" style="cursor: pointer; vertical-align: middle;"> <c:if test="${vo.likesid !=logId}">favorite_border</c:if> <c:if test="${vo.likesid == logId}">favorite</c:if>
+										</span> &nbsp; <span class="likesCnt">${vo.likes}</span>
 									</button>
-									<button> <%--  onclick="wish(this,'${vo.id}')" --%>
-                                        <span class="material-icons save" data-no="${vo.board_no}" style="cursor: pointer; vertical-align: middle;" onclick="wish(this,'${vo.board_no}')">
-                                        	<c:if test="${vo.wishid == logId}">bookmark</c:if>
-                                        	<c:if test="${vo.wishid != logId}">bookmark_border</c:if>
-                                        </span> 
-                                		<span class="wishCnt">${vo.wish}</span>
-                                    </button>
+									<button>
+										<%--  onclick="wish(this,'${vo.id}')" --%>
+										<span class="material-icons save" data-no="${vo.board_no}" style="cursor: pointer; vertical-align: middle;" onclick="wish(this,'${vo.board_no}')"> <c:if test="${vo.wishid == logId}">bookmark</c:if> <c:if test="${vo.wishid != logId}">bookmark_border</c:if>
+										</span> <span class="wishCnt">${vo.wish}</span>
+									</button>
 								</c:when>
 								<%-- 로그인 상태가 아닐 때, alert + 로그인 div가 오른쪽에 나타남 --%>
 								<c:otherwise>
@@ -285,13 +273,19 @@ function wish(obj, wid) {
 							</c:choose>
 							<%-- 댓글 아이콘 클릭 시 해당 게시물 view 페이지로 이동 --%>
 							<button>
-								<span class="material-icons comment" style="cursor: pointer; vertical-align: middle;" onclick="location.href='${url}/community/communityView?no=${vo.board_no}' " >chat_bubble_outline</span> ${vo.comment }
+								<span class="material-icons comment" style="cursor: pointer; vertical-align: middle;" onclick="location.href='${url}/community/communityView?no=${vo.board_no}&id=${vo.id}' ">chat_bubble_outline</span> ${vo.comment}
 							</button>
 						</aside>
-						<div class="content_prev"><a href="${url}/community/communityView?no=${vo.board_no}" style="color: #5E5E5E;">${vo.content1}</a></div>
+						<div class="content_prev">
+							<a href="${url}/community/communityView?no=${vo.board_no}" style="color: #5E5E5E;">${vo.content1}</a>
+						</div>
 					</div>
 				</div>
 			</c:forEach>
+			<a id="MOVE_TOP_BTN" href="#">
+				<img src="${url}/Images/back-to-top.png" style="width: 30px;">
+			</a>
+
 		</div>
 	</div>
 </div>

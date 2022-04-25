@@ -104,6 +104,7 @@ body, ul, li {
 	font-size: 19px;
 	height: 35px;
 	line-height: 35px;
+	overflow:hidden;
 }
 
 .place_list li:not(:first-child) {
@@ -147,6 +148,7 @@ body, ul, li {
 
 .post_card img {
 	width: 280px;
+	height: 280px;
 }
 
 .post_card_hover {
@@ -156,4 +158,14 @@ body, ul, li {
 	position: relative;
 	top: -155px;
 	display: none;
+}
+
+.id_btn_wrap button {
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: #8FAADC;
+	color: white;
+	border: none;
+	vertical-align: top;
+	padding: 5px 10px;
 }

@@ -32,18 +32,17 @@
 							<li><a href="${url}/main" class="submenu">HOME</a></li>
 							<li><a href="${url}/community/communityList" class="submenu">COMMUNITY</a></li>
 							<li><a href="${url}/plan/planSearch" class="submenu">PLAN</a></li>
-							<li>
-								<c:if test="${logStatus !='Y'}">
-									<a href="#" class="log-in">
-									LOGIN
-									</a>
-								</c:if>
-								<c:if test="${logStatus == 'Y'}">
+							<li><c:if test="${logStatus !='Y'}">
+									<a href="#" class="log-in"> LOGIN </a>
+								</c:if> <c:if test="${logStatus == 'Y' && logId != 'admin'}">
 									<a href="/mypage/myPlan" class="log-in">
-									<img src="${logImg}" id="top_profile_img">
+										<img src="${logImg}" id="top_profile_img">
 									</a>
-								</c:if>
-							</li>
+								</c:if> <c:if test="${logStatus == 'Y' && logId == 'admin'}">
+									<a href="/manager/managerMember" class="log-in">
+										<img src="${logImg}" id="top_profile_img">
+									</a>
+								</c:if></li>
 						</ul>
 					</nav>
 					<span class="target"></span>
@@ -53,20 +52,20 @@
 	</header>
 	<div class="logindiv">
 		<span style="float: right; width: auto; height: auto"> <a href="#" style="padding: 0px">
-            <img class="exit-logo" src="${url}/Images/exit-logo.png" />
-         </a>
-      </span>
-      <form method="POST" action="/users/loginOk" id="logFrm" style="margin: 25px">
-         <div class="form-title">
-            <h2 tabindex="-1">
-               <!-- '트투 고객님' 출력되던 자리 -->
-               <span class="login-info"> <c:if test="${logStatus !='Y'}">방문자님, 환영합니다!</c:if> <c:if test="${logStatus == 'Y'}">
+				<img class="exit-logo" src="${url}/Images/exit-logo.png" />
+			</a>
+		</span>
+		<form method="POST" action="/users/loginOk" id="logFrm" style="margin: 25px">
+			<div class="form-title">
+				<h2 tabindex="-1">
+					<!-- '트투 고객님' 출력되던 자리 -->
+					<span class="login-info"> <c:if test="${logStatus !='Y'}">방문자님, 환영합니다!</c:if> <c:if test="${logStatus == 'Y'}">
                               
                      ${logName} 님
 
                   </c:if>
 
-               </span>
+					</span>
 				</h2>
 				<br /> <br />
 				<div class="form-checkout2">
@@ -77,13 +76,13 @@
 						<input type="button" value="카카오 로그아웃" onclick="logFormCheck()" style="width: 100%; background-color: rgb(254, 229, 0); color: black;" class="form-checkout-submit" />
 					</a>-->
 					<a class="kakao_login" style="display: block; width: 100%;">
-                        <!--   href="javascript:KakaoLogin();">-->
-                        <a href="https://kauth.kakao.com/oauth/authorize?client_id=66837c1b56e8c94b59ea0bf0ec332abe&redirect_uri=http://localhost:9060/users/auth/kakao/callback&response_type=code">
-                            <img src="/Images/kakao_login_medium_wide.png" />
-                        </a>
-                        <!--  <input type="button" value="카카오 로그인" onclick="logFormCheck()" style="width: 100%; background-color: rgb(254, 229, 0); color: black;" class="form-checkout-submit" /> -->
-                    </a>
-					
+						<!--   href="javascript:KakaoLogin();">-->
+						<a href="https://kauth.kakao.com/oauth/authorize?client_id=66837c1b56e8c94b59ea0bf0ec332abe&redirect_uri=http://localhost:9060/users/auth/kakao/callback&response_type=code">
+							<img src="/Images/kakao_login_medium_wide.png" />
+						</a>
+						<!--  <input type="button" value="카카오 로그인" onclick="logFormCheck()" style="width: 100%; background-color: rgb(254, 229, 0); color: black;" class="form-checkout-submit" /> -->
+					</a>
+
 				</div>
 				<br /> <br />
 				<h3>

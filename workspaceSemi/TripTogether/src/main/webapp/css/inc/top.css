@@ -321,12 +321,16 @@ a:link, a:hover, a:visited, a:active {
 }
 
 .form-checkout2 { 
-	width:100%;
-	color:black;
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	box-sizing: border-box;
+	color: black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.form-checkout2 img{ 
+	width:350px;
 }
 
 .form-checkout-submit {

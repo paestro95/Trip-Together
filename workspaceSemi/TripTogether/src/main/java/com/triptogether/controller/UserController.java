@@ -45,7 +45,8 @@ import com.triptogether.vo.UserVO;
 @Controller
 @RequestMapping("/users/")
 public class UserController {
-	@Value("C:\\WebSemiProject\\workspaceSemi\\TripTogether\\src\\main\\webapp\\profiles\\")
+	
+	@Value("/profiles/")
 	private String fileRealPath;
 
 	@Inject
@@ -65,7 +66,7 @@ public class UserController {
 	public String login() {
 		return "users/login";
 	}
-
+	
 	// 페이지 이동 (임시) : 회원가입 폼
 	@GetMapping("joinForm")
 	public String joinForm() {

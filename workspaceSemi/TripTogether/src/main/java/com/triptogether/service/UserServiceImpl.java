@@ -1,5 +1,7 @@
 package com.triptogether.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -51,6 +53,17 @@ public class UserServiceImpl implements UserService {
 	public int userDelete(String id) {
 		return dao.userDelete(id);
 	}
+
+	@Override
+	public List<UserVO> userAllSelect() {
+		return dao.userAllSelect();
+	}
+	
+	@Override
+	public int userListMultiDelete(UserVO vo) {	
+		return dao.userListMultiDelete(vo);
+	}
    
+	
 
 }

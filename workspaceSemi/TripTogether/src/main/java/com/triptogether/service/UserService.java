@@ -1,5 +1,7 @@
 package com.triptogether.service;
 
+import java.util.List;
+
 import com.triptogether.vo.UserVO;
 
 public interface UserService {
@@ -23,4 +25,10 @@ public interface UserService {
    
    //회원탈퇴	-- 220421 진영님 추가
    public int userDelete(String id);
+   
+   // 전체 멤버 선택하기
+   public List<UserVO> userAllSelect();
+
+   // 관리자 선택 회원삭제
+   public int userListMultiDelete(UserVO vo);
 }

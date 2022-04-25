@@ -1,4 +1,3 @@
-
 .mypage_container {
 	background-color: white;
 	width: 100%;
@@ -38,57 +37,76 @@
 	border-radius: 50%;
 }
 
+.mypage_container{
+	display: flex;
+}
 
-/*myPlan only*/
-#myPlan_List {
-	width: 60%;
-	height: 700px;
-	margin: 5%;
+.member_List{
+	width: 100%;
+    margin: 30px 0px 0px 30px;
+}
+
+.member_header{
+	font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.list_top{
+	border-top: 1px solid #ddd;
+	background-color: #ddd;
+}
+
+.memberList_wrap{
+	overflow: auto;
+	margin-top: 3px;
+	font-size: 15px;
+}
+
+.memberList_wrap li{
 	float: left;
-}
-#myPlan_List ul {
-	list-style-type: none;
-	width:70%;
-}
-
-
-/* from userView.css*/
-.hot_post_card_wrap {
-	float: left;
-	width: 30%;
-	height: 320px;
-}
-/*
-.hot_post_card_wrap:not(:last-child) {
-	margin-right: 50px;
-}*/
-
-.place_list {
-	height: 210px;
-	padding: 0px;
-	float: left;
+	width: 10%;
+	text-align: center;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #ddd;
 }
 
-.place_list a {
-	color: #000;
+.memberList_wrap li:nth-child(10n+1){
+	width: 3%;
 }
 
-.place_list li {
-	height: 40px;
-	line-height: 40px;
+.memberList_wrap li:nth-child(10n+2){
+	width: 11%;
 }
 
-.place_list li:first-child {
-	background-color: #CAD4EB;
-	padding-left: 10px;
-	font-size: 19px;
-	width:100%;
-	height: auto;
-	line-height: 35px;
+.memberList_wrap li:nth-child(10n+5){
+	width: 15%;
 }
 
-.place_list li:not(:first-child) {
-	padding-left: 15px;
-	margin-left: 10px;
-	border-left: 1px solid gray;
+.memberList_wrap li:nth-child(10n+6){
+	width: 13%;
+}
+
+.memberList_wrap li:nth-child(10n+7){
+	width: 16%;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.memberList_wrap li:nth-child(10n+8),
+.memberList_wrap li:nth-child(10n+9){
+	width: 5%;
+}
+
+
+.delBtn_wrap{
+	margin-top: 10px;
+	text-align: right;
+    margin-right: 30px;
+}
+
+#delBtn{
+	padding: 3px 10px;
+    font-size: 15px;
 }

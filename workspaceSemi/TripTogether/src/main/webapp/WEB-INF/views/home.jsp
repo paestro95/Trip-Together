@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="${url}/css/inc/bottom.css" type="text/css" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js>
-	
 </script>
 
 
@@ -98,14 +97,17 @@
 							<a href="#" class="log-in">
 								<h4 id="login">LOGIN</h4>
 							</a>
-						</c:if> 
-						<c:if test="${logStatus == 'Y'|| kakao!=null}">
-							<c:if test="${kakao==null}">
+						</c:if> <c:if test="${logStatus == 'Y'|| kakao!=null}">
+							<c:if test="${kakao==null && logId != 'admin'}">
 								<a href="/mypage/myPlan">
 									<img src="${logImg }" id="home_profile_img">
 								</a>
 							</c:if>
-
+							<c:if test="${logId == 'admin'}">
+								<a href="/manager/managerMember">
+									<img src="${logImg }" id="home_profile_img">
+								</a>
+							</c:if>
 							<c:if test="${kakao !=null}">
 								<a href="/mypage/myPlan" class="log-in">
 									<img src="${kakao.properties.profile_image}" id="home_profile_img">
@@ -127,7 +129,7 @@
 	</header>
 
 	<!-- <div style="background: black; z-index: -1; position: relative;"> -->
-	<div class="opadiv" style="width: 100%; height: 1050px;">
+	<div class="opadiv" style="width: 100%; height: 1300px;">
 		<video class="video" autoplay muted loop>
 			<source src="${url}/videos/trip.mp4" type="video/mp4" />
 		</video>
@@ -176,7 +178,7 @@
 		</div>
 	</div>
 
-	<!-- </div>  -->
+
 
 	<a id="MOVE_TOP_BTN" href="#">
 		<img src="${url}/Images/back-to-top.png" style="width: 30px;">

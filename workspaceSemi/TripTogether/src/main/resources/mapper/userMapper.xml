@@ -6,30 +6,54 @@
 
 <mapper namespace="com.triptogether.dao.UserDAO">
 	<insert id="userInsert">
-		insert into userjoin(id, pwd, name, tel, email, gender, user_img, age)
-		values(#{param1.id}, #{param1.pwd}, #{param1.name}, #{param1.tel},
-		#{param1.email}, CAST(#{param1.gender} AS signed), #{param2},
+		insert into userjoin(id, pwd, name, tel, email,
+		gender, user_img, age)
+		values(#{param1.id}, #{param1.pwd},
+		#{param1.name}, #{param1.tel},
+		#{param1.email}, CAST(#{param1.gender}
+		AS signed), #{param2},
 		CAST(#{param1.age} AS signed))
 	</insert>
 	<select id="idCheck" resultType="int">
-		select count(id) cnt from userjoin
+		select count(id) cnt from
+		userjoin
 		where id=#{param1}
 	</select>
 	<select id="userSelect" resultType="com.triptogether.vo.UserVO">
-		select id, info, name, tel, email, gender, user_img, age from userjoin
+		select id, info, name, tel,
+		email, gender, user_img, age from userjoin
 		where id=#{param1}
 	</select>
 	<update id="userUpdate">
-		update userjoin set info=#{param1.info}, name=#{param1.name}, tel=#{param1.tel}, 
+		update userjoin set info=#{param1.info},
+		name=#{param1.name}, tel=#{param1.tel},
 		email=#{param1.email}, gender=#{param1.gender}, user_img=#{param2}, age=#{param1.age}
-		where id=#{param1.id}
+		where
+		id=#{param1.id}
 	</update>
 	<select id="loginCheck" resultType="com.triptogether.vo.UserVO">
-		select id, name, user_img from userjoin
+		select id, name, user_img
+		from userjoin
 		where id=#{id} and pwd=#{pwd}
 	</select>
 	<select id="userView" resultType="com.triptogether.vo.UserVO">
-		select id, name, tel, info, user_img from userjoin
+		select id, name, tel, info,
+		user_img from userjoin
 		where id=#{param2}
 	</select>
+	<delete id="userDelete">
+		delete from userjoin where id=#{param1}
+	</delete>
+	<select id="userAllSelect" resultType="UserVO">
+        select id, pwd, name, tel, email, gender, user_img, info, date_format(joindate, '%Y-%m-%d') joindate, age 
+        from userjoin where id != "admin"
+    </select>
+    <delete id="userListMultiDelete">
+        delete from userjoin
+        <where>
+            <foreach item="item" collection= "noList" open="id in (" separator="," close=")">
+                #{item}
+            </foreach>
+        </where>
+    </delete>
 </mapper>

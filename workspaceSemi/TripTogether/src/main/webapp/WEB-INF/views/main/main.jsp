@@ -7,55 +7,10 @@
 
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<script type="text/javascript">
-	Kakao.init('1fd47e545b38a1453a50346ccb8c9073');
-	function KakaoLogin() {
-		Kakao.Auth.login({
-			success : function(authObj) {
-				alert(JSON.stringify(authObj))
-			},
-			fail : function(err) {
-				alert(JSON.stringify(err))
-			},
-		});
-	}
-	//function KakaoLogout(){
-	//   if (!Kakao.Auth.getAccessToken()) {
-	//      alert('Not logged in.')
-	//      return
-	//    }
-	//    Kakao.Auth.logout(function() {
-	//      alert('logout ok\naccess token -> ' + Kakao.Auth.getAccessToken())
-	//    
-	//    });
-	//}
 
-	function KakaoUnlink() {
-		Kakao.API.request({
-			url : '/v1/user/unlink',
-			success : function(res) {
-				alert('success: ' + JSON.stringify(res))
-			},
-			fail : function(err) {
-				alert('fail: ' + JSON.stringify(err))
-			},
-		});
-	}
-	var klogin = document.querySelector(".kakao_login");
-	var klogout = document.querySelector(".kakao_logout");
-
-	if (!Kakao.Auth.getAccessToken()) {
-		klogin.style.display = "block";
-		klogout.style.display = "none";
-	} else {
-		klogin.style.display = "none";
-		klogout.style.display = "block";
-	}
-</script>
-
-	<div style="background: black; z-index: -1; position: relative;">
-		<div class="opadiv" style="background-color: #EBEBEB; width: 100%; height: 100px"></div>
-	</div>
+	
+	<div class="opadiv" style="background-color: #EBEBEB; width: 100%; height: 100px"></div>
+	
 	<div class="wrap">
 		<div class="main_wrap">
 			<div class="top_section">
@@ -64,7 +19,7 @@
 						<img src="${vo.photo1}">
 					</div>
 					<div class="weeklyhot_cover">
-						<div class="weeklyhot_phr">이번주 인기 여행지를 구경해보세요</div>
+						<div class="weeklyhot_phr">이번주 인기 여행지를 구경해보세요.</div>
 						<div style="display: flex;">
 							<div class="user_main_profile_wrap">
 								<div class="user_img"><a href="${url}/users/userView?id=${vo.id}"><img src="${vo.user_img}"></a></div>
@@ -79,12 +34,12 @@
 					</c:forEach>
 				<div class="ad_wrap">
 					<ul class="slides"  style="text-align: right;">
-						<li><img src="${url}/Images/ad2.jpeg"></li>
+						<li><a href="https://www.sungsimdangmall.co.kr/"target='_black'><img src="${url}/Images/ad3.png"></a></li>
 					</ul>
 				</div>
 			</div>
 			
-			<h3>이번주 여행기 <span>TRAVELOG</span></h3>
+			<h3>새로운 여행지<span>  NEW TRAVELOG</span></h3>
 			<div class="travelog_img_wrap">
 				<ul>
 					<c:forEach var="vo" items="${weeklyPostVO}">

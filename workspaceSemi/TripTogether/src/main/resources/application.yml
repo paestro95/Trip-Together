@@ -18,7 +18,7 @@ spring:
       enabled: true      
   servlet:  # multipart 설정
     multipart:
-      location: C:\\WebSemiProject\\workspaceSemi\\TripTogether\\src\\main\\webapp\\
+      location: D:\WebSemiProject\workspaceSemi\TripTogether\src\main\webapp\\
       enabled: true
       max-file-size: 20MB
 

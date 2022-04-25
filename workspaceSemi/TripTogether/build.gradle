@@ -31,8 +31,14 @@ dependencies {
 	
 	//lombok - ±èÁø¿µ´Ô 220419
 	implementation 'org.projectlombok:lombok'
+
+	implementation 'commons-fileupload:commons-fileupload:1.4'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+bootWar {
+	archiveName("TripTogether.war")
 }
